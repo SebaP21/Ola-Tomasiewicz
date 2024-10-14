@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const PAGE_HEADER_CONTENT = gql`
-	query HeaderContent {
-		pageBy(pageId: 12) {
+	query HeaderContent($pageId: Int!) {
+		pageBy(pageId: $pageId) {
 			pageHeaderPole {
 				logo_header_box {
 					node {

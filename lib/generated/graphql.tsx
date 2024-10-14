@@ -318,7 +318,7 @@ export type AcfFieldGroupFields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
 };
 
-/** Connection between the IndividualMakeup_Fields type and the MediaItem type */
+/** Connection between the Fruzurypole_Fields type and the MediaItem type */
 export type AcfMediaItemConnection = Connection & MediaItemConnection & {
   __typename?: 'AcfMediaItemConnection';
   /** Edges for the AcfMediaItemConnection connection */
@@ -1692,23 +1692,23 @@ export enum ContentTypeEnum {
   /** The Type of Content object */
   Attachment = 'ATTACHMENT',
   /** The Type of Content object */
+  Fryzury = 'FRYZURY',
+  /** The Type of Content object */
   Individual = 'INDIVIDUAL',
   /** The Type of Content object */
   Logo = 'LOGO',
   /** The Type of Content object */
   MakeupWedding = 'MAKEUP_WEDDING',
   /** The Type of Content object */
-  OfertaStronaGlowna = 'OFERTA_STRONA_GLOWNA',
-  /** The Type of Content object */
   OMnie = 'O_MNIE',
   /** The Type of Content object */
   Page = 'PAGE',
   /** The Type of Content object */
-  Porfolio = 'PORFOLIO',
-  /** The Type of Content object */
   Post = 'POST',
   /** The Type of Content object */
-  SocialMediaLinks = 'SOCIAL_MEDIA_LINKS'
+  SocialMediaLinks = 'SOCIAL_MEDIA_LINKS',
+  /** The Type of Content object */
+  Szkolenia = 'SZKOLENIA'
 }
 
 /** The Type of Identifier used to fetch a single Content Type node. To be used along with the "id" field. Default is "ID". */
@@ -1938,6 +1938,35 @@ export type CreateCommentPayload = {
   success?: Maybe<Scalars['Boolean']['output']>;
 };
 
+/** Input for the createFryzuryItem mutation. */
+export type CreateFryzuryItemInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars['String']['input']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars['Int']['input']>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The payload for the createFryzuryItem mutation. */
+export type CreateFryzuryItemPayload = {
+  __typename?: 'CreateFryzuryItemPayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The Post object mutation type. */
+  fryzuryItem?: Maybe<FryzuryItem>;
+};
+
 /** Input for the createIndividualItem mutation. */
 export type CreateIndividualItemInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -2068,35 +2097,6 @@ export type CreateMediaItemPayload = {
   mediaItem?: Maybe<MediaItem>;
 };
 
-/** Input for the createOferta mutation. */
-export type CreateOfertaInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The content of the object */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: InputMaybe<Scalars['String']['input']>;
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: InputMaybe<Scalars['Int']['input']>;
-  /** The password used to protect the content of the object */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** The slug of the object */
-  slug?: InputMaybe<Scalars['String']['input']>;
-  /** The status of the object */
-  status?: InputMaybe<PostStatusEnum>;
-  /** The title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The payload for the createOferta mutation. */
-export type CreateOfertaPayload = {
-  __typename?: 'CreateOfertaPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The Post object mutation type. */
-  oferta?: Maybe<Oferta>;
-};
-
 /** Input for the createPage mutation. */
 export type CreatePageInput = {
   /** The userId to assign as the author of the object */
@@ -2130,35 +2130,6 @@ export type CreatePagePayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /** The Post object mutation type. */
   page?: Maybe<Page>;
-};
-
-/** Input for the createPortfolioItem mutation. */
-export type CreatePortfolioItemInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The content of the object */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: InputMaybe<Scalars['String']['input']>;
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: InputMaybe<Scalars['Int']['input']>;
-  /** The password used to protect the content of the object */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** The slug of the object */
-  slug?: InputMaybe<Scalars['String']['input']>;
-  /** The status of the object */
-  status?: InputMaybe<PostStatusEnum>;
-  /** The title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The payload for the createPortfolioItem mutation. */
-export type CreatePortfolioItemPayload = {
-  __typename?: 'CreatePortfolioItemPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The Post object mutation type. */
-  portfolioItem?: Maybe<PortfolioItem>;
 };
 
 /** Input for the createPostFormat mutation. */
@@ -2229,6 +2200,35 @@ export type CreatePostPayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /** The Post object mutation type. */
   post?: Maybe<Post>;
+};
+
+/** Input for the createSzkoleniaType mutation. */
+export type CreateSzkoleniaTypeInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars['String']['input']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars['Int']['input']>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The payload for the createSzkoleniaType mutation. */
+export type CreateSzkoleniaTypePayload = {
+  __typename?: 'CreateSzkoleniaTypePayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The Post object mutation type. */
+  szkoleniaType?: Maybe<SzkoleniaType>;
 };
 
 /** Input for the createTag mutation. */
@@ -2471,6 +2471,29 @@ export type DeleteCommentPayload = {
   deletedId?: Maybe<Scalars['ID']['output']>;
 };
 
+/** Input for the deleteFryzuryItem mutation. */
+export type DeleteFryzuryItemInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The ID of the FryzuryItem to delete */
+  id: Scalars['ID']['input'];
+  /** Override the edit lock when another user is editing the post */
+  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** The payload for the deleteFryzuryItem mutation. */
+export type DeleteFryzuryItemPayload = {
+  __typename?: 'DeleteFryzuryItemPayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The ID of the deleted object */
+  deletedId?: Maybe<Scalars['ID']['output']>;
+  /** The object before it was deleted */
+  fryzuryItem?: Maybe<FryzuryItem>;
+};
+
 /** Input for the deleteIndividualItem mutation. */
 export type DeleteIndividualItemInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -2561,29 +2584,6 @@ export type DeleteMediaItemPayload = {
   mediaItem?: Maybe<MediaItem>;
 };
 
-/** Input for the deleteOferta mutation. */
-export type DeleteOfertaInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** Whether the object should be force deleted instead of being moved to the trash */
-  forceDelete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The ID of the Oferta to delete */
-  id: Scalars['ID']['input'];
-  /** Override the edit lock when another user is editing the post */
-  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-/** The payload for the deleteOferta mutation. */
-export type DeleteOfertaPayload = {
-  __typename?: 'DeleteOfertaPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The ID of the deleted object */
-  deletedId?: Maybe<Scalars['ID']['output']>;
-  /** The object before it was deleted */
-  oferta?: Maybe<Oferta>;
-};
-
 /** Input for the deletePage mutation. */
 export type DeletePageInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -2605,29 +2605,6 @@ export type DeletePagePayload = {
   deletedId?: Maybe<Scalars['ID']['output']>;
   /** The object before it was deleted */
   page?: Maybe<Page>;
-};
-
-/** Input for the deletePortfolioItem mutation. */
-export type DeletePortfolioItemInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** Whether the object should be force deleted instead of being moved to the trash */
-  forceDelete?: InputMaybe<Scalars['Boolean']['input']>;
-  /** The ID of the PortfolioItem to delete */
-  id: Scalars['ID']['input'];
-  /** Override the edit lock when another user is editing the post */
-  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-/** The payload for the deletePortfolioItem mutation. */
-export type DeletePortfolioItemPayload = {
-  __typename?: 'DeletePortfolioItemPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The ID of the deleted object */
-  deletedId?: Maybe<Scalars['ID']['output']>;
-  /** The object before it was deleted */
-  portfolioItem?: Maybe<PortfolioItem>;
 };
 
 /** Input for the deletePostFormat mutation. */
@@ -2670,6 +2647,29 @@ export type DeletePostPayload = {
   deletedId?: Maybe<Scalars['ID']['output']>;
   /** The object before it was deleted */
   post?: Maybe<Post>;
+};
+
+/** Input for the deleteSzkoleniaType mutation. */
+export type DeleteSzkoleniaTypeInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** Whether the object should be force deleted instead of being moved to the trash */
+  forceDelete?: InputMaybe<Scalars['Boolean']['input']>;
+  /** The ID of the SzkoleniaType to delete */
+  id: Scalars['ID']['input'];
+  /** Override the edit lock when another user is editing the post */
+  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+/** The payload for the deleteSzkoleniaType mutation. */
+export type DeleteSzkoleniaTypePayload = {
+  __typename?: 'DeleteSzkoleniaTypePayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The ID of the deleted object */
+  deletedId?: Maybe<Scalars['ID']['output']>;
+  /** The object before it was deleted */
+  szkoleniaType?: Maybe<SzkoleniaType>;
 };
 
 /** Input for the deleteTag mutation. */
@@ -2922,6 +2922,302 @@ export type EnqueuedStylesheetConnectionPageInfo = {
   seo?: Maybe<SeoPostTypePageInfo>;
   /** When paginating backwards, the cursor to continue. */
   startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;Fruzurypole&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type Fruzurypole = AcfFieldGroup & AcfFieldGroupFields & Fruzurypole_Fields & {
+  __typename?: 'Fruzurypole';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** hairdoItem */
+  hairdoBox?: Maybe<AcfMediaItemConnection>;
+};
+
+
+/** The &quot;Fruzurypole&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type FruzurypoleHairdoBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** Interface representing fields of the ACF &quot;Fruzurypole&quot; Field Group */
+export type Fruzurypole_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** hairdoItem */
+  hairdoBox?: Maybe<AcfMediaItemConnection>;
+};
+
+
+/** Interface representing fields of the ACF &quot;Fruzurypole&quot; Field Group */
+export type Fruzurypole_FieldsHairdoBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The FryzuryItem type */
+export type FryzuryItem = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfFruzurypole & {
+  __typename?: 'FryzuryItem';
+  /**
+   * The ancestors of the content node.
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  ancestors?: Maybe<FryzuryItemToFryzuryItemConnection>;
+  /** Returns all blocks as a JSON object */
+  blocks?: Maybe<Scalars['JSON']['output']>;
+  /** The content of the post. */
+  content?: Maybe<Scalars['String']['output']>;
+  /** Connection between the ContentNode type and the ContentType type */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /** The name of the Content Type the node belongs to */
+  contentTypeName: Scalars['String']['output'];
+  /** The unique identifier stored in the database */
+  databaseId: Scalars['Int']['output'];
+  /** Post publishing date. */
+  date?: Maybe<Scalars['String']['output']>;
+  /** The publishing date set in GMT. */
+  dateGmt?: Maybe<Scalars['String']['output']>;
+  /** The desired slug of the post */
+  desiredSlug?: Maybe<Scalars['String']['output']>;
+  /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /** The RSS enclosure for the object */
+  enclosure?: Maybe<Scalars['String']['output']>;
+  /** Connection between the ContentNode type and the EnqueuedScript type */
+  enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+  enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
+  /** The database identifier for the featured image node assigned to the content node */
+  featuredImageDatabaseId?: Maybe<Scalars['Int']['output']>;
+  /** Globally unique ID of the featured image assigned to the node */
+  featuredImageId?: Maybe<Scalars['ID']['output']>;
+  /** Fields of the Fruzurypole ACF Field Group */
+  fruzurypole?: Maybe<Fruzurypole>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  fryzuryItemId: Scalars['Int']['output'];
+  /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+  guid?: Maybe<Scalars['String']['output']>;
+  /** Whether the fryzury object is password protected. */
+  hasPassword?: Maybe<Scalars['Boolean']['output']>;
+  /** The globally unique identifier of the fryzury object. */
+  id: Scalars['ID']['output'];
+  /** Whether the node is a Comment */
+  isComment: Scalars['Boolean']['output'];
+  /** Whether the node is a Content Node */
+  isContentNode: Scalars['Boolean']['output'];
+  /** Whether the node represents the front page. */
+  isFrontPage: Scalars['Boolean']['output'];
+  /** Whether  the node represents the blog page. */
+  isPostsPage: Scalars['Boolean']['output'];
+  /** Whether the object is a node in the preview state */
+  isPreview?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the object is restricted from the current viewer */
+  isRestricted?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the node is a Term */
+  isTermNode: Scalars['Boolean']['output'];
+  /** The user that most recently edited the node */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /** The permalink of the post */
+  link?: Maybe<Scalars['String']['output']>;
+  /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+  modified?: Maybe<Scalars['String']['output']>;
+  /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+  modifiedGmt?: Maybe<Scalars['String']['output']>;
+  /**
+   * The parent of the content node.
+   * @deprecated This content type is not hierarchical and typically will not have a parent
+   */
+  parent?: Maybe<FryzuryItemToParentConnectionEdge>;
+  /** The password for the fryzury object. */
+  password?: Maybe<Scalars['String']['output']>;
+  /** Connection between the FryzuryItem type and the FryzuryItem type */
+  preview?: Maybe<FryzuryItemToPreviewConnectionEdge>;
+  /** The database id of the preview node */
+  previewRevisionDatabaseId?: Maybe<Scalars['Int']['output']>;
+  /** Whether the object is a node in the preview state */
+  previewRevisionId?: Maybe<Scalars['ID']['output']>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
+  /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The current status of the object */
+  status?: Maybe<Scalars['String']['output']>;
+  /** The template assigned to the node */
+  template?: Maybe<ContentTemplate>;
+  /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** The unique resource identifier path */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemAncestorsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemBlocksArgs = {
+  attributes?: InputMaybe<Scalars['Boolean']['input']>;
+  dynamicContent?: InputMaybe<Scalars['Boolean']['input']>;
+  htmlContent?: InputMaybe<Scalars['Boolean']['input']>;
+  originalContent?: InputMaybe<Scalars['Boolean']['input']>;
+  postTemplate?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemContentArgs = {
+  format?: InputMaybe<PostObjectFieldFormatEnum>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemEnqueuedScriptsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemEnqueuedStylesheetsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The FryzuryItem type */
+export type FryzuryItemTitleArgs = {
+  format?: InputMaybe<PostObjectFieldFormatEnum>;
+};
+
+/** Connection to FryzuryItem Nodes */
+export type FryzuryItemConnection = {
+  /** A list of edges (relational context) between RootQuery and connected FryzuryItem Nodes */
+  edges: Array<FryzuryItemConnectionEdge>;
+  /** A list of connected FryzuryItem Nodes */
+  nodes: Array<FryzuryItem>;
+  /** Information about pagination in a connection. */
+  pageInfo: FryzuryItemConnectionPageInfo;
+};
+
+/** Edge between a Node and a connected FryzuryItem */
+export type FryzuryItemConnectionEdge = {
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The connected FryzuryItem Node */
+  node: FryzuryItem;
+};
+
+/** Page Info on the connected FryzuryItemConnectionEdge */
+export type FryzuryItemConnectionPageInfo = {
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum FryzuryItemIdType {
+  /** Identify a resource by the Database ID. */
+  DatabaseId = 'DATABASE_ID',
+  /** Identify a resource by the (hashed) Global ID. */
+  Id = 'ID',
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  Slug = 'SLUG',
+  /** Identify a resource by the URI. */
+  Uri = 'URI'
+}
+
+/** Connection between the FryzuryItem type and the FryzuryItem type */
+export type FryzuryItemToFryzuryItemConnection = Connection & FryzuryItemConnection & {
+  __typename?: 'FryzuryItemToFryzuryItemConnection';
+  /** Edges for the FryzuryItemToFryzuryItemConnection connection */
+  edges: Array<FryzuryItemToFryzuryItemConnectionEdge>;
+  /** The nodes of the connection, without the edges */
+  nodes: Array<FryzuryItem>;
+  /** Information about pagination in a connection. */
+  pageInfo: FryzuryItemToFryzuryItemConnectionPageInfo;
+};
+
+/** An edge in a connection */
+export type FryzuryItemToFryzuryItemConnectionEdge = Edge & FryzuryItemConnectionEdge & {
+  __typename?: 'FryzuryItemToFryzuryItemConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /**
+   * The item at the end of the edge
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  node: FryzuryItem;
+};
+
+/** Page Info on the &quot;FryzuryItemToFryzuryItemConnection&quot; */
+export type FryzuryItemToFryzuryItemConnectionPageInfo = FryzuryItemConnectionPageInfo & PageInfo & WpPageInfo & {
+  __typename?: 'FryzuryItemToFryzuryItemConnectionPageInfo';
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** Connection between the FryzuryItem type and the FryzuryItem type */
+export type FryzuryItemToParentConnectionEdge = Edge & FryzuryItemConnectionEdge & OneToOneConnection & {
+  __typename?: 'FryzuryItemToParentConnectionEdge';
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /**
+   * The node of the connection, without the edges
+   * @deprecated This content type is not hierarchical and typically will not have a parent
+   */
+  node: FryzuryItem;
+};
+
+/** Connection between the FryzuryItem type and the FryzuryItem type */
+export type FryzuryItemToPreviewConnectionEdge = Edge & FryzuryItemConnectionEdge & OneToOneConnection & {
+  __typename?: 'FryzuryItemToPreviewConnectionEdge';
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The node of the connection, without the edges */
+  node: FryzuryItem;
 };
 
 /** The general setting type */
@@ -3614,14 +3910,37 @@ export type IndividualMasterclass = AcfFieldGroup & AcfFieldGroupFields & Indivi
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** mcdescriptionsItem */
-  mcdescriptions?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;repeater&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
+  masterclassdescription?: Maybe<Array<Maybe<IndividualMasterclassMasterclassdescription>>>;
   /** podtytulItem */
   podtytul?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
   sectionpicture?: Maybe<AcfMediaItemConnectionEdge>;
   /** titleItem */
   tytulSzkolenia?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;IndividualMasterclassMasterclassdescription&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type IndividualMasterclassMasterclassdescription = AcfFieldGroup & AcfFieldGroupFields & IndividualMasterclassMasterclassdescription_Fields & {
+  __typename?: 'IndividualMasterclassMasterclassdescription';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** listElementItem */
+  listElementBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;IndividualMasterclassMasterclassdescription&quot; Field Group */
+export type IndividualMasterclassMasterclassdescription_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** listElementItem */
+  listElementBox?: Maybe<Scalars['String']['output']>;
 };
 
 /** Interface representing fields of the ACF &quot;IndividualMasterclass&quot; Field Group */
@@ -3635,8 +3954,8 @@ export type IndividualMasterclass_Fields = {
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
-  /** mcdescriptionsItem */
-  mcdescriptions?: Maybe<Scalars['String']['output']>;
+  /** Field of the &quot;repeater&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
+  masterclassdescription?: Maybe<Array<Maybe<IndividualMasterclassMasterclassdescription>>>;
   /** podtytulItem */
   podtytul?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;image&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
@@ -4845,7 +5164,7 @@ export enum MenuItemNodeIdTypeEnum {
 }
 
 /** Deprecated in favor of MenuItemLinkeable Interface */
-export type MenuItemObjectUnion = About | Category | IndividualItem | Link | Logo | Oferta | Page | PortfolioItem | Post | Tag | WeddingItem;
+export type MenuItemObjectUnion = About | Category | FryzuryItem | IndividualItem | Link | Logo | Page | Post | SzkoleniaType | Tag | WeddingItem;
 
 /** Connection between the MenuItem type and the Menu type */
 export type MenuItemToMenuConnectionEdge = Edge & MenuConnectionEdge & OneToOneConnection & {
@@ -5312,259 +5631,6 @@ export type NodeWithTrackbacks = {
   toPing?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
 };
 
-/** The Oferta type */
-export type Oferta = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
-  __typename?: 'Oferta';
-  /**
-   * The ancestors of the content node.
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  ancestors?: Maybe<OfertaToOfertaConnection>;
-  /** Returns all blocks as a JSON object */
-  blocks?: Maybe<Scalars['JSON']['output']>;
-  /** The content of the post. */
-  content?: Maybe<Scalars['String']['output']>;
-  /** Connection between the ContentNode type and the ContentType type */
-  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
-  /** The name of the Content Type the node belongs to */
-  contentTypeName: Scalars['String']['output'];
-  /** The unique identifier stored in the database */
-  databaseId: Scalars['Int']['output'];
-  /** Post publishing date. */
-  date?: Maybe<Scalars['String']['output']>;
-  /** The publishing date set in GMT. */
-  dateGmt?: Maybe<Scalars['String']['output']>;
-  /** The desired slug of the post */
-  desiredSlug?: Maybe<Scalars['String']['output']>;
-  /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
-  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
-  /** The RSS enclosure for the object */
-  enclosure?: Maybe<Scalars['String']['output']>;
-  /** Connection between the ContentNode type and the EnqueuedScript type */
-  enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>;
-  /** Connection between the ContentNode type and the EnqueuedStylesheet type */
-  enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
-  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
-  /** The database identifier for the featured image node assigned to the content node */
-  featuredImageDatabaseId?: Maybe<Scalars['Int']['output']>;
-  /** Globally unique ID of the featured image assigned to the node */
-  featuredImageId?: Maybe<Scalars['ID']['output']>;
-  /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
-  guid?: Maybe<Scalars['String']['output']>;
-  /** Whether the oferta_strona_glowna object is password protected. */
-  hasPassword?: Maybe<Scalars['Boolean']['output']>;
-  /** The globally unique identifier of the oferta_strona_glowna object. */
-  id: Scalars['ID']['output'];
-  /** Whether the node is a Comment */
-  isComment: Scalars['Boolean']['output'];
-  /** Whether the node is a Content Node */
-  isContentNode: Scalars['Boolean']['output'];
-  /** Whether the node represents the front page. */
-  isFrontPage: Scalars['Boolean']['output'];
-  /** Whether  the node represents the blog page. */
-  isPostsPage: Scalars['Boolean']['output'];
-  /** Whether the object is a node in the preview state */
-  isPreview?: Maybe<Scalars['Boolean']['output']>;
-  /** Whether the object is restricted from the current viewer */
-  isRestricted?: Maybe<Scalars['Boolean']['output']>;
-  /** Whether the node is a Term */
-  isTermNode: Scalars['Boolean']['output'];
-  /** The user that most recently edited the node */
-  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
-  /** The permalink of the post */
-  link?: Maybe<Scalars['String']['output']>;
-  /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
-  modified?: Maybe<Scalars['String']['output']>;
-  /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
-  modifiedGmt?: Maybe<Scalars['String']['output']>;
-  /**
-   * The id field matches the WP_Post-&gt;ID field.
-   * @deprecated Deprecated in favor of the databaseId field
-   */
-  ofertaId: Scalars['Int']['output'];
-  /**
-   * The parent of the content node.
-   * @deprecated This content type is not hierarchical and typically will not have a parent
-   */
-  parent?: Maybe<OfertaToParentConnectionEdge>;
-  /** The password for the oferta_strona_glowna object. */
-  password?: Maybe<Scalars['String']['output']>;
-  /** Connection between the Oferta type and the Oferta type */
-  preview?: Maybe<OfertaToPreviewConnectionEdge>;
-  /** The database id of the preview node */
-  previewRevisionDatabaseId?: Maybe<Scalars['Int']['output']>;
-  /** Whether the object is a node in the preview state */
-  previewRevisionId?: Maybe<Scalars['ID']['output']>;
-  /** The Yoast SEO data of the ContentNode */
-  seo?: Maybe<PostTypeSeo>;
-  /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /** The current status of the object */
-  status?: Maybe<Scalars['String']['output']>;
-  /** The template assigned to the node */
-  template?: Maybe<ContentTemplate>;
-  /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** The unique resource identifier path */
-  uri?: Maybe<Scalars['String']['output']>;
-};
-
-
-/** The Oferta type */
-export type OfertaAncestorsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The Oferta type */
-export type OfertaBlocksArgs = {
-  attributes?: InputMaybe<Scalars['Boolean']['input']>;
-  dynamicContent?: InputMaybe<Scalars['Boolean']['input']>;
-  htmlContent?: InputMaybe<Scalars['Boolean']['input']>;
-  originalContent?: InputMaybe<Scalars['Boolean']['input']>;
-  postTemplate?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-/** The Oferta type */
-export type OfertaContentArgs = {
-  format?: InputMaybe<PostObjectFieldFormatEnum>;
-};
-
-
-/** The Oferta type */
-export type OfertaEnqueuedScriptsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The Oferta type */
-export type OfertaEnqueuedStylesheetsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The Oferta type */
-export type OfertaTitleArgs = {
-  format?: InputMaybe<PostObjectFieldFormatEnum>;
-};
-
-/** Connection to Oferta Nodes */
-export type OfertaConnection = {
-  /** A list of edges (relational context) between RootQuery and connected Oferta Nodes */
-  edges: Array<OfertaConnectionEdge>;
-  /** A list of connected Oferta Nodes */
-  nodes: Array<Oferta>;
-  /** Information about pagination in a connection. */
-  pageInfo: OfertaConnectionPageInfo;
-};
-
-/** Edge between a Node and a connected Oferta */
-export type OfertaConnectionEdge = {
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The connected Oferta Node */
-  node: Oferta;
-};
-
-/** Page Info on the connected OfertaConnectionEdge */
-export type OfertaConnectionPageInfo = {
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** The Type of Identifier used to fetch a single resource. Default is ID. */
-export enum OfertaIdType {
-  /** Identify a resource by the Database ID. */
-  DatabaseId = 'DATABASE_ID',
-  /** Identify a resource by the (hashed) Global ID. */
-  Id = 'ID',
-  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
-  Slug = 'SLUG',
-  /** Identify a resource by the URI. */
-  Uri = 'URI'
-}
-
-/** Connection between the Oferta type and the Oferta type */
-export type OfertaToOfertaConnection = Connection & OfertaConnection & {
-  __typename?: 'OfertaToOfertaConnection';
-  /** Edges for the OfertaToOfertaConnection connection */
-  edges: Array<OfertaToOfertaConnectionEdge>;
-  /** The nodes of the connection, without the edges */
-  nodes: Array<Oferta>;
-  /** Information about pagination in a connection. */
-  pageInfo: OfertaToOfertaConnectionPageInfo;
-};
-
-/** An edge in a connection */
-export type OfertaToOfertaConnectionEdge = Edge & OfertaConnectionEdge & {
-  __typename?: 'OfertaToOfertaConnectionEdge';
-  /**
-   * A cursor for use in pagination
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /**
-   * The item at the end of the edge
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  node: Oferta;
-};
-
-/** Page Info on the &quot;OfertaToOfertaConnection&quot; */
-export type OfertaToOfertaConnectionPageInfo = OfertaConnectionPageInfo & PageInfo & WpPageInfo & {
-  __typename?: 'OfertaToOfertaConnectionPageInfo';
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** Connection between the Oferta type and the Oferta type */
-export type OfertaToParentConnectionEdge = Edge & OfertaConnectionEdge & OneToOneConnection & {
-  __typename?: 'OfertaToParentConnectionEdge';
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /**
-   * The node of the connection, without the edges
-   * @deprecated This content type is not hierarchical and typically will not have a parent
-   */
-  node: Oferta;
-};
-
-/** Connection between the Oferta type and the Oferta type */
-export type OfertaToPreviewConnectionEdge = Edge & OfertaConnectionEdge & OneToOneConnection & {
-  __typename?: 'OfertaToPreviewConnectionEdge';
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The node of the connection, without the edges */
-  node: Oferta;
-};
-
 /** A singular connection from one Node to another, with support for relational data on the &quot;edge&quot; of the connection. */
 export type OneToOneConnection = {
   /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
@@ -5582,7 +5648,7 @@ export enum OrderEnum {
 }
 
 /** The page type */
-export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfContactSection & WithAcfCta & WithAcfIndividualMasterclass & WithAcfPageHeaderPole & WithAcfPrizeListAcF & WithAcfServiceRegulationBox & WithAcfVoucherBox & {
+export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfContactSection & WithAcfCta & WithAcfPageHeaderPole & WithAcfPrizeListAcF & WithAcfServiceRegulationBox & WithAcfVoucherBox & {
   __typename?: 'Page';
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
@@ -5640,8 +5706,6 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
   hasPassword?: Maybe<Scalars['Boolean']['output']>;
   /** The globally unique identifier of the page object. */
   id: Scalars['ID']['output'];
-  /** Fields of the IndividualMasterclass ACF Field Group */
-  individualMasterclass?: Maybe<IndividualMasterclass>;
   /** Whether the node is a Comment */
   isComment: Scalars['Boolean']['output'];
   /** Whether the node is a Content Node */
@@ -6135,259 +6199,6 @@ export enum PluginStatusEnum {
   /** The plugin has an upgrade available. */
   Upgrade = 'UPGRADE'
 }
-
-/** The PortfolioItem type */
-export type PortfolioItem = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & {
-  __typename?: 'PortfolioItem';
-  /**
-   * The ancestors of the content node.
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  ancestors?: Maybe<PortfolioItemToPortfolioItemConnection>;
-  /** Returns all blocks as a JSON object */
-  blocks?: Maybe<Scalars['JSON']['output']>;
-  /** The content of the post. */
-  content?: Maybe<Scalars['String']['output']>;
-  /** Connection between the ContentNode type and the ContentType type */
-  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
-  /** The name of the Content Type the node belongs to */
-  contentTypeName: Scalars['String']['output'];
-  /** The unique identifier stored in the database */
-  databaseId: Scalars['Int']['output'];
-  /** Post publishing date. */
-  date?: Maybe<Scalars['String']['output']>;
-  /** The publishing date set in GMT. */
-  dateGmt?: Maybe<Scalars['String']['output']>;
-  /** The desired slug of the post */
-  desiredSlug?: Maybe<Scalars['String']['output']>;
-  /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
-  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
-  /** The RSS enclosure for the object */
-  enclosure?: Maybe<Scalars['String']['output']>;
-  /** Connection between the ContentNode type and the EnqueuedScript type */
-  enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>;
-  /** Connection between the ContentNode type and the EnqueuedStylesheet type */
-  enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
-  /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
-  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
-  /** The database identifier for the featured image node assigned to the content node */
-  featuredImageDatabaseId?: Maybe<Scalars['Int']['output']>;
-  /** Globally unique ID of the featured image assigned to the node */
-  featuredImageId?: Maybe<Scalars['ID']['output']>;
-  /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
-  guid?: Maybe<Scalars['String']['output']>;
-  /** Whether the porfolio object is password protected. */
-  hasPassword?: Maybe<Scalars['Boolean']['output']>;
-  /** The globally unique identifier of the porfolio object. */
-  id: Scalars['ID']['output'];
-  /** Whether the node is a Comment */
-  isComment: Scalars['Boolean']['output'];
-  /** Whether the node is a Content Node */
-  isContentNode: Scalars['Boolean']['output'];
-  /** Whether the node represents the front page. */
-  isFrontPage: Scalars['Boolean']['output'];
-  /** Whether  the node represents the blog page. */
-  isPostsPage: Scalars['Boolean']['output'];
-  /** Whether the object is a node in the preview state */
-  isPreview?: Maybe<Scalars['Boolean']['output']>;
-  /** Whether the object is restricted from the current viewer */
-  isRestricted?: Maybe<Scalars['Boolean']['output']>;
-  /** Whether the node is a Term */
-  isTermNode: Scalars['Boolean']['output'];
-  /** The user that most recently edited the node */
-  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
-  /** The permalink of the post */
-  link?: Maybe<Scalars['String']['output']>;
-  /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
-  modified?: Maybe<Scalars['String']['output']>;
-  /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
-  modifiedGmt?: Maybe<Scalars['String']['output']>;
-  /**
-   * The parent of the content node.
-   * @deprecated This content type is not hierarchical and typically will not have a parent
-   */
-  parent?: Maybe<PortfolioItemToParentConnectionEdge>;
-  /** The password for the porfolio object. */
-  password?: Maybe<Scalars['String']['output']>;
-  /**
-   * The id field matches the WP_Post-&gt;ID field.
-   * @deprecated Deprecated in favor of the databaseId field
-   */
-  portfolioItemId: Scalars['Int']['output'];
-  /** Connection between the PortfolioItem type and the PortfolioItem type */
-  preview?: Maybe<PortfolioItemToPreviewConnectionEdge>;
-  /** The database id of the preview node */
-  previewRevisionDatabaseId?: Maybe<Scalars['Int']['output']>;
-  /** Whether the object is a node in the preview state */
-  previewRevisionId?: Maybe<Scalars['ID']['output']>;
-  /** The Yoast SEO data of the ContentNode */
-  seo?: Maybe<PostTypeSeo>;
-  /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
-  slug?: Maybe<Scalars['String']['output']>;
-  /** The current status of the object */
-  status?: Maybe<Scalars['String']['output']>;
-  /** The template assigned to the node */
-  template?: Maybe<ContentTemplate>;
-  /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
-  title?: Maybe<Scalars['String']['output']>;
-  /** The unique resource identifier path */
-  uri?: Maybe<Scalars['String']['output']>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemAncestorsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemBlocksArgs = {
-  attributes?: InputMaybe<Scalars['Boolean']['input']>;
-  dynamicContent?: InputMaybe<Scalars['Boolean']['input']>;
-  htmlContent?: InputMaybe<Scalars['Boolean']['input']>;
-  originalContent?: InputMaybe<Scalars['Boolean']['input']>;
-  postTemplate?: InputMaybe<Scalars['Boolean']['input']>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemContentArgs = {
-  format?: InputMaybe<PostObjectFieldFormatEnum>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemEnqueuedScriptsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemEnqueuedStylesheetsArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-};
-
-
-/** The PortfolioItem type */
-export type PortfolioItemTitleArgs = {
-  format?: InputMaybe<PostObjectFieldFormatEnum>;
-};
-
-/** Connection to PortfolioItem Nodes */
-export type PortfolioItemConnection = {
-  /** A list of edges (relational context) between RootQuery and connected PortfolioItem Nodes */
-  edges: Array<PortfolioItemConnectionEdge>;
-  /** A list of connected PortfolioItem Nodes */
-  nodes: Array<PortfolioItem>;
-  /** Information about pagination in a connection. */
-  pageInfo: PortfolioItemConnectionPageInfo;
-};
-
-/** Edge between a Node and a connected PortfolioItem */
-export type PortfolioItemConnectionEdge = {
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The connected PortfolioItem Node */
-  node: PortfolioItem;
-};
-
-/** Page Info on the connected PortfolioItemConnectionEdge */
-export type PortfolioItemConnectionPageInfo = {
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** The Type of Identifier used to fetch a single resource. Default is ID. */
-export enum PortfolioItemIdType {
-  /** Identify a resource by the Database ID. */
-  DatabaseId = 'DATABASE_ID',
-  /** Identify a resource by the (hashed) Global ID. */
-  Id = 'ID',
-  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
-  Slug = 'SLUG',
-  /** Identify a resource by the URI. */
-  Uri = 'URI'
-}
-
-/** Connection between the PortfolioItem type and the PortfolioItem type */
-export type PortfolioItemToParentConnectionEdge = Edge & OneToOneConnection & PortfolioItemConnectionEdge & {
-  __typename?: 'PortfolioItemToParentConnectionEdge';
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /**
-   * The node of the connection, without the edges
-   * @deprecated This content type is not hierarchical and typically will not have a parent
-   */
-  node: PortfolioItem;
-};
-
-/** Connection between the PortfolioItem type and the PortfolioItem type */
-export type PortfolioItemToPortfolioItemConnection = Connection & PortfolioItemConnection & {
-  __typename?: 'PortfolioItemToPortfolioItemConnection';
-  /** Edges for the PortfolioItemToPortfolioItemConnection connection */
-  edges: Array<PortfolioItemToPortfolioItemConnectionEdge>;
-  /** The nodes of the connection, without the edges */
-  nodes: Array<PortfolioItem>;
-  /** Information about pagination in a connection. */
-  pageInfo: PortfolioItemToPortfolioItemConnectionPageInfo;
-};
-
-/** An edge in a connection */
-export type PortfolioItemToPortfolioItemConnectionEdge = Edge & PortfolioItemConnectionEdge & {
-  __typename?: 'PortfolioItemToPortfolioItemConnectionEdge';
-  /**
-   * A cursor for use in pagination
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /**
-   * The item at the end of the edge
-   * @deprecated This content type is not hierarchical and typically will not have ancestors
-   */
-  node: PortfolioItem;
-};
-
-/** Page Info on the &quot;PortfolioItemToPortfolioItemConnection&quot; */
-export type PortfolioItemToPortfolioItemConnectionPageInfo = PageInfo & PortfolioItemConnectionPageInfo & WpPageInfo & {
-  __typename?: 'PortfolioItemToPortfolioItemConnectionPageInfo';
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** Connection between the PortfolioItem type and the PortfolioItem type */
-export type PortfolioItemToPreviewConnectionEdge = Edge & OneToOneConnection & PortfolioItemConnectionEdge & {
-  __typename?: 'PortfolioItemToPreviewConnectionEdge';
-  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The node of the connection, without the edges */
-  node: PortfolioItem;
-};
 
 /** The post type */
 export type Post = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithExcerpt & NodeWithFeaturedImage & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & NodeWithTrackbacks & Previewable & UniformResourceIdentifiable & {
@@ -7881,6 +7692,173 @@ export type PrizeListAcF_Fields = {
   pricelist?: Maybe<Array<Maybe<PrizeListAcFPricelist>>>;
 };
 
+/** The &quot;ProfMakeup&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfMakeup = AcfFieldGroup & AcfFieldGroupFields & ProfMakeup_Fields & {
+  __typename?: 'ProfMakeup';
+  /** ewentualneZdjecieItem */
+  ewentualneZdjecieBox?: Maybe<AcfMediaItemConnectionEdge>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** opisDolnyItem */
+  opisDolnyBox?: Maybe<Scalars['String']['output']>;
+  /** productListItem */
+  productlistBox?: Maybe<Array<Maybe<ProfMakeupProductlistBox>>>;
+  /** scopeoftrainingBoxItem */
+  scopeoftrainingBox?: Maybe<Array<Maybe<ProfMakeupScopeoftrainingBox>>>;
+  /** subtitleItem */
+  subtitleBox?: Maybe<Scalars['String']['output']>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;ProfMakeupProductlistBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfMakeupProductlistBox = AcfFieldGroup & AcfFieldGroupFields & ProfMakeupProductlistBox_Fields & {
+  __typename?: 'ProfMakeupProductlistBox';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** iloscTypowItem */
+  iloscTypowBox?: Maybe<Scalars['String']['output']>;
+  /** price */
+  priceBox?: Maybe<Scalars['String']['output']>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ProfMakeupProductlistBox&quot; Field Group */
+export type ProfMakeupProductlistBox_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** iloscTypowItem */
+  iloscTypowBox?: Maybe<Scalars['String']['output']>;
+  /** price */
+  priceBox?: Maybe<Scalars['String']['output']>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;ProfMakeupScopeoftrainingBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfMakeupScopeoftrainingBox = AcfFieldGroup & AcfFieldGroupFields & ProfMakeupScopeoftrainingBox_Fields & {
+  __typename?: 'ProfMakeupScopeoftrainingBox';
+  /** elementListyItem */
+  elementListyBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ProfMakeupScopeoftrainingBox&quot; Field Group */
+export type ProfMakeupScopeoftrainingBox_Fields = {
+  /** elementListyItem */
+  elementListyBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ProfMakeup&quot; Field Group */
+export type ProfMakeup_Fields = {
+  /** ewentualneZdjecieItem */
+  ewentualneZdjecieBox?: Maybe<AcfMediaItemConnectionEdge>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** opisDolnyItem */
+  opisDolnyBox?: Maybe<Scalars['String']['output']>;
+  /** productListItem */
+  productlistBox?: Maybe<Array<Maybe<ProfMakeupProductlistBox>>>;
+  /** scopeoftrainingBoxItem */
+  scopeoftrainingBox?: Maybe<Array<Maybe<ProfMakeupScopeoftrainingBox>>>;
+  /** subtitleItem */
+  subtitleBox?: Maybe<Scalars['String']['output']>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;ProfessionalHair&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfessionalHair = AcfFieldGroup & AcfFieldGroupFields & ProfessionalHair_Fields & {
+  __typename?: 'ProfessionalHair';
+  /** czasTrwaniaItem */
+  czasTrwaniaBox?: Maybe<Scalars['String']['output']>;
+  /** descriptionItem */
+  descriptionBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** opisDolnyItem */
+  opisDolnyBox?: Maybe<Scalars['String']['output']>;
+  /** productListItem */
+  productListBox?: Maybe<Array<Maybe<ProfessionalHairProductListBox>>>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;ProfessionalHairProductListBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfessionalHairProductListBox = AcfFieldGroup & AcfFieldGroupFields & ProfessionalHairProductListBox_Fields & {
+  __typename?: 'ProfessionalHairProductListBox';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** iloscTypoItem */
+  iloscTypowBox?: Maybe<Scalars['String']['output']>;
+  /** nazwaProduktuItem */
+  nazwaProduktuBox?: Maybe<Scalars['String']['output']>;
+  /** priceItem */
+  priceBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ProfessionalHairProductListBox&quot; Field Group */
+export type ProfessionalHairProductListBox_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** iloscTypoItem */
+  iloscTypowBox?: Maybe<Scalars['String']['output']>;
+  /** nazwaProduktuItem */
+  nazwaProduktuBox?: Maybe<Scalars['String']['output']>;
+  /** priceItem */
+  priceBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ProfessionalHair&quot; Field Group */
+export type ProfessionalHair_Fields = {
+  /** czasTrwaniaItem */
+  czasTrwaniaBox?: Maybe<Scalars['String']['output']>;
+  /** descriptionItem */
+  descriptionBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** opisDolnyItem */
+  opisDolnyBox?: Maybe<Scalars['String']['output']>;
+  /** productListItem */
+  productListBox?: Maybe<Array<Maybe<ProfessionalHairProductListBox>>>;
+  /** titleItem */
+  titleBox?: Maybe<Scalars['String']['output']>;
+};
+
 /** The reading setting type */
 export type ReadingSettings = {
   __typename?: 'ReadingSettings';
@@ -7998,6 +7976,8 @@ export type RootMutation = {
   createCategory?: Maybe<CreateCategoryPayload>;
   /** The createComment mutation */
   createComment?: Maybe<CreateCommentPayload>;
+  /** The createFryzuryItem mutation */
+  createFryzuryItem?: Maybe<CreateFryzuryItemPayload>;
   /** The createIndividualItem mutation */
   createIndividualItem?: Maybe<CreateIndividualItemPayload>;
   /** The createLink mutation */
@@ -8006,16 +7986,14 @@ export type RootMutation = {
   createLogo?: Maybe<CreateLogoPayload>;
   /** The createMediaItem mutation */
   createMediaItem?: Maybe<CreateMediaItemPayload>;
-  /** The createOferta mutation */
-  createOferta?: Maybe<CreateOfertaPayload>;
   /** The createPage mutation */
   createPage?: Maybe<CreatePagePayload>;
-  /** The createPortfolioItem mutation */
-  createPortfolioItem?: Maybe<CreatePortfolioItemPayload>;
   /** The createPost mutation */
   createPost?: Maybe<CreatePostPayload>;
   /** The createPostFormat mutation */
   createPostFormat?: Maybe<CreatePostFormatPayload>;
+  /** The createSzkoleniaType mutation */
+  createSzkoleniaType?: Maybe<CreateSzkoleniaTypePayload>;
   /** The createTag mutation */
   createTag?: Maybe<CreateTagPayload>;
   /** The createUser mutation */
@@ -8028,6 +8006,8 @@ export type RootMutation = {
   deleteCategory?: Maybe<DeleteCategoryPayload>;
   /** The deleteComment mutation */
   deleteComment?: Maybe<DeleteCommentPayload>;
+  /** The deleteFryzuryItem mutation */
+  deleteFryzuryItem?: Maybe<DeleteFryzuryItemPayload>;
   /** The deleteIndividualItem mutation */
   deleteIndividualItem?: Maybe<DeleteIndividualItemPayload>;
   /** The deleteLink mutation */
@@ -8036,16 +8016,14 @@ export type RootMutation = {
   deleteLogo?: Maybe<DeleteLogoPayload>;
   /** The deleteMediaItem mutation */
   deleteMediaItem?: Maybe<DeleteMediaItemPayload>;
-  /** The deleteOferta mutation */
-  deleteOferta?: Maybe<DeleteOfertaPayload>;
   /** The deletePage mutation */
   deletePage?: Maybe<DeletePagePayload>;
-  /** The deletePortfolioItem mutation */
-  deletePortfolioItem?: Maybe<DeletePortfolioItemPayload>;
   /** The deletePost mutation */
   deletePost?: Maybe<DeletePostPayload>;
   /** The deletePostFormat mutation */
   deletePostFormat?: Maybe<DeletePostFormatPayload>;
+  /** The deleteSzkoleniaType mutation */
+  deleteSzkoleniaType?: Maybe<DeleteSzkoleniaTypePayload>;
   /** The deleteTag mutation */
   deleteTag?: Maybe<DeleteTagPayload>;
   /** The deleteUser mutation */
@@ -8068,6 +8046,8 @@ export type RootMutation = {
   updateCategory?: Maybe<UpdateCategoryPayload>;
   /** The updateComment mutation */
   updateComment?: Maybe<UpdateCommentPayload>;
+  /** The updateFryzuryItem mutation */
+  updateFryzuryItem?: Maybe<UpdateFryzuryItemPayload>;
   /** The updateIndividualItem mutation */
   updateIndividualItem?: Maybe<UpdateIndividualItemPayload>;
   /** The updateLink mutation */
@@ -8076,18 +8056,16 @@ export type RootMutation = {
   updateLogo?: Maybe<UpdateLogoPayload>;
   /** The updateMediaItem mutation */
   updateMediaItem?: Maybe<UpdateMediaItemPayload>;
-  /** The updateOferta mutation */
-  updateOferta?: Maybe<UpdateOfertaPayload>;
   /** The updatePage mutation */
   updatePage?: Maybe<UpdatePagePayload>;
-  /** The updatePortfolioItem mutation */
-  updatePortfolioItem?: Maybe<UpdatePortfolioItemPayload>;
   /** The updatePost mutation */
   updatePost?: Maybe<UpdatePostPayload>;
   /** The updatePostFormat mutation */
   updatePostFormat?: Maybe<UpdatePostFormatPayload>;
   /** The updateSettings mutation */
   updateSettings?: Maybe<UpdateSettingsPayload>;
+  /** The updateSzkoleniaType mutation */
+  updateSzkoleniaType?: Maybe<UpdateSzkoleniaTypePayload>;
   /** The updateTag mutation */
   updateTag?: Maybe<UpdateTagPayload>;
   /** The updateUser mutation */
@@ -8116,6 +8094,12 @@ export type RootMutationCreateCommentArgs = {
 
 
 /** The root mutation */
+export type RootMutationCreateFryzuryItemArgs = {
+  input: CreateFryzuryItemInput;
+};
+
+
+/** The root mutation */
 export type RootMutationCreateIndividualItemArgs = {
   input: CreateIndividualItemInput;
 };
@@ -8140,20 +8124,8 @@ export type RootMutationCreateMediaItemArgs = {
 
 
 /** The root mutation */
-export type RootMutationCreateOfertaArgs = {
-  input: CreateOfertaInput;
-};
-
-
-/** The root mutation */
 export type RootMutationCreatePageArgs = {
   input: CreatePageInput;
-};
-
-
-/** The root mutation */
-export type RootMutationCreatePortfolioItemArgs = {
-  input: CreatePortfolioItemInput;
 };
 
 
@@ -8166,6 +8138,12 @@ export type RootMutationCreatePostArgs = {
 /** The root mutation */
 export type RootMutationCreatePostFormatArgs = {
   input: CreatePostFormatInput;
+};
+
+
+/** The root mutation */
+export type RootMutationCreateSzkoleniaTypeArgs = {
+  input: CreateSzkoleniaTypeInput;
 };
 
 
@@ -8206,6 +8184,12 @@ export type RootMutationDeleteCommentArgs = {
 
 
 /** The root mutation */
+export type RootMutationDeleteFryzuryItemArgs = {
+  input: DeleteFryzuryItemInput;
+};
+
+
+/** The root mutation */
 export type RootMutationDeleteIndividualItemArgs = {
   input: DeleteIndividualItemInput;
 };
@@ -8230,20 +8214,8 @@ export type RootMutationDeleteMediaItemArgs = {
 
 
 /** The root mutation */
-export type RootMutationDeleteOfertaArgs = {
-  input: DeleteOfertaInput;
-};
-
-
-/** The root mutation */
 export type RootMutationDeletePageArgs = {
   input: DeletePageInput;
-};
-
-
-/** The root mutation */
-export type RootMutationDeletePortfolioItemArgs = {
-  input: DeletePortfolioItemInput;
 };
 
 
@@ -8256,6 +8228,12 @@ export type RootMutationDeletePostArgs = {
 /** The root mutation */
 export type RootMutationDeletePostFormatArgs = {
   input: DeletePostFormatInput;
+};
+
+
+/** The root mutation */
+export type RootMutationDeleteSzkoleniaTypeArgs = {
+  input: DeleteSzkoleniaTypeInput;
 };
 
 
@@ -8326,6 +8304,12 @@ export type RootMutationUpdateCommentArgs = {
 
 
 /** The root mutation */
+export type RootMutationUpdateFryzuryItemArgs = {
+  input: UpdateFryzuryItemInput;
+};
+
+
+/** The root mutation */
 export type RootMutationUpdateIndividualItemArgs = {
   input: UpdateIndividualItemInput;
 };
@@ -8350,20 +8334,8 @@ export type RootMutationUpdateMediaItemArgs = {
 
 
 /** The root mutation */
-export type RootMutationUpdateOfertaArgs = {
-  input: UpdateOfertaInput;
-};
-
-
-/** The root mutation */
 export type RootMutationUpdatePageArgs = {
   input: UpdatePageInput;
-};
-
-
-/** The root mutation */
-export type RootMutationUpdatePortfolioItemArgs = {
-  input: UpdatePortfolioItemInput;
 };
 
 
@@ -8382,6 +8354,12 @@ export type RootMutationUpdatePostFormatArgs = {
 /** The root mutation */
 export type RootMutationUpdateSettingsArgs = {
   input: UpdateSettingsInput;
+};
+
+
+/** The root mutation */
+export type RootMutationUpdateSzkoleniaTypeArgs = {
+  input: UpdateSzkoleniaTypeInput;
 };
 
 
@@ -8414,8 +8392,6 @@ export type RootQuery = {
   aboutBy?: Maybe<About>;
   /** Connection between the RootQuery type and the Logo type */
   allLogo?: Maybe<RootQueryToLogoConnection>;
-  /** Connection between the RootQuery type and the Oferta type */
-  allOferta?: Maybe<RootQueryToOfertaConnection>;
   /** Entry point to get all settings for the site */
   allSettings?: Maybe<Settings>;
   /** Connection between the RootQuery type and the category type */
@@ -8440,6 +8416,15 @@ export type RootQuery = {
   cssVariables?: Maybe<Scalars['String']['output']>;
   /** Fields of the &#039;DiscussionSettings&#039; settings group */
   discussionSettings?: Maybe<DiscussionSettings>;
+  /** Connection between the RootQuery type and the FryzuryItem type */
+  fryzury?: Maybe<RootQueryToFryzuryItemConnection>;
+  /** An object of the FryzuryItem Type.  */
+  fryzuryItem?: Maybe<FryzuryItem>;
+  /**
+   * A FryzuryItem object
+   * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+   */
+  fryzuryItemBy?: Maybe<FryzuryItem>;
   /** Fields of the &#039;GeneralSettings&#039; settings group */
   generalSettings?: Maybe<GeneralSettings>;
   /** An object of the IndividualItem Type.  */
@@ -8492,13 +8477,6 @@ export type RootQuery = {
   nodeByUri?: Maybe<UniformResourceIdentifiable>;
   /** Connection between the RootQuery type and the About type */
   oMnie?: Maybe<RootQueryToAboutConnection>;
-  /** An object of the Oferta Type.  */
-  oferta?: Maybe<Oferta>;
-  /**
-   * A Oferta object
-   * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
-   */
-  ofertaBy?: Maybe<Oferta>;
   /** An object of the page Type.  */
   page?: Maybe<Page>;
   /**
@@ -8512,15 +8490,6 @@ export type RootQuery = {
   plugin?: Maybe<Plugin>;
   /** Connection between the RootQuery type and the Plugin type */
   plugins?: Maybe<RootQueryToPluginConnection>;
-  /** Connection between the RootQuery type and the PortfolioItem type */
-  portfolio?: Maybe<RootQueryToPortfolioItemConnection>;
-  /** An object of the PortfolioItem Type.  */
-  portfolioItem?: Maybe<PortfolioItem>;
-  /**
-   * A PortfolioItem object
-   * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
-   */
-  portfolioItemBy?: Maybe<PortfolioItem>;
   /** An object of the post Type.  */
   post?: Maybe<Post>;
   /**
@@ -8546,6 +8515,15 @@ export type RootQuery = {
   seo?: Maybe<SeoConfig>;
   /** The logo set in the customizer */
   siteLogo?: Maybe<MediaItem>;
+  /** Connection between the RootQuery type and the SzkoleniaType type */
+  szkolenia?: Maybe<RootQueryToSzkoleniaTypeConnection>;
+  /** An object of the SzkoleniaType Type.  */
+  szkoleniaType?: Maybe<SzkoleniaType>;
+  /**
+   * A SzkoleniaType object
+   * @deprecated Deprecated in favor of using the single entry point for this type with ID and IDType fields. For example, instead of postBy( id: &quot;&quot; ), use post(id: &quot;&quot; idType: &quot;&quot;)
+   */
+  szkoleniaTypeBy?: Maybe<SzkoleniaType>;
   /** A 0bject */
   tag?: Maybe<Tag>;
   /** Connection between the RootQuery type and the tag type */
@@ -8608,16 +8586,6 @@ export type RootQueryAllLogoArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<RootQueryToLogoConnectionWhereArgs>;
-};
-
-
-/** The root entry point into the Graph */
-export type RootQueryAllOfertaArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<RootQueryToOfertaConnectionWhereArgs>;
 };
 
 
@@ -8695,6 +8663,33 @@ export type RootQueryCoreQueryArgs = {
   page: Scalars['Int']['input'];
   postId: Scalars['Int']['input'];
   queryId: Scalars['Int']['input'];
+};
+
+
+/** The root entry point into the Graph */
+export type RootQueryFryzuryArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<RootQueryToFryzuryItemConnectionWhereArgs>;
+};
+
+
+/** The root entry point into the Graph */
+export type RootQueryFryzuryItemArgs = {
+  asPreview?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['ID']['input'];
+  idType?: InputMaybe<FryzuryItemIdType>;
+};
+
+
+/** The root entry point into the Graph */
+export type RootQueryFryzuryItemByArgs = {
+  fryzuryItemId?: InputMaybe<Scalars['Int']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  uri?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -8863,23 +8858,6 @@ export type RootQueryOMnieArgs = {
 
 
 /** The root entry point into the Graph */
-export type RootQueryOfertaArgs = {
-  asPreview?: InputMaybe<Scalars['Boolean']['input']>;
-  id: Scalars['ID']['input'];
-  idType?: InputMaybe<OfertaIdType>;
-};
-
-
-/** The root entry point into the Graph */
-export type RootQueryOfertaByArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  ofertaId?: InputMaybe<Scalars['Int']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
-  uri?: InputMaybe<Scalars['String']['input']>;
-};
-
-
-/** The root entry point into the Graph */
 export type RootQueryPageArgs = {
   asPreview?: InputMaybe<Scalars['Boolean']['input']>;
   id: Scalars['ID']['input'];
@@ -8918,33 +8896,6 @@ export type RootQueryPluginsArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<RootQueryToPluginConnectionWhereArgs>;
-};
-
-
-/** The root entry point into the Graph */
-export type RootQueryPortfolioArgs = {
-  after?: InputMaybe<Scalars['String']['input']>;
-  before?: InputMaybe<Scalars['String']['input']>;
-  first?: InputMaybe<Scalars['Int']['input']>;
-  last?: InputMaybe<Scalars['Int']['input']>;
-  where?: InputMaybe<RootQueryToPortfolioItemConnectionWhereArgs>;
-};
-
-
-/** The root entry point into the Graph */
-export type RootQueryPortfolioItemArgs = {
-  asPreview?: InputMaybe<Scalars['Boolean']['input']>;
-  id: Scalars['ID']['input'];
-  idType?: InputMaybe<PortfolioItemIdType>;
-};
-
-
-/** The root entry point into the Graph */
-export type RootQueryPortfolioItemByArgs = {
-  id?: InputMaybe<Scalars['ID']['input']>;
-  portfolioItemId?: InputMaybe<Scalars['Int']['input']>;
-  slug?: InputMaybe<Scalars['String']['input']>;
-  uri?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -9017,6 +8968,33 @@ export type RootQueryRevisionsArgs = {
   first?: InputMaybe<Scalars['Int']['input']>;
   last?: InputMaybe<Scalars['Int']['input']>;
   where?: InputMaybe<RootQueryToRevisionsConnectionWhereArgs>;
+};
+
+
+/** The root entry point into the Graph */
+export type RootQuerySzkoleniaArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+  where?: InputMaybe<RootQueryToSzkoleniaTypeConnectionWhereArgs>;
+};
+
+
+/** The root entry point into the Graph */
+export type RootQuerySzkoleniaTypeArgs = {
+  asPreview?: InputMaybe<Scalars['Boolean']['input']>;
+  id: Scalars['ID']['input'];
+  idType?: InputMaybe<SzkoleniaTypeIdType>;
+};
+
+
+/** The root entry point into the Graph */
+export type RootQuerySzkoleniaTypeByArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  slug?: InputMaybe<Scalars['String']['input']>;
+  szkoleniaTypeId?: InputMaybe<Scalars['Int']['input']>;
+  uri?: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -9565,6 +9543,79 @@ export type RootQueryToEnqueuedStylesheetConnectionPageInfo = EnqueuedStylesheet
   startCursor?: Maybe<Scalars['String']['output']>;
 };
 
+/** Connection between the RootQuery type and the FryzuryItem type */
+export type RootQueryToFryzuryItemConnection = Connection & FryzuryItemConnection & {
+  __typename?: 'RootQueryToFryzuryItemConnection';
+  /** Edges for the RootQueryToFryzuryItemConnection connection */
+  edges: Array<RootQueryToFryzuryItemConnectionEdge>;
+  /** The nodes of the connection, without the edges */
+  nodes: Array<FryzuryItem>;
+  /** Information about pagination in a connection. */
+  pageInfo: RootQueryToFryzuryItemConnectionPageInfo;
+};
+
+/** An edge in a connection */
+export type RootQueryToFryzuryItemConnectionEdge = Edge & FryzuryItemConnectionEdge & {
+  __typename?: 'RootQueryToFryzuryItemConnectionEdge';
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The item at the end of the edge */
+  node: FryzuryItem;
+};
+
+/** Page Info on the &quot;RootQueryToFryzuryItemConnection&quot; */
+export type RootQueryToFryzuryItemConnectionPageInfo = FryzuryItemConnectionPageInfo & PageInfo & WpPageInfo & {
+  __typename?: 'RootQueryToFryzuryItemConnectionPageInfo';
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** Arguments for filtering the RootQueryToFryzuryItemConnection connection */
+export type RootQueryToFryzuryItemConnectionWhereArgs = {
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Specific database ID of the object */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** What parameter to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars['ID']['input']>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars['String']['input']>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
 /** Connection between the RootQuery type and the IndividualItem type */
 export type RootQueryToIndividualItemConnection = Connection & IndividualItemConnection & {
   __typename?: 'RootQueryToIndividualItemConnection';
@@ -9957,79 +10008,6 @@ export type RootQueryToMenuItemConnectionWhereArgs = {
   parentId?: InputMaybe<Scalars['ID']['input']>;
 };
 
-/** Connection between the RootQuery type and the Oferta type */
-export type RootQueryToOfertaConnection = Connection & OfertaConnection & {
-  __typename?: 'RootQueryToOfertaConnection';
-  /** Edges for the RootQueryToOfertaConnection connection */
-  edges: Array<RootQueryToOfertaConnectionEdge>;
-  /** The nodes of the connection, without the edges */
-  nodes: Array<Oferta>;
-  /** Information about pagination in a connection. */
-  pageInfo: RootQueryToOfertaConnectionPageInfo;
-};
-
-/** An edge in a connection */
-export type RootQueryToOfertaConnectionEdge = Edge & OfertaConnectionEdge & {
-  __typename?: 'RootQueryToOfertaConnectionEdge';
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The item at the end of the edge */
-  node: Oferta;
-};
-
-/** Page Info on the &quot;RootQueryToOfertaConnection&quot; */
-export type RootQueryToOfertaConnectionPageInfo = OfertaConnectionPageInfo & PageInfo & WpPageInfo & {
-  __typename?: 'RootQueryToOfertaConnectionPageInfo';
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** Arguments for filtering the RootQueryToOfertaConnection connection */
-export type RootQueryToOfertaConnectionWhereArgs = {
-  /** Filter the connection based on dates */
-  dateQuery?: InputMaybe<DateQueryInput>;
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Specific database ID of the object */
-  id?: InputMaybe<Scalars['Int']['input']>;
-  /** Array of IDs for the objects to retrieve */
-  in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Get objects with a specific mimeType property */
-  mimeType?: InputMaybe<MimeTypeEnum>;
-  /** Slug / post_name of the object */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** What parameter to use to order the objects by. */
-  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: InputMaybe<Scalars['ID']['input']>;
-  /** Specify objects whose parent is in an array */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Show posts with a specific password. */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** Show Posts based on a keyword search */
-  search?: InputMaybe<Scalars['String']['input']>;
-  /** Retrieve posts where post status is in an array. */
-  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
-  /** Show posts with a specific status. */
-  status?: InputMaybe<PostStatusEnum>;
-  /** Title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
 /** Connection between the RootQuery type and the page type */
 export type RootQueryToPageConnection = Connection & PageConnection & {
   __typename?: 'RootQueryToPageConnection';
@@ -10154,79 +10132,6 @@ export type RootQueryToPluginConnectionWhereArgs = {
   stati?: InputMaybe<Array<InputMaybe<PluginStatusEnum>>>;
   /** Show plugins with a specific status. */
   status?: InputMaybe<PluginStatusEnum>;
-};
-
-/** Connection between the RootQuery type and the PortfolioItem type */
-export type RootQueryToPortfolioItemConnection = Connection & PortfolioItemConnection & {
-  __typename?: 'RootQueryToPortfolioItemConnection';
-  /** Edges for the RootQueryToPortfolioItemConnection connection */
-  edges: Array<RootQueryToPortfolioItemConnectionEdge>;
-  /** The nodes of the connection, without the edges */
-  nodes: Array<PortfolioItem>;
-  /** Information about pagination in a connection. */
-  pageInfo: RootQueryToPortfolioItemConnectionPageInfo;
-};
-
-/** An edge in a connection */
-export type RootQueryToPortfolioItemConnectionEdge = Edge & PortfolioItemConnectionEdge & {
-  __typename?: 'RootQueryToPortfolioItemConnectionEdge';
-  /** A cursor for use in pagination */
-  cursor?: Maybe<Scalars['String']['output']>;
-  /** The item at the end of the edge */
-  node: PortfolioItem;
-};
-
-/** Page Info on the &quot;RootQueryToPortfolioItemConnection&quot; */
-export type RootQueryToPortfolioItemConnectionPageInfo = PageInfo & PortfolioItemConnectionPageInfo & WpPageInfo & {
-  __typename?: 'RootQueryToPortfolioItemConnectionPageInfo';
-  /** When paginating forwards, the cursor to continue. */
-  endCursor?: Maybe<Scalars['String']['output']>;
-  /** When paginating forwards, are there more items? */
-  hasNextPage: Scalars['Boolean']['output'];
-  /** When paginating backwards, are there more items? */
-  hasPreviousPage: Scalars['Boolean']['output'];
-  /** Raw schema for page */
-  seo?: Maybe<SeoPostTypePageInfo>;
-  /** When paginating backwards, the cursor to continue. */
-  startCursor?: Maybe<Scalars['String']['output']>;
-};
-
-/** Arguments for filtering the RootQueryToPortfolioItemConnection connection */
-export type RootQueryToPortfolioItemConnectionWhereArgs = {
-  /** Filter the connection based on dates */
-  dateQuery?: InputMaybe<DateQueryInput>;
-  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
-  hasPassword?: InputMaybe<Scalars['Boolean']['input']>;
-  /** Specific database ID of the object */
-  id?: InputMaybe<Scalars['Int']['input']>;
-  /** Array of IDs for the objects to retrieve */
-  in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Get objects with a specific mimeType property */
-  mimeType?: InputMaybe<MimeTypeEnum>;
-  /** Slug / post_name of the object */
-  name?: InputMaybe<Scalars['String']['input']>;
-  /** Specify objects to retrieve. Use slugs */
-  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** What parameter to use to order the objects by. */
-  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
-  /** Use ID to return only children. Use 0 to return only top-level items */
-  parent?: InputMaybe<Scalars['ID']['input']>;
-  /** Specify objects whose parent is in an array */
-  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Specify posts whose parent is not in an array */
-  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  /** Show posts with a specific password. */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** Show Posts based on a keyword search */
-  search?: InputMaybe<Scalars['String']['input']>;
-  /** Retrieve posts where post status is in an array. */
-  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
-  /** Show posts with a specific status. */
-  status?: InputMaybe<PostStatusEnum>;
-  /** Title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 /** Connection between the RootQuery type and the post type */
@@ -10450,6 +10355,79 @@ export type RootQueryToRevisionsConnectionPageInfo = ContentNodeConnectionPageIn
 export type RootQueryToRevisionsConnectionWhereArgs = {
   /** The Types of content to filter */
   contentTypes?: InputMaybe<Array<InputMaybe<ContentTypeEnum>>>;
+  /** Filter the connection based on dates */
+  dateQuery?: InputMaybe<DateQueryInput>;
+  /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
+  hasPassword?: InputMaybe<Scalars['Boolean']['input']>;
+  /** Specific database ID of the object */
+  id?: InputMaybe<Scalars['Int']['input']>;
+  /** Array of IDs for the objects to retrieve */
+  in?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Get objects with a specific mimeType property */
+  mimeType?: InputMaybe<MimeTypeEnum>;
+  /** Slug / post_name of the object */
+  name?: InputMaybe<Scalars['String']['input']>;
+  /** Specify objects to retrieve. Use slugs */
+  nameIn?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  /** Specify IDs NOT to retrieve. If this is used in the same query as "in", it will be ignored */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** What parameter to use to order the objects by. */
+  orderby?: InputMaybe<Array<InputMaybe<PostObjectsConnectionOrderbyInput>>>;
+  /** Use ID to return only children. Use 0 to return only top-level items */
+  parent?: InputMaybe<Scalars['ID']['input']>;
+  /** Specify objects whose parent is in an array */
+  parentIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Specify posts whose parent is not in an array */
+  parentNotIn?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  /** Show posts with a specific password. */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** Show Posts based on a keyword search */
+  search?: InputMaybe<Scalars['String']['input']>;
+  /** Retrieve posts where post status is in an array. */
+  stati?: InputMaybe<Array<InputMaybe<PostStatusEnum>>>;
+  /** Show posts with a specific status. */
+  status?: InputMaybe<PostStatusEnum>;
+  /** Title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** Connection between the RootQuery type and the SzkoleniaType type */
+export type RootQueryToSzkoleniaTypeConnection = Connection & SzkoleniaTypeConnection & {
+  __typename?: 'RootQueryToSzkoleniaTypeConnection';
+  /** Edges for the RootQueryToSzkoleniaTypeConnection connection */
+  edges: Array<RootQueryToSzkoleniaTypeConnectionEdge>;
+  /** The nodes of the connection, without the edges */
+  nodes: Array<SzkoleniaType>;
+  /** Information about pagination in a connection. */
+  pageInfo: RootQueryToSzkoleniaTypeConnectionPageInfo;
+};
+
+/** An edge in a connection */
+export type RootQueryToSzkoleniaTypeConnectionEdge = Edge & SzkoleniaTypeConnectionEdge & {
+  __typename?: 'RootQueryToSzkoleniaTypeConnectionEdge';
+  /** A cursor for use in pagination */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The item at the end of the edge */
+  node: SzkoleniaType;
+};
+
+/** Page Info on the &quot;RootQueryToSzkoleniaTypeConnection&quot; */
+export type RootQueryToSzkoleniaTypeConnectionPageInfo = PageInfo & SzkoleniaTypeConnectionPageInfo & WpPageInfo & {
+  __typename?: 'RootQueryToSzkoleniaTypeConnectionPageInfo';
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** Arguments for filtering the RootQueryToSzkoleniaTypeConnection connection */
+export type RootQueryToSzkoleniaTypeConnectionWhereArgs = {
   /** Filter the connection based on dates */
   dateQuery?: InputMaybe<DateQueryInput>;
   /** True for objects with passwords; False for objects without passwords; null for all objects with or without passwords */
@@ -10960,14 +10938,14 @@ export type SeoContentTypeArchive = {
 export type SeoContentTypes = {
   __typename?: 'SEOContentTypes';
   about?: Maybe<SeoContentType>;
+  fryzuryItem?: Maybe<SeoContentType>;
   individualItem?: Maybe<SeoContentType>;
   link?: Maybe<SeoContentType>;
   logo?: Maybe<SeoContentType>;
   mediaItem?: Maybe<SeoContentType>;
-  oferta?: Maybe<SeoContentType>;
   page?: Maybe<SeoContentType>;
-  portfolioItem?: Maybe<SeoContentType>;
   post?: Maybe<SeoContentType>;
+  szkoleniaType?: Maybe<SeoContentType>;
   weddingItem?: Maybe<SeoContentType>;
 };
 
@@ -11235,8 +11213,31 @@ export type ServiceRegulationBox = AcfFieldGroup & AcfFieldGroupFields & Service
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** regulationTitle */
   regulationtitle?: Maybe<Scalars['String']['output']>;
-  /** regulationDescription */
-  serviceregulationdescription?: Maybe<Scalars['String']['output']>;
+  /** serviceregulationdescriptionBoxItem */
+  serviceregulationdescriptionBox?: Maybe<Array<Maybe<ServiceRegulationBoxServiceregulationdescriptionBox>>>;
+};
+
+/** The &quot;ServiceRegulationBoxServiceregulationdescriptionBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ServiceRegulationBoxServiceregulationdescriptionBox = AcfFieldGroup & AcfFieldGroupFields & ServiceRegulationBoxServiceregulationdescriptionBox_Fields & {
+  __typename?: 'ServiceRegulationBoxServiceregulationdescriptionBox';
+  /** dodajPunktDoRegulaminuBoxItem */
+  dodajPunktDoRegulaminuBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;ServiceRegulationBoxServiceregulationdescriptionBox&quot; Field Group */
+export type ServiceRegulationBoxServiceregulationdescriptionBox_Fields = {
+  /** dodajPunktDoRegulaminuBoxItem */
+  dodajPunktDoRegulaminuBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
 };
 
 /** Interface representing fields of the ACF &quot;ServiceRegulationBox&quot; Field Group */
@@ -11248,8 +11249,8 @@ export type ServiceRegulationBox_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** regulationTitle */
   regulationtitle?: Maybe<Scalars['String']['output']>;
-  /** regulationDescription */
-  serviceregulationdescription?: Maybe<Scalars['String']['output']>;
+  /** serviceregulationdescriptionBoxItem */
+  serviceregulationdescriptionBox?: Maybe<Array<Maybe<ServiceRegulationBoxServiceregulationdescriptionBox>>>;
 };
 
 /** All of the registered settings */
@@ -11314,6 +11315,265 @@ export type SocialMedia_Fields = {
   fieldGroupName?: Maybe<Scalars['String']['output']>;
   /** Field of the &quot;url&quot; Field Type added to the schema as part of the &quot;SocialMedia&quot; Field Group */
   socialMediaLink?: Maybe<Scalars['String']['output']>;
+};
+
+/** The SzkoleniaType type */
+export type SzkoleniaType = ContentNode & DatabaseIdentifier & MenuItemLinkable & Node & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfIndividualMasterclass & WithAcfProfMakeup & WithAcfProfessionalHair & {
+  __typename?: 'SzkoleniaType';
+  /**
+   * The ancestors of the content node.
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  ancestors?: Maybe<SzkoleniaTypeToSzkoleniaTypeConnection>;
+  /** Returns all blocks as a JSON object */
+  blocks?: Maybe<Scalars['JSON']['output']>;
+  /** The content of the post. */
+  content?: Maybe<Scalars['String']['output']>;
+  /** Connection between the ContentNode type and the ContentType type */
+  contentType?: Maybe<ContentNodeToContentTypeConnectionEdge>;
+  /** The name of the Content Type the node belongs to */
+  contentTypeName: Scalars['String']['output'];
+  /** The unique identifier stored in the database */
+  databaseId: Scalars['Int']['output'];
+  /** Post publishing date. */
+  date?: Maybe<Scalars['String']['output']>;
+  /** The publishing date set in GMT. */
+  dateGmt?: Maybe<Scalars['String']['output']>;
+  /** The desired slug of the post */
+  desiredSlug?: Maybe<Scalars['String']['output']>;
+  /** If a user has edited the node within the past 15 seconds, this will return the user that last edited. Null if the edit lock doesn&#039;t exist or is greater than 15 seconds */
+  editingLockedBy?: Maybe<ContentNodeToEditLockConnectionEdge>;
+  /** The RSS enclosure for the object */
+  enclosure?: Maybe<Scalars['String']['output']>;
+  /** Connection between the ContentNode type and the EnqueuedScript type */
+  enqueuedScripts?: Maybe<ContentNodeToEnqueuedScriptConnection>;
+  /** Connection between the ContentNode type and the EnqueuedStylesheet type */
+  enqueuedStylesheets?: Maybe<ContentNodeToEnqueuedStylesheetConnection>;
+  /** Connection between the NodeWithFeaturedImage type and the MediaItem type */
+  featuredImage?: Maybe<NodeWithFeaturedImageToMediaItemConnectionEdge>;
+  /** The database identifier for the featured image node assigned to the content node */
+  featuredImageDatabaseId?: Maybe<Scalars['Int']['output']>;
+  /** Globally unique ID of the featured image assigned to the node */
+  featuredImageId?: Maybe<Scalars['ID']['output']>;
+  /** The global unique identifier for this post. This currently matches the value stored in WP_Post-&gt;guid and the guid column in the &quot;post_objects&quot; database table. */
+  guid?: Maybe<Scalars['String']['output']>;
+  /** Whether the szkolenia object is password protected. */
+  hasPassword?: Maybe<Scalars['Boolean']['output']>;
+  /** The globally unique identifier of the szkolenia object. */
+  id: Scalars['ID']['output'];
+  /** Fields of the IndividualMasterclass ACF Field Group */
+  individualMasterclass?: Maybe<IndividualMasterclass>;
+  /** Whether the node is a Comment */
+  isComment: Scalars['Boolean']['output'];
+  /** Whether the node is a Content Node */
+  isContentNode: Scalars['Boolean']['output'];
+  /** Whether the node represents the front page. */
+  isFrontPage: Scalars['Boolean']['output'];
+  /** Whether  the node represents the blog page. */
+  isPostsPage: Scalars['Boolean']['output'];
+  /** Whether the object is a node in the preview state */
+  isPreview?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the object is restricted from the current viewer */
+  isRestricted?: Maybe<Scalars['Boolean']['output']>;
+  /** Whether the node is a Term */
+  isTermNode: Scalars['Boolean']['output'];
+  /** The user that most recently edited the node */
+  lastEditedBy?: Maybe<ContentNodeToEditLastConnectionEdge>;
+  /** The permalink of the post */
+  link?: Maybe<Scalars['String']['output']>;
+  /** The local modified time for a post. If a post was recently updated the modified field will change to match the corresponding time. */
+  modified?: Maybe<Scalars['String']['output']>;
+  /** The GMT modified time for a post. If a post was recently updated the modified field will change to match the corresponding time in GMT. */
+  modifiedGmt?: Maybe<Scalars['String']['output']>;
+  /**
+   * The parent of the content node.
+   * @deprecated This content type is not hierarchical and typically will not have a parent
+   */
+  parent?: Maybe<SzkoleniaTypeToParentConnectionEdge>;
+  /** The password for the szkolenia object. */
+  password?: Maybe<Scalars['String']['output']>;
+  /** Connection between the SzkoleniaType type and the SzkoleniaType type */
+  preview?: Maybe<SzkoleniaTypeToPreviewConnectionEdge>;
+  /** The database id of the preview node */
+  previewRevisionDatabaseId?: Maybe<Scalars['Int']['output']>;
+  /** Whether the object is a node in the preview state */
+  previewRevisionId?: Maybe<Scalars['ID']['output']>;
+  /** Fields of the ProfMakeup ACF Field Group */
+  profMakeup?: Maybe<ProfMakeup>;
+  /** Fields of the ProfessionalHair ACF Field Group */
+  professionalHair?: Maybe<ProfessionalHair>;
+  /** The Yoast SEO data of the ContentNode */
+  seo?: Maybe<PostTypeSeo>;
+  /** The uri slug for the post. This is equivalent to the WP_Post-&gt;post_name field and the post_name column in the database for the &quot;post_objects&quot; table. */
+  slug?: Maybe<Scalars['String']['output']>;
+  /** The current status of the object */
+  status?: Maybe<Scalars['String']['output']>;
+  /**
+   * The id field matches the WP_Post-&gt;ID field.
+   * @deprecated Deprecated in favor of the databaseId field
+   */
+  szkoleniaTypeId: Scalars['Int']['output'];
+  /** The template assigned to the node */
+  template?: Maybe<ContentTemplate>;
+  /** The title of the post. This is currently just the raw title. An amendment to support rendered title needs to be made. */
+  title?: Maybe<Scalars['String']['output']>;
+  /** The unique resource identifier path */
+  uri?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeAncestorsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeBlocksArgs = {
+  attributes?: InputMaybe<Scalars['Boolean']['input']>;
+  dynamicContent?: InputMaybe<Scalars['Boolean']['input']>;
+  htmlContent?: InputMaybe<Scalars['Boolean']['input']>;
+  originalContent?: InputMaybe<Scalars['Boolean']['input']>;
+  postTemplate?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeContentArgs = {
+  format?: InputMaybe<PostObjectFieldFormatEnum>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeEnqueuedScriptsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeEnqueuedStylesheetsArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+
+/** The SzkoleniaType type */
+export type SzkoleniaTypeTitleArgs = {
+  format?: InputMaybe<PostObjectFieldFormatEnum>;
+};
+
+/** Connection to SzkoleniaType Nodes */
+export type SzkoleniaTypeConnection = {
+  /** A list of edges (relational context) between RootQuery and connected SzkoleniaType Nodes */
+  edges: Array<SzkoleniaTypeConnectionEdge>;
+  /** A list of connected SzkoleniaType Nodes */
+  nodes: Array<SzkoleniaType>;
+  /** Information about pagination in a connection. */
+  pageInfo: SzkoleniaTypeConnectionPageInfo;
+};
+
+/** Edge between a Node and a connected SzkoleniaType */
+export type SzkoleniaTypeConnectionEdge = {
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The connected SzkoleniaType Node */
+  node: SzkoleniaType;
+};
+
+/** Page Info on the connected SzkoleniaTypeConnectionEdge */
+export type SzkoleniaTypeConnectionPageInfo = {
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
+};
+
+/** The Type of Identifier used to fetch a single resource. Default is ID. */
+export enum SzkoleniaTypeIdType {
+  /** Identify a resource by the Database ID. */
+  DatabaseId = 'DATABASE_ID',
+  /** Identify a resource by the (hashed) Global ID. */
+  Id = 'ID',
+  /** Identify a resource by the slug. Available to non-hierarchcial Types where the slug is a unique identifier. */
+  Slug = 'SLUG',
+  /** Identify a resource by the URI. */
+  Uri = 'URI'
+}
+
+/** Connection between the SzkoleniaType type and the SzkoleniaType type */
+export type SzkoleniaTypeToParentConnectionEdge = Edge & OneToOneConnection & SzkoleniaTypeConnectionEdge & {
+  __typename?: 'SzkoleniaTypeToParentConnectionEdge';
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /**
+   * The node of the connection, without the edges
+   * @deprecated This content type is not hierarchical and typically will not have a parent
+   */
+  node: SzkoleniaType;
+};
+
+/** Connection between the SzkoleniaType type and the SzkoleniaType type */
+export type SzkoleniaTypeToPreviewConnectionEdge = Edge & OneToOneConnection & SzkoleniaTypeConnectionEdge & {
+  __typename?: 'SzkoleniaTypeToPreviewConnectionEdge';
+  /** Opaque reference to the nodes position in the connection. Value can be used with pagination args. */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** The node of the connection, without the edges */
+  node: SzkoleniaType;
+};
+
+/** Connection between the SzkoleniaType type and the SzkoleniaType type */
+export type SzkoleniaTypeToSzkoleniaTypeConnection = Connection & SzkoleniaTypeConnection & {
+  __typename?: 'SzkoleniaTypeToSzkoleniaTypeConnection';
+  /** Edges for the SzkoleniaTypeToSzkoleniaTypeConnection connection */
+  edges: Array<SzkoleniaTypeToSzkoleniaTypeConnectionEdge>;
+  /** The nodes of the connection, without the edges */
+  nodes: Array<SzkoleniaType>;
+  /** Information about pagination in a connection. */
+  pageInfo: SzkoleniaTypeToSzkoleniaTypeConnectionPageInfo;
+};
+
+/** An edge in a connection */
+export type SzkoleniaTypeToSzkoleniaTypeConnectionEdge = Edge & SzkoleniaTypeConnectionEdge & {
+  __typename?: 'SzkoleniaTypeToSzkoleniaTypeConnectionEdge';
+  /**
+   * A cursor for use in pagination
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /**
+   * The item at the end of the edge
+   * @deprecated This content type is not hierarchical and typically will not have ancestors
+   */
+  node: SzkoleniaType;
+};
+
+/** Page Info on the &quot;SzkoleniaTypeToSzkoleniaTypeConnection&quot; */
+export type SzkoleniaTypeToSzkoleniaTypeConnectionPageInfo = PageInfo & SzkoleniaTypeConnectionPageInfo & WpPageInfo & {
+  __typename?: 'SzkoleniaTypeToSzkoleniaTypeConnectionPageInfo';
+  /** When paginating forwards, the cursor to continue. */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** When paginating forwards, are there more items? */
+  hasNextPage: Scalars['Boolean']['output'];
+  /** When paginating backwards, are there more items? */
+  hasPreviousPage: Scalars['Boolean']['output'];
+  /** Raw schema for page */
+  seo?: Maybe<SeoPostTypePageInfo>;
+  /** When paginating backwards, the cursor to continue. */
+  startCursor?: Maybe<Scalars['String']['output']>;
 };
 
 /** The tag type */
@@ -12252,6 +12512,39 @@ export type UpdateCommentPayload = {
   success?: Maybe<Scalars['Boolean']['output']>;
 };
 
+/** Input for the updateFryzuryItem mutation. */
+export type UpdateFryzuryItemInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars['String']['input']>;
+  /** The ID of the FryzuryItem object */
+  id: Scalars['ID']['input'];
+  /** Override the edit lock when another user is editing the post */
+  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars['Int']['input']>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The payload for the updateFryzuryItem mutation. */
+export type UpdateFryzuryItemPayload = {
+  __typename?: 'UpdateFryzuryItemPayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The Post object mutation type. */
+  fryzuryItem?: Maybe<FryzuryItem>;
+};
+
 /** Input for the updateIndividualItem mutation. */
 export type UpdateIndividualItemInput = {
   /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
@@ -12396,39 +12689,6 @@ export type UpdateMediaItemPayload = {
   mediaItem?: Maybe<MediaItem>;
 };
 
-/** Input for the updateOferta mutation. */
-export type UpdateOfertaInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The content of the object */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: InputMaybe<Scalars['String']['input']>;
-  /** The ID of the Oferta object */
-  id: Scalars['ID']['input'];
-  /** Override the edit lock when another user is editing the post */
-  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: InputMaybe<Scalars['Int']['input']>;
-  /** The password used to protect the content of the object */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** The slug of the object */
-  slug?: InputMaybe<Scalars['String']['input']>;
-  /** The status of the object */
-  status?: InputMaybe<PostStatusEnum>;
-  /** The title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The payload for the updateOferta mutation. */
-export type UpdateOfertaPayload = {
-  __typename?: 'UpdateOfertaPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The Post object mutation type. */
-  oferta?: Maybe<Oferta>;
-};
-
 /** Input for the updatePage mutation. */
 export type UpdatePageInput = {
   /** The userId to assign as the author of the object */
@@ -12466,39 +12726,6 @@ export type UpdatePagePayload = {
   clientMutationId?: Maybe<Scalars['String']['output']>;
   /** The Post object mutation type. */
   page?: Maybe<Page>;
-};
-
-/** Input for the updatePortfolioItem mutation. */
-export type UpdatePortfolioItemInput = {
-  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: InputMaybe<Scalars['String']['input']>;
-  /** The content of the object */
-  content?: InputMaybe<Scalars['String']['input']>;
-  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
-  date?: InputMaybe<Scalars['String']['input']>;
-  /** The ID of the PortfolioItem object */
-  id: Scalars['ID']['input'];
-  /** Override the edit lock when another user is editing the post */
-  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
-  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
-  menuOrder?: InputMaybe<Scalars['Int']['input']>;
-  /** The password used to protect the content of the object */
-  password?: InputMaybe<Scalars['String']['input']>;
-  /** The slug of the object */
-  slug?: InputMaybe<Scalars['String']['input']>;
-  /** The status of the object */
-  status?: InputMaybe<PostStatusEnum>;
-  /** The title of the object */
-  title?: InputMaybe<Scalars['String']['input']>;
-};
-
-/** The payload for the updatePortfolioItem mutation. */
-export type UpdatePortfolioItemPayload = {
-  __typename?: 'UpdatePortfolioItemPayload';
-  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
-  clientMutationId?: Maybe<Scalars['String']['output']>;
-  /** The Post object mutation type. */
-  portfolioItem?: Maybe<PortfolioItem>;
 };
 
 /** Input for the updatePostFormat mutation. */
@@ -12634,6 +12861,39 @@ export type UpdateSettingsPayload = {
   readingSettings?: Maybe<ReadingSettings>;
   /** Update the WritingSettings setting. */
   writingSettings?: Maybe<WritingSettings>;
+};
+
+/** Input for the updateSzkoleniaType mutation. */
+export type UpdateSzkoleniaTypeInput = {
+  /** This is an ID that can be passed to a mutation by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: InputMaybe<Scalars['String']['input']>;
+  /** The content of the object */
+  content?: InputMaybe<Scalars['String']['input']>;
+  /** The date of the object. Preferable to enter as year/month/day (e.g. 01/31/2017) as it will rearrange date as fit if it is not specified. Incomplete dates may have unintended results for example, "2017" as the input will use current date with timestamp 20:17  */
+  date?: InputMaybe<Scalars['String']['input']>;
+  /** The ID of the SzkoleniaType object */
+  id: Scalars['ID']['input'];
+  /** Override the edit lock when another user is editing the post */
+  ignoreEditLock?: InputMaybe<Scalars['Boolean']['input']>;
+  /** A field used for ordering posts. This is typically used with nav menu items or for special ordering of hierarchical content types. */
+  menuOrder?: InputMaybe<Scalars['Int']['input']>;
+  /** The password used to protect the content of the object */
+  password?: InputMaybe<Scalars['String']['input']>;
+  /** The slug of the object */
+  slug?: InputMaybe<Scalars['String']['input']>;
+  /** The status of the object */
+  status?: InputMaybe<PostStatusEnum>;
+  /** The title of the object */
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The payload for the updateSzkoleniaType mutation. */
+export type UpdateSzkoleniaTypePayload = {
+  __typename?: 'UpdateSzkoleniaTypePayload';
+  /** If a &#039;clientMutationId&#039; input is provided to the mutation, it will be returned as output on the mutation. This ID can be used by the client to track the progress of mutations and catch possible duplicate mutation submissions. */
+  clientMutationId?: Maybe<Scalars['String']['output']>;
+  /** The Post object mutation type. */
+  szkoleniaType?: Maybe<SzkoleniaType>;
 };
 
 /** Input for the updateTag mutation. */
@@ -13966,6 +14226,12 @@ export type WithAcfCta = {
   cta?: Maybe<Cta>;
 };
 
+/** Provides access to fields of the &quot;Fruzurypole&quot; ACF Field Group via the &quot;fruzurypole&quot; field */
+export type WithAcfFruzurypole = {
+  /** Fields of the Fruzurypole ACF Field Group */
+  fruzurypole?: Maybe<Fruzurypole>;
+};
+
 /** Provides access to fields of the &quot;IndividualMakeup&quot; ACF Field Group via the &quot;individualMakeup&quot; field */
 export type WithAcfIndividualMakeup = {
   /** Fields of the IndividualMakeup ACF Field Group */
@@ -13994,6 +14260,18 @@ export type WithAcfPageHeaderPole = {
 export type WithAcfPrizeListAcF = {
   /** Fields of the PrizeListAcF ACF Field Group */
   prizeListAcF?: Maybe<PrizeListAcF>;
+};
+
+/** Provides access to fields of the &quot;ProfMakeup&quot; ACF Field Group via the &quot;profMakeup&quot; field */
+export type WithAcfProfMakeup = {
+  /** Fields of the ProfMakeup ACF Field Group */
+  profMakeup?: Maybe<ProfMakeup>;
+};
+
+/** Provides access to fields of the &quot;ProfessionalHair&quot; ACF Field Group via the &quot;professionalHair&quot; field */
+export type WithAcfProfessionalHair = {
+  /** Fields of the ProfessionalHair ACF Field Group */
+  professionalHair?: Maybe<ProfessionalHair>;
 };
 
 /** Provides access to fields of the &quot;ServiceRegulationBox&quot; ACF Field Group via the &quot;serviceRegulationBox&quot; field */
@@ -14046,22 +14324,34 @@ export type CtaContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type CtaContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', cta?: { __typename?: 'Cta', calltoactionpicture?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
 
+export type HairPortfolioContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HairPortfolioContentQuery = { __typename?: 'RootQuery', fryzury?: { __typename?: 'RootQueryToFryzuryItemConnection', nodes: Array<{ __typename?: 'FryzuryItem', fruzurypole?: { __typename?: 'Fruzurypole', hairdoBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null }> } | null };
+
 export type IndividualPortfolioContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type IndividualPortfolioContentQuery = { __typename?: 'RootQuery', makeUpIndividual?: { __typename?: 'RootQueryToIndividualItemConnection', nodes: Array<{ __typename?: 'IndividualItem', individualMakeup?: { __typename?: 'IndividualMakeup', individualMakeupBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null }> } | null };
-
-export type PriceListLessonContentQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type PriceListLessonContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', individualMasterclass?: { __typename?: 'IndividualMasterclass', cena?: string | null, czasTrwania?: string | null, mcdescriptions?: string | null, podtytul?: string | null, tytulSzkolenia?: string | null, sectionpicture?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
 
 export type LogoContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type LogoContentQuery = { __typename?: 'RootQuery', allLogo?: { __typename?: 'RootQueryToLogoConnection', nodes: Array<{ __typename?: 'Logo', logoBox?: { __typename?: 'LogoBox', logoNav?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null, logo_footer?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null }> } | null };
 
-export type HeaderContentQueryVariables = Exact<{ [key: string]: never; }>;
+export type MasterClassHairContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MasterClassHairContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', professionalHair?: { __typename?: 'ProfessionalHair', czasTrwaniaBox?: string | null, descriptionBox?: string | null, opisDolnyBox?: string | null, titleBox?: string | null, productListBox?: Array<{ __typename?: 'ProfessionalHairProductListBox', iloscTypowBox?: string | null, nazwaProduktuBox?: string | null, priceBox?: string | null } | null> | null } | null } | null };
+
+export type MasterClassMakeUpContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MasterClassMakeUpContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', profMakeup?: { __typename?: 'ProfMakeup', titleBox?: string | null, subtitleBox?: string | null, opisDolnyBox?: string | null, scopeoftrainingBox?: Array<{ __typename?: 'ProfMakeupScopeoftrainingBox', elementListyBox?: string | null } | null> | null, productlistBox?: Array<{ __typename?: 'ProfMakeupProductlistBox', iloscTypowBox?: string | null, priceBox?: string | null, titleBox?: string | null } | null> | null, ewentualneZdjecieBox?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
+
+export type HeaderContentQueryVariables = Exact<{
+  pageId: Scalars['Int']['input'];
+}>;
 
 
 export type HeaderContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', pageHeaderPole?: { __typename?: 'PageHeaderPole', logo_header_box?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null, headerPictureBox?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
@@ -14070,6 +14360,11 @@ export type PriceListContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type PriceListContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', prizeListAcF?: { __typename?: 'PrizeListAcF', pricelist?: Array<{ __typename?: 'PrizeListAcFPricelist', offertitle?: string | null, prize?: string | null } | null> | null } | null } | null };
+
+export type PrivateLessonContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PrivateLessonContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', individualMasterclass?: { __typename?: 'IndividualMasterclass', tytulSzkolenia?: string | null, podtytul?: string | null, czasTrwania?: string | null, cena?: string | null, masterclassdescription?: Array<{ __typename?: 'IndividualMasterclassMasterclassdescription', listElementBox?: string | null } | null> | null } | null } | null };
 
 export type SocialMediaContentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -14227,6 +14522,55 @@ export type CtaContentQueryHookResult = ReturnType<typeof useCtaContentQuery>;
 export type CtaContentLazyQueryHookResult = ReturnType<typeof useCtaContentLazyQuery>;
 export type CtaContentSuspenseQueryHookResult = ReturnType<typeof useCtaContentSuspenseQuery>;
 export type CtaContentQueryResult = Apollo.QueryResult<CtaContentQuery, CtaContentQueryVariables>;
+export const HairPortfolioContentDocument = gql`
+    query HairPortfolioContent {
+  fryzury {
+    nodes {
+      fruzurypole {
+        hairdoBox {
+          nodes {
+            altText
+            mediaItemUrl
+            slug
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useHairPortfolioContentQuery__
+ *
+ * To run a query within a React component, call `useHairPortfolioContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useHairPortfolioContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useHairPortfolioContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useHairPortfolioContentQuery(baseOptions?: Apollo.QueryHookOptions<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>(HairPortfolioContentDocument, options);
+      }
+export function useHairPortfolioContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>(HairPortfolioContentDocument, options);
+        }
+export function useHairPortfolioContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>(HairPortfolioContentDocument, options);
+        }
+export type HairPortfolioContentQueryHookResult = ReturnType<typeof useHairPortfolioContentQuery>;
+export type HairPortfolioContentLazyQueryHookResult = ReturnType<typeof useHairPortfolioContentLazyQuery>;
+export type HairPortfolioContentSuspenseQueryHookResult = ReturnType<typeof useHairPortfolioContentSuspenseQuery>;
+export type HairPortfolioContentQueryResult = Apollo.QueryResult<HairPortfolioContentQuery, HairPortfolioContentQueryVariables>;
 export const IndividualPortfolioContentDocument = gql`
     query IndividualPortfolioContent {
   makeUpIndividual {
@@ -14276,58 +14620,6 @@ export type IndividualPortfolioContentQueryHookResult = ReturnType<typeof useInd
 export type IndividualPortfolioContentLazyQueryHookResult = ReturnType<typeof useIndividualPortfolioContentLazyQuery>;
 export type IndividualPortfolioContentSuspenseQueryHookResult = ReturnType<typeof useIndividualPortfolioContentSuspenseQuery>;
 export type IndividualPortfolioContentQueryResult = Apollo.QueryResult<IndividualPortfolioContentQuery, IndividualPortfolioContentQueryVariables>;
-export const PriceListLessonContentDocument = gql`
-    query PriceListLessonContent {
-  pageBy(pageId: 18) {
-    individualMasterclass {
-      cena
-      czasTrwania
-      mcdescriptions
-      podtytul
-      tytulSzkolenia
-      sectionpicture {
-        node {
-          altText
-          mediaItemUrl
-          slug
-        }
-      }
-    }
-  }
-}
-    `;
-
-/**
- * __usePriceListLessonContentQuery__
- *
- * To run a query within a React component, call `usePriceListLessonContentQuery` and pass it any options that fit your needs.
- * When your component renders, `usePriceListLessonContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = usePriceListLessonContentQuery({
- *   variables: {
- *   },
- * });
- */
-export function usePriceListLessonContentQuery(baseOptions?: Apollo.QueryHookOptions<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>(PriceListLessonContentDocument, options);
-      }
-export function usePriceListLessonContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>(PriceListLessonContentDocument, options);
-        }
-export function usePriceListLessonContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>(PriceListLessonContentDocument, options);
-        }
-export type PriceListLessonContentQueryHookResult = ReturnType<typeof usePriceListLessonContentQuery>;
-export type PriceListLessonContentLazyQueryHookResult = ReturnType<typeof usePriceListLessonContentLazyQuery>;
-export type PriceListLessonContentSuspenseQueryHookResult = ReturnType<typeof usePriceListLessonContentSuspenseQuery>;
-export type PriceListLessonContentQueryResult = Apollo.QueryResult<PriceListLessonContentQuery, PriceListLessonContentQueryVariables>;
 export const LogoContentDocument = gql`
     query LogoContent {
   allLogo {
@@ -14384,9 +14676,116 @@ export type LogoContentQueryHookResult = ReturnType<typeof useLogoContentQuery>;
 export type LogoContentLazyQueryHookResult = ReturnType<typeof useLogoContentLazyQuery>;
 export type LogoContentSuspenseQueryHookResult = ReturnType<typeof useLogoContentSuspenseQuery>;
 export type LogoContentQueryResult = Apollo.QueryResult<LogoContentQuery, LogoContentQueryVariables>;
+export const MasterClassHairContentDocument = gql`
+    query MasterClassHairContent {
+  szkoleniaTypeBy(szkoleniaTypeId: 195) {
+    professionalHair {
+      czasTrwaniaBox
+      descriptionBox
+      opisDolnyBox
+      productListBox {
+        iloscTypowBox
+        nazwaProduktuBox
+        priceBox
+      }
+      titleBox
+    }
+  }
+}
+    `;
+
+/**
+ * __useMasterClassHairContentQuery__
+ *
+ * To run a query within a React component, call `useMasterClassHairContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMasterClassHairContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMasterClassHairContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMasterClassHairContentQuery(baseOptions?: Apollo.QueryHookOptions<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>(MasterClassHairContentDocument, options);
+      }
+export function useMasterClassHairContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>(MasterClassHairContentDocument, options);
+        }
+export function useMasterClassHairContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>(MasterClassHairContentDocument, options);
+        }
+export type MasterClassHairContentQueryHookResult = ReturnType<typeof useMasterClassHairContentQuery>;
+export type MasterClassHairContentLazyQueryHookResult = ReturnType<typeof useMasterClassHairContentLazyQuery>;
+export type MasterClassHairContentSuspenseQueryHookResult = ReturnType<typeof useMasterClassHairContentSuspenseQuery>;
+export type MasterClassHairContentQueryResult = Apollo.QueryResult<MasterClassHairContentQuery, MasterClassHairContentQueryVariables>;
+export const MasterClassMakeUpContentDocument = gql`
+    query MasterClassMakeUpContent {
+  szkoleniaTypeBy(szkoleniaTypeId: 194) {
+    profMakeup {
+      titleBox
+      subtitleBox
+      scopeoftrainingBox {
+        elementListyBox
+      }
+      productlistBox {
+        iloscTypowBox
+        priceBox
+        titleBox
+      }
+      opisDolnyBox
+      ewentualneZdjecieBox {
+        node {
+          altText
+          mediaItemUrl
+          slug
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useMasterClassMakeUpContentQuery__
+ *
+ * To run a query within a React component, call `useMasterClassMakeUpContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useMasterClassMakeUpContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useMasterClassMakeUpContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useMasterClassMakeUpContentQuery(baseOptions?: Apollo.QueryHookOptions<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>(MasterClassMakeUpContentDocument, options);
+      }
+export function useMasterClassMakeUpContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>(MasterClassMakeUpContentDocument, options);
+        }
+export function useMasterClassMakeUpContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>(MasterClassMakeUpContentDocument, options);
+        }
+export type MasterClassMakeUpContentQueryHookResult = ReturnType<typeof useMasterClassMakeUpContentQuery>;
+export type MasterClassMakeUpContentLazyQueryHookResult = ReturnType<typeof useMasterClassMakeUpContentLazyQuery>;
+export type MasterClassMakeUpContentSuspenseQueryHookResult = ReturnType<typeof useMasterClassMakeUpContentSuspenseQuery>;
+export type MasterClassMakeUpContentQueryResult = Apollo.QueryResult<MasterClassMakeUpContentQuery, MasterClassMakeUpContentQueryVariables>;
 export const HeaderContentDocument = gql`
-    query HeaderContent {
-  pageBy(pageId: 12) {
+    query HeaderContent($pageId: Int!) {
+  pageBy(pageId: $pageId) {
     pageHeaderPole {
       logo_header_box {
         node {
@@ -14419,10 +14818,11 @@ export const HeaderContentDocument = gql`
  * @example
  * const { data, loading, error } = useHeaderContentQuery({
  *   variables: {
+ *      pageId: // value for 'pageId'
  *   },
  * });
  */
-export function useHeaderContentQuery(baseOptions?: Apollo.QueryHookOptions<HeaderContentQuery, HeaderContentQueryVariables>) {
+export function useHeaderContentQuery(baseOptions: Apollo.QueryHookOptions<HeaderContentQuery, HeaderContentQueryVariables> & ({ variables: HeaderContentQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
         const options = {...defaultOptions, ...baseOptions}
         return Apollo.useQuery<HeaderContentQuery, HeaderContentQueryVariables>(HeaderContentDocument, options);
       }
@@ -14482,6 +14882,53 @@ export type PriceListContentQueryHookResult = ReturnType<typeof usePriceListCont
 export type PriceListContentLazyQueryHookResult = ReturnType<typeof usePriceListContentLazyQuery>;
 export type PriceListContentSuspenseQueryHookResult = ReturnType<typeof usePriceListContentSuspenseQuery>;
 export type PriceListContentQueryResult = Apollo.QueryResult<PriceListContentQuery, PriceListContentQueryVariables>;
+export const PrivateLessonContentDocument = gql`
+    query PrivateLessonContent {
+  szkoleniaTypeBy(szkoleniaTypeId: 193) {
+    individualMasterclass {
+      tytulSzkolenia
+      podtytul
+      masterclassdescription {
+        listElementBox
+      }
+      czasTrwania
+      cena
+    }
+  }
+}
+    `;
+
+/**
+ * __usePrivateLessonContentQuery__
+ *
+ * To run a query within a React component, call `usePrivateLessonContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `usePrivateLessonContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = usePrivateLessonContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function usePrivateLessonContentQuery(baseOptions?: Apollo.QueryHookOptions<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>(PrivateLessonContentDocument, options);
+      }
+export function usePrivateLessonContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>(PrivateLessonContentDocument, options);
+        }
+export function usePrivateLessonContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>(PrivateLessonContentDocument, options);
+        }
+export type PrivateLessonContentQueryHookResult = ReturnType<typeof usePrivateLessonContentQuery>;
+export type PrivateLessonContentLazyQueryHookResult = ReturnType<typeof usePrivateLessonContentLazyQuery>;
+export type PrivateLessonContentSuspenseQueryHookResult = ReturnType<typeof usePrivateLessonContentSuspenseQuery>;
+export type PrivateLessonContentQueryResult = Apollo.QueryResult<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>;
 export const SocialMediaContentDocument = gql`
     query SocialMediaContent {
   linkiSpoEcznoCiowe {

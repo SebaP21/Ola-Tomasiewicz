@@ -1,12 +1,16 @@
-import Test from "@/components/test";
-
+import About from "@/components/About/About";
+import PageHeader from "@/components/PageHeader/PageHeader";
+import Portfolio from "@/components/Portfolio/Portfolio";
 
 export default function Home() {
-  return (
-    <section>
-      <h1>helllo</h1>
+	const pageId = 12;
 
-      <Test/>
-    </section>
-  );
+	return (
+		<>
+			<PageHeader pageId={pageId} />
+			<About />
+			<Portfolio />
+			<About />
+		</>
+	);
 }
