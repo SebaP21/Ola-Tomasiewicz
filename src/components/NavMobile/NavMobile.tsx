@@ -209,15 +209,7 @@ const NavMobile = () => {
 						<h4 className='mb-2'>Regulamin</h4>
 					</div>
 				</Link>
-				<Link
-					onClick={onClickNav}
-					href={"/#kontakt"}
-					className='transition-colors hover:text-accent'
-				>
-					<div className='border-b border-accent'>
-						<h4 className='mb-2'>Kontakt</h4>
-					</div>
-				</Link>
+				
 			</div>
 		</div>
 	);
