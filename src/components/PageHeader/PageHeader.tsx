@@ -19,27 +19,52 @@ const PageHeader: FC<PageHeaderProps> = async ({ pageId }) => {
 	const headerImage = data.pageBy?.pageHeaderPole?.headerPictureBox?.node;
 
 	return (
-		<header
-			className='w-full min-h-[100svh] bg-cover bg-center flex items-end justify-start'
-			style={{
-				backgroundImage: headerImage?.mediaItemUrl
-					? `url(${headerImage.mediaItemUrl})`
-					: "none",
-			}}
-		>
-			{logo && (
-				<div className='max-w-[80%] animate-fade-right '>
-					<Link href={"/"}>
-						<Image
-							src={logo?.mediaItemUrl || ""}
-							alt={logo?.altText || "alt"}
-							width={500}
-							height={500}
-						/>
-					</Link>
+		<>
+			<header
+				className='w-full min-h-[100svh] bg-cover bg-center flex items-end justify-start overflow-hidden md:hidden'
+				style={{
+					backgroundImage: headerImage?.mediaItemUrl
+						? `url(${headerImage.mediaItemUrl})`
+						: "none",
+				}}
+			>
+				{logo && (
+					<div className='max-w-[80%] animate-fade-right '>
+						<Link href={"/"}>
+							<Image
+								src={logo?.mediaItemUrl || ""}
+								alt={logo?.altText || "alt"}
+								width={500}
+								height={500}
+							/>
+						</Link>
+					</div>
+				)}
+			</header>
+			<header className='hidden w-full h-[100svh] overflow-hidden md:flex'>
+				<div className='min-w-[30%] max-w-[30%]  bg-black flex flex-col justify-center items-end z-10 2xl:max-w-[50%] 2xl:min-w-[50%]'>
+				{logo && (
+					<div className='max-w-[100%] animate-fade-right '>
+								<Link href={"/"}>
+									<Image
+										src={logo?.mediaItemUrl || ""}
+										alt={logo?.altText || "alt"}
+										width={500}
+										height={500} />
+								</Link>
+							</div>
+				)}
 				</div>
-			)}
-		</header>
+				<div
+					className='w-full   bg-cover '
+					style={{
+						backgroundImage: headerImage?.mediaItemUrl
+							? `url(${headerImage.mediaItemUrl})`
+							: "none",
+					}}
+				></div>
+			</header>
+		</>
 	);
 };
 

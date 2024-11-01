@@ -6,7 +6,7 @@
 	--light-color: #ffffff;
 	--dark-color: #000000;
 	--accent-color: #733f7a;
-	--text-color:#62615c;
+	--text-color: #62615c;
 }
 
 body {
@@ -24,4 +24,21 @@ h6 {
 
 body p {
 	color: var(--text-color);
+}
+fieldset {
+	border-top-right-radius: 16px;
+	border-bottom: none;
+	border-left: none;
+	border-top: 3px solid var(--accent-color);
+	border-right: 3px solid var(--accent-color);
+}
+legend {
+	@apply font-oswald;
+	padding-right: 1em;
+}
+
+.section {
+	position: relative;
+	padding-top: 7svh;
+	margin-top: -7svh;
 }

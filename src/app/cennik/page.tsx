@@ -1,4 +1,6 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
+import PriceList from "@/components/PriceList/PriceList";
+import WeddingPackage from "@/components/WeddingPackage/WeddingPackage";
 
 const PriceListPage = () => {
 	const pageId = 18;
@@ -6,6 +8,8 @@ const PriceListPage = () => {
 	return (
 		<>
 			<PageHeader pageId={pageId} />
+			<PriceList/>
+			<WeddingPackage/>
 		</>
 	);
 };

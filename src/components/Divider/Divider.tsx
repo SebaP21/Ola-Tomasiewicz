@@ -7,7 +7,7 @@ type DividerProps = {
 const Divider: FC<DividerProps> = ({ width }) => {
 	return (
 		<div
-			className={`h-[2px] bg-accent`}
+			className={`min-h-[2px] max-h-[2px] bg-accent`}
 			style={{
 				minWidth: `${width}%`,
 				maxWidth: `${width}%`,

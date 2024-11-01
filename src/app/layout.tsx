@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import "./globals.css";
+import NavMobile from "@/components/NavMobile/NavMobile";
+import CookieConsentBanner from "@/components/CookieConsent/CookieConsentBanner";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -15,9 +18,17 @@ export default function RootLayout({
 	return (
 		<html lang='pl'>
 			<head>
-			<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic:wght@400&family=Oswald:wght@400&display=swap" rel="stylesheet" />
+				<link
+					href='https://fonts.googleapis.com/css2?family=Didact+Gothic:wght@400&family=Oswald:wght@400&display=swap'
+					rel='stylesheet'
+				/>
 			</head>
-			<body>{children}</body>
+			<body>
+				<NavMobile />
+				{children}
+				<Footer/>
+				<CookieConsentBanner/>
+			</body>
 		</html>
 	);
 }

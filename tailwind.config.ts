@@ -35,17 +35,22 @@ const config: Config = {
 					"0%": { opacity: "0", transform: "translateY(-100%)" },
 					"100%": { opacity: "1", transform: "translateY(0)" },
 				},
-				"scale-in-center":{
-					"0%": {	scale:"0",opacity: "0"},
-					"100%":{scale:"1",opacity:"1"}
-				}
+				"scale-in-center": {
+					"0%": { scale: "0", opacity: "0" },
+					"100%": { scale: "1", opacity: "1" },
+				},
+				scale: {
+					"0%": { transform: "scale(1)" },
+					"100%": { transform: "scale(1.05)" },
+				},
 			},
 			animation: {
 				"fade-left": "fade-left 0.5s ease-out",
 				"fade-right": "fade-right 1s ease-out",
 				"fade-up": "fade-up 0.5s ease-out",
 				"fade-down": "fade-down 0.5s ease-out",
-				"scale-in-center": "scale-in-center 0.3s ease-out"
+				"scale-in-center": "scale-in-center 0.3s ease-out",
+				"scale-up": "scale 0.5s ease-in-out forwards",
 			},
 		},
 	},

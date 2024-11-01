@@ -80,7 +80,7 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 	};
 
 	return (
-		<section>
+		<section className="w-full flex flex-col justify-center">
 			<div className='flex justify-center m-1 pb-5'>
 				<button
 					className={`px-4 py-2 w-[35%]  ${
@@ -114,7 +114,7 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 				</button>
 			</div>
 
-			<div className='min-h-[40svh] grid grid-cols-2 m-1'>
+			<div className='w-full min-h-[40svh] grid justify-center items-center grid-cols-2 md:max-w-[80%] mx-auto lg:grid-cols-4 lg:max-w-full '>
 				{images[activeCategory]?.map((image, index) => (
 					<div
 						onClick={() => openLightbox(image.mediaItemUrl || "", index)}
@@ -127,7 +127,7 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 							width={400}
 							height={400}
 							priority
-                            className="animate-scale-in-center"
+							className='animate-scale-in-center lg:max-h-[320px] lg:object-cover'
 						/>
 					</div>
 				))}

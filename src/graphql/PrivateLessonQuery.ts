@@ -11,6 +11,13 @@ export const PRIVATE_LESSON_CONTENT = gql`
 				}
 				czasTrwania
 				cena
+				individualLessonGalleryBox {
+					nodes {
+						altText
+						mediaItemUrl
+						slug
+					}
+				}
 			}
 		}
 	}

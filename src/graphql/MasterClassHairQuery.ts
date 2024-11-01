@@ -13,6 +13,13 @@ export const MASTERCLASS_HAIR_CONTENT = gql`
 					priceBox
 				}
 				titleBox
+				profHairGalleryBox {
+					nodes {
+						altText
+						mediaItemUrl
+						slug
+					}
+				}
 			}
 		}
 	}

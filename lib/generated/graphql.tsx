@@ -3910,6 +3910,8 @@ export type IndividualMasterclass = AcfFieldGroup & AcfFieldGroupFields & Indivi
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** individualLessonGalleryItem */
+  individualLessonGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** Field of the &quot;repeater&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
   masterclassdescription?: Maybe<Array<Maybe<IndividualMasterclassMasterclassdescription>>>;
   /** podtytulItem */
@@ -3918,6 +3920,15 @@ export type IndividualMasterclass = AcfFieldGroup & AcfFieldGroupFields & Indivi
   sectionpicture?: Maybe<AcfMediaItemConnectionEdge>;
   /** titleItem */
   tytulSzkolenia?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** The &quot;IndividualMasterclass&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type IndividualMasterclassIndividualLessonGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The &quot;IndividualMasterclassMasterclassdescription&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -3954,6 +3965,8 @@ export type IndividualMasterclass_Fields = {
    * @deprecated Use __typename instead
    */
   fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** individualLessonGalleryItem */
+  individualLessonGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** Field of the &quot;repeater&quot; Field Type added to the schema as part of the &quot;IndividualMasterclass&quot; Field Group */
   masterclassdescription?: Maybe<Array<Maybe<IndividualMasterclassMasterclassdescription>>>;
   /** podtytulItem */
@@ -3962,6 +3975,15 @@ export type IndividualMasterclass_Fields = {
   sectionpicture?: Maybe<AcfMediaItemConnectionEdge>;
   /** titleItem */
   tytulSzkolenia?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** Interface representing fields of the ACF &quot;IndividualMasterclass&quot; Field Group */
+export type IndividualMasterclass_FieldsIndividualLessonGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The Link type */
@@ -5648,7 +5670,7 @@ export enum OrderEnum {
 }
 
 /** The page type */
-export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfContactSection & WithAcfCta & WithAcfPageHeaderPole & WithAcfPrizeListAcF & WithAcfServiceRegulationBox & WithAcfVoucherBox & {
+export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & HierarchicalNode & MenuItemLinkable & Node & NodeWithAuthor & NodeWithComments & NodeWithContentEditor & NodeWithFeaturedImage & NodeWithPageAttributes & NodeWithRevisions & NodeWithTemplate & NodeWithTitle & Previewable & UniformResourceIdentifiable & WithAcfContactSection & WithAcfCta & WithAcfPageHeaderPole & WithAcfPakietSlubnyPole & WithAcfPrizeListAcF & WithAcfServiceRegulationBox & WithAcfVoucherBox & {
   __typename?: 'Page';
   /** Returns ancestors of the node. Default ordered as lowest (closest to the child) to highest (closest to the root). */
   ancestors?: Maybe<HierarchicalContentNodeToContentNodeAncestorsConnection>;
@@ -5741,6 +5763,8 @@ export type Page = ContentNode & DatabaseIdentifier & HierarchicalContentNode & 
    * @deprecated Deprecated in favor of the databaseId field
    */
   pageId: Scalars['Int']['output'];
+  /** Fields of the PakietSlubnyPole ACF Field Group */
+  pakietSlubnyPole?: Maybe<PakietSlubnyPole>;
   /** The parent of the node. The parent object can be of various types */
   parent?: Maybe<HierarchicalContentNodeToParentContentNodeConnectionEdge>;
   /** Database id of the parent node */
@@ -6125,6 +6149,125 @@ export type PageToRevisionConnectionWhereArgs = {
   status?: InputMaybe<PostStatusEnum>;
   /** Title of the object */
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+/** The &quot;PakietSlubnyPole&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type PakietSlubnyPole = AcfFieldGroup & AcfFieldGroupFields & PakietSlubnyPole_Fields & {
+  __typename?: 'PakietSlubnyPole';
+  /** cenaBasicItem */
+  cenaBasicBox?: Maybe<Scalars['String']['output']>;
+  /** cenaVipItem */
+  cenaVipBox?: Maybe<Scalars['String']['output']>;
+  /** czasTrwaniaBasicItem */
+  czasTrwaniaBasicBox?: Maybe<Scalars['String']['output']>;
+  /** czasTrwaniaVipItem */
+  czasTrwaniaVipBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** pakietSlubnyGaleriaItem */
+  pakietSlubnyGaleriaBox?: Maybe<AcfMediaItemConnection>;
+  /** pakietSlubnyOpisItem */
+  pakietSlubnyOpisBox?: Maybe<Scalars['String']['output']>;
+  /** pakietSlubnyVipZdjecieItem */
+  pakietSlubnyVipZdjecieBox?: Maybe<AcfMediaItemConnectionEdge>;
+  /** uslugaBasicItem */
+  uslugaBasicBox?: Maybe<Array<Maybe<PakietSlubnyPoleUslugaBasicBox>>>;
+  /** uslugaVipItem */
+  uslugaVipBox?: Maybe<Array<Maybe<PakietSlubnyPoleUslugaVipBox>>>;
+};
+
+
+/** The &quot;PakietSlubnyPole&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type PakietSlubnyPolePakietSlubnyGaleriaBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
+};
+
+/** The &quot;PakietSlubnyPoleUslugaBasicBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type PakietSlubnyPoleUslugaBasicBox = AcfFieldGroup & AcfFieldGroupFields & PakietSlubnyPoleUslugaBasicBox_Fields & {
+  __typename?: 'PakietSlubnyPoleUslugaBasicBox';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Item */
+  nazwaUslugiBasicBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;PakietSlubnyPoleUslugaBasicBox&quot; Field Group */
+export type PakietSlubnyPoleUslugaBasicBox_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** Item */
+  nazwaUslugiBasicBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** The &quot;PakietSlubnyPoleUslugaVipBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type PakietSlubnyPoleUslugaVipBox = AcfFieldGroup & AcfFieldGroupFields & PakietSlubnyPoleUslugaVipBox_Fields & {
+  __typename?: 'PakietSlubnyPoleUslugaVipBox';
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** nazwaUslugiVipItem */
+  nazwaUslugiVipBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;PakietSlubnyPoleUslugaVipBox&quot; Field Group */
+export type PakietSlubnyPoleUslugaVipBox_Fields = {
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** nazwaUslugiVipItem */
+  nazwaUslugiVipBox?: Maybe<Scalars['String']['output']>;
+};
+
+/** Interface representing fields of the ACF &quot;PakietSlubnyPole&quot; Field Group */
+export type PakietSlubnyPole_Fields = {
+  /** cenaBasicItem */
+  cenaBasicBox?: Maybe<Scalars['String']['output']>;
+  /** cenaVipItem */
+  cenaVipBox?: Maybe<Scalars['String']['output']>;
+  /** czasTrwaniaBasicItem */
+  czasTrwaniaBasicBox?: Maybe<Scalars['String']['output']>;
+  /** czasTrwaniaVipItem */
+  czasTrwaniaVipBox?: Maybe<Scalars['String']['output']>;
+  /**
+   * The name of the field group
+   * @deprecated Use __typename instead
+   */
+  fieldGroupName?: Maybe<Scalars['String']['output']>;
+  /** pakietSlubnyGaleriaItem */
+  pakietSlubnyGaleriaBox?: Maybe<AcfMediaItemConnection>;
+  /** pakietSlubnyOpisItem */
+  pakietSlubnyOpisBox?: Maybe<Scalars['String']['output']>;
+  /** pakietSlubnyVipZdjecieItem */
+  pakietSlubnyVipZdjecieBox?: Maybe<AcfMediaItemConnectionEdge>;
+  /** uslugaBasicItem */
+  uslugaBasicBox?: Maybe<Array<Maybe<PakietSlubnyPoleUslugaBasicBox>>>;
+  /** uslugaVipItem */
+  uslugaVipBox?: Maybe<Array<Maybe<PakietSlubnyPoleUslugaVipBox>>>;
+};
+
+
+/** Interface representing fields of the ACF &quot;PakietSlubnyPole&quot; Field Group */
+export type PakietSlubnyPole_FieldsPakietSlubnyGaleriaBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** An plugin object */
@@ -7706,12 +7849,23 @@ export type ProfMakeup = AcfFieldGroup & AcfFieldGroupFields & ProfMakeup_Fields
   opisDolnyBox?: Maybe<Scalars['String']['output']>;
   /** productListItem */
   productlistBox?: Maybe<Array<Maybe<ProfMakeupProductlistBox>>>;
+  /** profMakeupGalleryItem */
+  profMakeupGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** scopeoftrainingBoxItem */
   scopeoftrainingBox?: Maybe<Array<Maybe<ProfMakeupScopeoftrainingBox>>>;
   /** subtitleItem */
   subtitleBox?: Maybe<Scalars['String']['output']>;
   /** titleItem */
   titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** The &quot;ProfMakeup&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfMakeupProfMakeupGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The &quot;ProfMakeupProductlistBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -7781,12 +7935,23 @@ export type ProfMakeup_Fields = {
   opisDolnyBox?: Maybe<Scalars['String']['output']>;
   /** productListItem */
   productlistBox?: Maybe<Array<Maybe<ProfMakeupProductlistBox>>>;
+  /** profMakeupGalleryItem */
+  profMakeupGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** scopeoftrainingBoxItem */
   scopeoftrainingBox?: Maybe<Array<Maybe<ProfMakeupScopeoftrainingBox>>>;
   /** subtitleItem */
   subtitleBox?: Maybe<Scalars['String']['output']>;
   /** titleItem */
   titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** Interface representing fields of the ACF &quot;ProfMakeup&quot; Field Group */
+export type ProfMakeup_FieldsProfMakeupGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The &quot;ProfessionalHair&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -7805,8 +7970,19 @@ export type ProfessionalHair = AcfFieldGroup & AcfFieldGroupFields & Professiona
   opisDolnyBox?: Maybe<Scalars['String']['output']>;
   /** productListItem */
   productListBox?: Maybe<Array<Maybe<ProfessionalHairProductListBox>>>;
+  /** profHairGalleryItem */
+  profHairGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** titleItem */
   titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** The &quot;ProfessionalHair&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
+export type ProfessionalHairProfHairGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The &quot;ProfessionalHairProductListBox&quot; Field Group. Added to the Schema by &quot;WPGraphQL for ACF&quot;. */
@@ -7855,8 +8031,19 @@ export type ProfessionalHair_Fields = {
   opisDolnyBox?: Maybe<Scalars['String']['output']>;
   /** productListItem */
   productListBox?: Maybe<Array<Maybe<ProfessionalHairProductListBox>>>;
+  /** profHairGalleryItem */
+  profHairGalleryBox?: Maybe<AcfMediaItemConnection>;
   /** titleItem */
   titleBox?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** Interface representing fields of the ACF &quot;ProfessionalHair&quot; Field Group */
+export type ProfessionalHair_FieldsProfHairGalleryBoxArgs = {
+  after?: InputMaybe<Scalars['String']['input']>;
+  before?: InputMaybe<Scalars['String']['input']>;
+  first?: InputMaybe<Scalars['Int']['input']>;
+  last?: InputMaybe<Scalars['Int']['input']>;
 };
 
 /** The reading setting type */
@@ -14256,6 +14443,12 @@ export type WithAcfPageHeaderPole = {
   pageHeaderPole?: Maybe<PageHeaderPole>;
 };
 
+/** Provides access to fields of the &quot;PakietSlubnyPole&quot; ACF Field Group via the &quot;pakietSlubnyPole&quot; field */
+export type WithAcfPakietSlubnyPole = {
+  /** Fields of the PakietSlubnyPole ACF Field Group */
+  pakietSlubnyPole?: Maybe<PakietSlubnyPole>;
+};
+
 /** Provides access to fields of the &quot;PrizeListAcF&quot; ACF Field Group via the &quot;prizeListAcF&quot; field */
 export type WithAcfPrizeListAcF = {
   /** Fields of the PrizeListAcF ACF Field Group */
@@ -14342,12 +14535,12 @@ export type LogoContentQuery = { __typename?: 'RootQuery', allLogo?: { __typenam
 export type MasterClassHairContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MasterClassHairContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', professionalHair?: { __typename?: 'ProfessionalHair', czasTrwaniaBox?: string | null, descriptionBox?: string | null, opisDolnyBox?: string | null, titleBox?: string | null, productListBox?: Array<{ __typename?: 'ProfessionalHairProductListBox', iloscTypowBox?: string | null, nazwaProduktuBox?: string | null, priceBox?: string | null } | null> | null } | null } | null };
+export type MasterClassHairContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', professionalHair?: { __typename?: 'ProfessionalHair', czasTrwaniaBox?: string | null, descriptionBox?: string | null, opisDolnyBox?: string | null, titleBox?: string | null, productListBox?: Array<{ __typename?: 'ProfessionalHairProductListBox', iloscTypowBox?: string | null, nazwaProduktuBox?: string | null, priceBox?: string | null } | null> | null, profHairGalleryBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null } | null };
 
 export type MasterClassMakeUpContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MasterClassMakeUpContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', profMakeup?: { __typename?: 'ProfMakeup', titleBox?: string | null, subtitleBox?: string | null, opisDolnyBox?: string | null, scopeoftrainingBox?: Array<{ __typename?: 'ProfMakeupScopeoftrainingBox', elementListyBox?: string | null } | null> | null, productlistBox?: Array<{ __typename?: 'ProfMakeupProductlistBox', iloscTypowBox?: string | null, priceBox?: string | null, titleBox?: string | null } | null> | null, ewentualneZdjecieBox?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
+export type MasterClassMakeUpContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', profMakeup?: { __typename?: 'ProfMakeup', titleBox?: string | null, subtitleBox?: string | null, opisDolnyBox?: string | null, scopeoftrainingBox?: Array<{ __typename?: 'ProfMakeupScopeoftrainingBox', elementListyBox?: string | null } | null> | null, productlistBox?: Array<{ __typename?: 'ProfMakeupProductlistBox', iloscTypowBox?: string | null, priceBox?: string | null, titleBox?: string | null } | null> | null, ewentualneZdjecieBox?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null, profMakeupGalleryBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null } | null };
 
 export type HeaderContentQueryVariables = Exact<{
   pageId: Scalars['Int']['input'];
@@ -14364,7 +14557,12 @@ export type PriceListContentQuery = { __typename?: 'RootQuery', pageBy?: { __typ
 export type PrivateLessonContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PrivateLessonContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', individualMasterclass?: { __typename?: 'IndividualMasterclass', tytulSzkolenia?: string | null, podtytul?: string | null, czasTrwania?: string | null, cena?: string | null, masterclassdescription?: Array<{ __typename?: 'IndividualMasterclassMasterclassdescription', listElementBox?: string | null } | null> | null } | null } | null };
+export type PrivateLessonContentQuery = { __typename?: 'RootQuery', szkoleniaTypeBy?: { __typename?: 'SzkoleniaType', individualMasterclass?: { __typename?: 'IndividualMasterclass', tytulSzkolenia?: string | null, podtytul?: string | null, czasTrwania?: string | null, cena?: string | null, masterclassdescription?: Array<{ __typename?: 'IndividualMasterclassMasterclassdescription', listElementBox?: string | null } | null> | null, individualLessonGalleryBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null } | null };
+
+export type RegulationContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RegulationContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', title?: string | null, serviceRegulationBox?: { __typename?: 'ServiceRegulationBox', regulationtitle?: string | null, serviceregulationdescriptionBox?: Array<{ __typename?: 'ServiceRegulationBoxServiceregulationdescriptionBox', dodajPunktDoRegulaminuBox?: string | null } | null> | null } | null } | null };
 
 export type SocialMediaContentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -14375,6 +14573,11 @@ export type VoucherContentQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type VoucherContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', voucherBox?: { __typename?: 'VoucherBox', pagetitle?: string | null, voucherDescriptionBox?: string | null, voucherPictureHead?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null, voucherpicture?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null } } | null } | null } | null };
+
+export type WeddingPackageContentQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type WeddingPackageContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', pakietSlubnyPole?: { __typename?: 'PakietSlubnyPole', cenaBasicBox?: string | null, czasTrwaniaBasicBox?: string | null, cenaVipBox?: string | null, czasTrwaniaVipBox?: string | null, pakietSlubnyOpisBox?: string | null, uslugaBasicBox?: Array<{ __typename?: 'PakietSlubnyPoleUslugaBasicBox', nazwaUslugiBasicBox?: string | null } | null> | null, uslugaVipBox?: Array<{ __typename?: 'PakietSlubnyPoleUslugaVipBox', nazwaUslugiVipBox?: string | null } | null> | null, pakietSlubnyGaleriaBox?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', mediaItemUrl?: string | null, altText?: string | null, slug?: string | null }> } | null, pakietSlubnyVipZdjecieBox?: { __typename?: 'AcfMediaItemConnectionEdge', node: { __typename?: 'MediaItem', mediaItemUrl?: string | null, altText?: string | null, slug?: string | null } } | null } | null } | null };
 
 export type WeddingPortfolioContentQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -14689,6 +14892,13 @@ export const MasterClassHairContentDocument = gql`
         priceBox
       }
       titleBox
+      profHairGalleryBox {
+        nodes {
+          altText
+          mediaItemUrl
+          slug
+        }
+      }
     }
   }
 }
@@ -14742,6 +14952,13 @@ export const MasterClassMakeUpContentDocument = gql`
       opisDolnyBox
       ewentualneZdjecieBox {
         node {
+          altText
+          mediaItemUrl
+          slug
+        }
+      }
+      profMakeupGalleryBox {
+        nodes {
           altText
           mediaItemUrl
           slug
@@ -14893,6 +15110,13 @@ export const PrivateLessonContentDocument = gql`
       }
       czasTrwania
       cena
+      individualLessonGalleryBox {
+        nodes {
+          altText
+          mediaItemUrl
+          slug
+        }
+      }
     }
   }
 }
@@ -14929,6 +15153,51 @@ export type PrivateLessonContentQueryHookResult = ReturnType<typeof usePrivateLe
 export type PrivateLessonContentLazyQueryHookResult = ReturnType<typeof usePrivateLessonContentLazyQuery>;
 export type PrivateLessonContentSuspenseQueryHookResult = ReturnType<typeof usePrivateLessonContentSuspenseQuery>;
 export type PrivateLessonContentQueryResult = Apollo.QueryResult<PrivateLessonContentQuery, PrivateLessonContentQueryVariables>;
+export const RegulationContentDocument = gql`
+    query RegulationContent {
+  pageBy(pageId: 146) {
+    title(format: RENDERED)
+    serviceRegulationBox {
+      regulationtitle
+      serviceregulationdescriptionBox {
+        dodajPunktDoRegulaminuBox
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useRegulationContentQuery__
+ *
+ * To run a query within a React component, call `useRegulationContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useRegulationContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useRegulationContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRegulationContentQuery(baseOptions?: Apollo.QueryHookOptions<RegulationContentQuery, RegulationContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<RegulationContentQuery, RegulationContentQueryVariables>(RegulationContentDocument, options);
+      }
+export function useRegulationContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<RegulationContentQuery, RegulationContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<RegulationContentQuery, RegulationContentQueryVariables>(RegulationContentDocument, options);
+        }
+export function useRegulationContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<RegulationContentQuery, RegulationContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<RegulationContentQuery, RegulationContentQueryVariables>(RegulationContentDocument, options);
+        }
+export type RegulationContentQueryHookResult = ReturnType<typeof useRegulationContentQuery>;
+export type RegulationContentLazyQueryHookResult = ReturnType<typeof useRegulationContentLazyQuery>;
+export type RegulationContentSuspenseQueryHookResult = ReturnType<typeof useRegulationContentSuspenseQuery>;
+export type RegulationContentQueryResult = Apollo.QueryResult<RegulationContentQuery, RegulationContentQueryVariables>;
 export const SocialMediaContentDocument = gql`
     query SocialMediaContent {
   linkiSpoEcznoCiowe {
@@ -15029,6 +15298,71 @@ export type VoucherContentQueryHookResult = ReturnType<typeof useVoucherContentQ
 export type VoucherContentLazyQueryHookResult = ReturnType<typeof useVoucherContentLazyQuery>;
 export type VoucherContentSuspenseQueryHookResult = ReturnType<typeof useVoucherContentSuspenseQuery>;
 export type VoucherContentQueryResult = Apollo.QueryResult<VoucherContentQuery, VoucherContentQueryVariables>;
+export const WeddingPackageContentDocument = gql`
+    query WeddingPackageContent {
+  pageBy(pageId: 18) {
+    pakietSlubnyPole {
+      uslugaBasicBox {
+        nazwaUslugiBasicBox
+      }
+      cenaBasicBox
+      czasTrwaniaBasicBox
+      uslugaVipBox {
+        nazwaUslugiVipBox
+      }
+      cenaVipBox
+      czasTrwaniaVipBox
+      pakietSlubnyOpisBox
+      pakietSlubnyGaleriaBox {
+        nodes {
+          mediaItemUrl
+          altText
+          slug
+        }
+      }
+      pakietSlubnyVipZdjecieBox {
+        node {
+          mediaItemUrl
+          altText
+          slug
+        }
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useWeddingPackageContentQuery__
+ *
+ * To run a query within a React component, call `useWeddingPackageContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useWeddingPackageContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useWeddingPackageContentQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useWeddingPackageContentQuery(baseOptions?: Apollo.QueryHookOptions<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>(WeddingPackageContentDocument, options);
+      }
+export function useWeddingPackageContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>(WeddingPackageContentDocument, options);
+        }
+export function useWeddingPackageContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>(WeddingPackageContentDocument, options);
+        }
+export type WeddingPackageContentQueryHookResult = ReturnType<typeof useWeddingPackageContentQuery>;
+export type WeddingPackageContentLazyQueryHookResult = ReturnType<typeof useWeddingPackageContentLazyQuery>;
+export type WeddingPackageContentSuspenseQueryHookResult = ReturnType<typeof useWeddingPackageContentSuspenseQuery>;
+export type WeddingPackageContentQueryResult = Apollo.QueryResult<WeddingPackageContentQuery, WeddingPackageContentQueryVariables>;
 export const WeddingPortfolioContentDocument = gql`
     query WeddingPortfolioContent {
   makeUpWedding {

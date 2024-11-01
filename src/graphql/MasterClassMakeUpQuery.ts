@@ -22,6 +22,13 @@ export const MASTERCLASS_MAKEUP_CONTENT = gql`
 						slug
 					}
 				}
+				profMakeupGalleryBox {
+					nodes {
+						altText
+						mediaItemUrl
+						slug
+					}
+				}
 			}
 		}
 	}
