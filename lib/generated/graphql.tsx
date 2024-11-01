@@ -15,6 +15,7 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   JSON: { input: any; output: any; }
 };
 
