@@ -51,7 +51,7 @@ const ContactForm: React.FC = () => {
 				setStatus(`Błąd: ${result.message}`);
 			}
 		} catch (error) {
-			setStatus("Wystąpił błąd podczas wysyłania wiadomości.");
+			setStatus(`${error}`);
 		}
 	};
 

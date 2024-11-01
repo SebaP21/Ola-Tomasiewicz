@@ -16,8 +16,7 @@ const HairTraining = async () => {
 		data.szkoleniaTypeBy?.professionalHair?.opisDolnyBox;
 	const gallery =
 		data.szkoleniaTypeBy?.professionalHair?.profHairGalleryBox?.nodes;
-	const time = data.szkoleniaTypeBy?.professionalHair?.czasTrwaniaBox;
-
+	
 	return (
 		<section
 			id='ze-stylizacji-fryzur'
@@ -30,9 +29,9 @@ const HairTraining = async () => {
 				</div>
 				<p>{subtitle}</p>
 				<div className='flex flex-col gap-6'>
-					{productList?.map((product) => (
+					{productList?.map((product,index) => (
 						<div
-							key={`${product?.nazwaProduktuBox} ${product?.priceBox}`}
+							key={index}
 							className='flex flex-col gap-2'
 						>
 							<h4>{product?.nazwaProduktuBox}</h4>
@@ -49,7 +48,9 @@ const HairTraining = async () => {
 				</div>
 				<div className='grid grid-cols-2 gap-1 '>
 					{gallery?.map((picture) => (
-						<div className='overflow-hidden max-h-[60svh]'>
+						<div 
+						key={picture.mediaItemUrl}
+						className='overflow-hidden max-h-[60svh]'>
 							<Image
 								src={picture.mediaItemUrl || ""}
 								alt={picture.altText || ""}

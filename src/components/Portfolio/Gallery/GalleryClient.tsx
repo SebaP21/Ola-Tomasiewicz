@@ -37,6 +37,8 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 	const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
+	console.log(currentIndex);
+
 	const handleCategoryChange = (
 		category: "individual" | "wedding" | "hair"
 	) => {
@@ -55,32 +57,8 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 		setLightboxImage(null);
 	};
 
-	const nextImage = () => {
-		if (
-			images[activeCategory] &&
-			images[activeCategory].length > 0 &&
-			currentIndex < images[activeCategory].length - 1
-		) {
-			setCurrentIndex(currentIndex + 1);
-		} else {
-			closeLightbox();
-		}
-	};
-
-	const prevImage = () => {
-		if (
-			images[activeCategory] &&
-			images[activeCategory].length > 0 &&
-			currentIndex > 0
-		) {
-			setCurrentIndex(currentIndex - 1);
-		} else {
-			closeLightbox();
-		}
-	};
-
 	return (
-		<section className="w-full flex flex-col justify-center">
+		<section className='w-full flex flex-col justify-center'>
 			<div className='flex justify-center m-1 pb-5'>
 				<button
 					className={`px-4 py-2 w-[35%]  ${
@@ -140,11 +118,7 @@ const GalleryClient: React.FC<ClientGalleryProps> = ({ images }) => {
 					<Lightbox
 						imageUrl={lightboxImage}
 						imageAlt=''
-						currentIndex={currentIndex}
-						totalImages={images[activeCategory]?.length || 0}
 						onClose={closeLightbox}
-						onNext={nextImage}
-						onPrev={prevImage}
 					/>
 				)}
 		</section>

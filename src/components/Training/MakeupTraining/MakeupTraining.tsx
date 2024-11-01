@@ -67,8 +67,10 @@ const MakeUpTraining = async () => {
 				</div>
 				</div>
 				<div className='grid grid-cols-2 gap-1 '>
-					{gallery?.map((picture) => (
-						<div className='overflow-hidden lg:max-h-[60svh]'>
+					{gallery?.map((picture,index) => (
+						<div
+						key={index}
+						className='overflow-hidden lg:max-h-[60svh]'>
 							<Image
 								src={picture.mediaItemUrl || ""}
 								alt={picture.altText || ""}
