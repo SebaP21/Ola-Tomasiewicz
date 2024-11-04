@@ -18,16 +18,16 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 	const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(new Set());
 	const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-	// Zmieniamy cień co 2 sekundy
+	
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setShadowIndex((prevIndex) => (prevIndex + 1) % 3);
-		}, 2000);
+		}, 1500);
 
 		return () => clearInterval(interval);
 	}, []);
 
-	// Funkcja do obserwowania widoczności elementów
+	
 	const observeImages = useCallback(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -35,7 +35,7 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 					const index = Number(entry.target.getAttribute("data-index"));
 					if (entry.isIntersecting) {
 						setVisibleIndexes((prev) => new Set(prev).add(index));
-						observer.unobserve(entry.target); // Przestajemy obserwować widoczny element
+						observer.unobserve(entry.target); 
 					}
 				});
 			},
@@ -49,7 +49,7 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 		return () => observer.disconnect();
 	}, []);
 
-	// Uruchamiamy obserwowanie zdjęć po załadowaniu galerii
+	
 	useEffect(() => {
 		if (gallery && gallery.length > 0) {
 			observeImages();
@@ -69,14 +69,15 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 				return (
 					<div
 						key={index}
-						className={`overflow-hidden relative transition-opacity duration-1000 ${
+						className={`overflow-hidden relative transition-opacity duration-1000 cursor-pointer ${
 							visibleIndexes.has(index) ? "opacity-100" : "opacity-0"
 						}`}
 						data-index={index}
 						ref={(el) => { imageRefs.current[index] = el }}
-						onMouseEnter={() => setIsHovered(true)} // Ustawienie stanu hover
-						onMouseLeave={() => setIsHovered(false)} // Resetowanie stanu hover
-						onClick={handleClick} // Obsługa kliknięcia
+						onMouseEnter={() => setIsHovered(true)} 
+						onMouseLeave={() => setIsHovered(false)} 
+						onTouchStart={handleClick} 
+						onClick={handleClick} 
 					>
 						<Image
 							src={picture.mediaItemUrl || ""}
@@ -86,7 +87,7 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 							className='w-full h-full object-cover'
 						/>
 
-						{/* Animowany cień, tylko jeśli nie ma hovera lub kliknięcia */}
+						
 						<div
 							className={`absolute inset-0 shadow-layer ${
 								shadowIndex === 0 && !isClicked ? "opacity-100" : "opacity-0"
