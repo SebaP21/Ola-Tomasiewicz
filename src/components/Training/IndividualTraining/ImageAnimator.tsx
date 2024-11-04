@@ -16,18 +16,21 @@ type AnimatedGalleryProps = {
 const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 	const [shadowIndex, setShadowIndex] = useState<number>(0);
 	const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(new Set());
-	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+	const [hoverIndex, setHoverIndex] = useState<number | null>(null); // stan śledzenia hovera lub kliknięcia
 	const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+	// Zmieniamy cień co 2 sekundy, jeśli nie ma hovera lub kliknięcia
 	useEffect(() => {
-		if (hoverIndex !== null) return;
+		if (hoverIndex !== null) return; // Zatrzymaj animację, jeśli jest hover lub klik na zdjęciu
+
 		const interval = setInterval(() => {
 			setShadowIndex((prevIndex) => (prevIndex + 1) % 3);
-		}, 1500);
+		}, 2000);
 
 		return () => clearInterval(interval);
 	}, [hoverIndex]);
 
+	// Funkcja do obserwowania widoczności elementów
 	const observeImages = useCallback(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -35,7 +38,7 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 					const index = Number(entry.target.getAttribute("data-index"));
 					if (entry.isIntersecting) {
 						setVisibleIndexes((prev) => new Set(prev).add(index));
-						observer.unobserve(entry.target);
+						observer.unobserve(entry.target); // Przestajemy obserwować widoczny element
 					}
 				});
 			},
@@ -49,11 +52,17 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 		return () => observer.disconnect();
 	}, []);
 
+	// Uruchamiamy obserwowanie zdjęć po załadowaniu galerii
 	useEffect(() => {
 		if (gallery && gallery.length > 0) {
 			observeImages();
 		}
 	}, [gallery, observeImages]);
+
+	// Funkcja do obsługi kliknięć na mobilnych
+	const handleImageClick = (index: number) => {
+		setHoverIndex((prevIndex) => (prevIndex === index ? null : index));
+	};
 
 	return (
 		<div className='grid grid-cols-1 gap-1 lg:grid-cols-2'>
@@ -64,11 +73,10 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 						visibleIndexes.has(index) ? "opacity-100" : "opacity-0"
 					}`}
 					data-index={index}
-					ref={(el) => {
-						imageRefs.current[index] = el;
-					}}
-					onMouseEnter={() => setHoverIndex(index)}
-					onMouseLeave={() => setHoverIndex(null)}
+					ref={(el) => { imageRefs.current[index] = el }}
+					onMouseEnter={() => setHoverIndex(index)} // włączamy hover na zdjęcie
+					onMouseLeave={() => setHoverIndex(null)} // wyłączamy hover na zdjęcie
+					onClick={() => handleImageClick(index)} // obsługa kliknięcia na mobilnych
 				>
 					<Image
 						src={picture.mediaItemUrl || ""}
@@ -78,25 +86,20 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 						className='w-full h-full object-cover'
 					/>
 
+					{/* Animowany cień, tylko jeśli nie ma hovera lub kliknięcia */}
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 0 && hoverIndex !== index
-								? "opacity-100"
-								: "opacity-0"
+							shadowIndex === 0 && hoverIndex !== index ? "opacity-100" : "opacity-0"
 						} shadow-right`}
 					></div>
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 1 && hoverIndex !== index
-								? "opacity-100"
-								: "opacity-0"
+							shadowIndex === 1 && hoverIndex !== index ? "opacity-100" : "opacity-0"
 						} shadow-left`}
 					></div>
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 2 && hoverIndex !== index
-								? "opacity-100"
-								: "opacity-0"
+							shadowIndex === 2 && hoverIndex !== index ? "opacity-100" : "opacity-0"
 						} no-shadow`}
 					></div>
 				</div>
