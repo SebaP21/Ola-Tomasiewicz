@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import Image from "next/image";
 
 type MediaItem = {
@@ -15,21 +15,60 @@ type AnimatedGalleryProps = {
 
 const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 	const [shadowIndex, setShadowIndex] = useState<number>(0);
+	const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(new Set());
+	const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+	const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
 	useEffect(() => {
+		if (hoverIndex !== null) return;
 		const interval = setInterval(() => {
 			setShadowIndex((prevIndex) => (prevIndex + 1) % 3);
-		}, 2000);
+		}, 1500);
 
 		return () => clearInterval(interval);
+	}, [hoverIndex]);
+
+	const observeImages = useCallback(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					const index = Number(entry.target.getAttribute("data-index"));
+					if (entry.isIntersecting) {
+						setVisibleIndexes((prev) => new Set(prev).add(index));
+						observer.unobserve(entry.target);
+					}
+				});
+			},
+			{ threshold: 0.5 }
+		);
+
+		imageRefs.current.forEach((ref) => {
+			if (ref) observer.observe(ref);
+		});
+
+		return () => observer.disconnect();
 	}, []);
+
+	useEffect(() => {
+		if (gallery && gallery.length > 0) {
+			observeImages();
+		}
+	}, [gallery, observeImages]);
 
 	return (
 		<div className='grid grid-cols-1 gap-1 lg:grid-cols-2'>
 			{gallery?.map((picture, index) => (
 				<div
 					key={index}
-					className='overflow-hidden relative'
+					className={`overflow-hidden relative transition-opacity duration-1000 ${
+						visibleIndexes.has(index) ? "opacity-100" : "opacity-0"
+					}`}
+					data-index={index}
+					ref={(el) => {
+						imageRefs.current[index] = el;
+					}}
+					onMouseEnter={() => setHoverIndex(index)}
+					onMouseLeave={() => setHoverIndex(null)}
 				>
 					<Image
 						src={picture.mediaItemUrl || ""}
@@ -41,17 +80,23 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 0 ? "opacity-100" : "opacity-0"
+							shadowIndex === 0 && hoverIndex !== index
+								? "opacity-100"
+								: "opacity-0"
 						} shadow-right`}
 					></div>
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 1 ? "opacity-100" : "opacity-0"
+							shadowIndex === 1 && hoverIndex !== index
+								? "opacity-100"
+								: "opacity-0"
 						} shadow-left`}
 					></div>
 					<div
 						className={`absolute inset-0 shadow-layer ${
-							shadowIndex === 2 ? "opacity-100" : "opacity-0"
+							shadowIndex === 2 && hoverIndex !== index
+								? "opacity-100"
+								: "opacity-0"
 						} no-shadow`}
 					></div>
 				</div>

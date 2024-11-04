@@ -12,7 +12,7 @@ const StatuteBox = async () => {
 
 	return (
 		<div className="min-h-[50svh]">
-			<ol>
+			<ol className="list-decimal list-inside">
 				{regulationBox?.map((item,index) => (
 					<li key={index}>{item?.dodajPunktDoRegulaminuBox}</li>
 				))}
