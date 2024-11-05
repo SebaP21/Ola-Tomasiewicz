@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "../../assets/pictures/ZNAK WODNY CZARNY_Obszar roboczy 1.png"; // Upewnij się, że ścieżka jest poprawna
-import logoWhite from "../../assets/pictures/ZNAK WODNY BIAŁY_Obszar roboczy 1.png"; // Upewnij się, że ścieżka jest poprawna
+
 
 const AnimationMain = () => {
 	const [isVisible, setIsVisible] = useState(true);
