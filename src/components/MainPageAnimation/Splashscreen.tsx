@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../../assets/pictures/ZNAK WODNY CZARNY_Obszar roboczy 1.png"; // Upewnij się, że ścieżka jest poprawna
+import logo from "../../assets/pictures/ZNAK WODNY CZARNY_Obszar roboczy 1.png";
 
 const AnimationMain = () => {
 	const [animationState, setAnimationState] = useState("start");
@@ -33,7 +33,6 @@ const AnimationMain = () => {
 					}`}
 				>
 					<div className='min-w-[1px] right-0 bottom-0 h-[0.5px] absolute bg-accent  animate-height'></div>
-					<div className='min-w-[0px] right-0 bottom-0 h-[100svh] absolute bg-black  animate-width'></div>
 				</div>
 
 				<div
@@ -42,7 +41,6 @@ const AnimationMain = () => {
 					}`}
 				>
 					<div className='min-w-[1px] left-0 h-[0.5px] absolute bg-accent  animate-height '></div>
-					<div className='min-w-[0px] left-0 bottom-0 h-[100svh] absolute bg-black  animate-width'></div>
 				</div>
 
 				<div
@@ -80,14 +78,7 @@ const AnimationMain = () => {
 						opacity: 0;
 					}
 				}
-				@keyframes width {
-					0% {
-						width: 0;
-					}
-					100% {
-						width: 100%;
-					}
-				}
+
 				@keyframes height {
 					0% {
 						height: 1px;
