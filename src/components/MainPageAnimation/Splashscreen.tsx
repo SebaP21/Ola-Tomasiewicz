@@ -10,7 +10,7 @@ const AnimationMain = () => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setAnimationState("end");
-		}, 1400);
+		}, 1500);
 
 		const visibilityTimer = setTimeout(() => {
 			setIsVisible(false);
@@ -32,7 +32,7 @@ const AnimationMain = () => {
 						animationState === "end" ? "animate-fade-out-left" : ""
 					}`}
 				>
-					<div className='min-w-[1px] right-0 bottom-0 h-[1px] absolute bg-black  animate-height'></div>
+					<div className='min-w-[1px] right-0 bottom-0 h-[1px] absolute bg-accent  animate-height'></div>
 					<div className='min-w-[0px] right-0 bottom-0 h-[100svh] absolute bg-black  animate-width'></div>
 				</div>
 
@@ -41,7 +41,7 @@ const AnimationMain = () => {
 						animationState === "end" ? "animate-fade-out-right" : ""
 					}`}
 				>
-					<div className='min-w-[1px] left-0 h-[1px] absolute bg-black  animate-height '></div>
+					<div className='min-w-[1px] left-0 h-[1px] absolute bg-accent  animate-height '></div>
 					<div className='min-w-[0px] left-0 bottom-0 h-[100svh] absolute bg-black  animate-width'></div>
 				</div>
 
@@ -102,16 +102,16 @@ const AnimationMain = () => {
 				}
 
 				.animate-width {
-					animation: width 0.7s forwards;
-					animation-delay: 0.7s;
+					animation: width 0.8s forwards;
+					animation-delay: 0.8s;
 				}
 
 				.animate-fade-out-left {
-					animation: fadeOutLeft 0.7s forwards;
+					animation: fadeOutLeft 0.8s forwards;
 				}
 
 				.animate-fade-out-right {
-					animation: fadeOutRight 0.7s forwards;
+					animation: fadeOutRight 0.8s forwards;
 				}
 			`}</style>
 		</>
