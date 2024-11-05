@@ -18,16 +18,14 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 	const [visibleIndexes, setVisibleIndexes] = useState<Set<number>>(new Set());
 	const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-	
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setShadowIndex((prevIndex) => (prevIndex + 1) % 3);
-		}, 1500);
+		}, 2000);
 
 		return () => clearInterval(interval);
 	}, []);
 
-	
 	const observeImages = useCallback(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
@@ -35,7 +33,7 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 					const index = Number(entry.target.getAttribute("data-index"));
 					if (entry.isIntersecting) {
 						setVisibleIndexes((prev) => new Set(prev).add(index));
-						observer.unobserve(entry.target); 
+						observer.unobserve(entry.target);
 					}
 				});
 			},
@@ -49,7 +47,6 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 		return () => observer.disconnect();
 	}, []);
 
-	
 	useEffect(() => {
 		if (gallery && gallery.length > 0) {
 			observeImages();
@@ -57,27 +54,26 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 	}, [gallery, observeImages]);
 
 	return (
-		<div className='grid grid-cols-1 gap-1 lg:grid-cols-2'>
+		<div className='grid grid-cols-1 gap-1 lg:grid-cols-2 '>
 			{gallery?.map((picture, index) => {
-				const [isHovered, setIsHovered] = useState(false);
 				const [isClicked, setIsClicked] = useState(false);
 
 				const handleClick = () => {
-					setIsClicked((prev) => !prev); // Przełącz stan kliknięcia
+					setIsClicked((prev) => !prev);
 				};
 
 				return (
 					<div
 						key={index}
-						className={`overflow-hidden relative transition-opacity duration-1000 cursor-pointer ${
+						className={`overflow-hidden relative cursor-pointer transition-opacity duration-1000 ${
 							visibleIndexes.has(index) ? "opacity-100" : "opacity-0"
 						}`}
 						data-index={index}
-						ref={(el) => { imageRefs.current[index] = el }}
-						onMouseEnter={() => setIsHovered(true)} 
-						onMouseLeave={() => setIsHovered(false)} 
-						onTouchStart={handleClick} 
-						onClick={handleClick} 
+						ref={(el) => {
+							imageRefs.current[index] = el;
+						}}
+						onTouchStart={handleClick}
+						onClick={handleClick}
 					>
 						<Image
 							src={picture.mediaItemUrl || ""}
@@ -87,7 +83,6 @@ const AnimatedGallery: React.FC<AnimatedGalleryProps> = ({ gallery }) => {
 							className='w-full h-full object-cover'
 						/>
 
-						
 						<div
 							className={`absolute inset-0 shadow-layer ${
 								shadowIndex === 0 && !isClicked ? "opacity-100" : "opacity-0"
