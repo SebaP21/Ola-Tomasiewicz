@@ -10,11 +10,11 @@ const AnimationMain = () => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setAnimationState("end");
-		}, 1500);
+		}, 2000);
 
 		const visibilityTimer = setTimeout(() => {
 			setIsVisible(false);
-		}, 2000);
+		}, 3000);
 
 		return () => {
 			clearTimeout(timer);
@@ -98,20 +98,20 @@ const AnimationMain = () => {
 				}
 
 				.animate-height {
-					animation: height 0.5s forwards;
+					animation: height 1s forwards;
 				}
 
 				.animate-width {
-					animation: width 0.8s forwards;
-					animation-delay: 0.8s;
+					animation: width 1s forwards;
+					animation-delay: 1s;
 				}
 
 				.animate-fade-out-left {
-					animation: fadeOutLeft 0.8s forwards;
+					animation: fadeOutLeft 1s forwards;
 				}
 
 				.animate-fade-out-right {
-					animation: fadeOutRight 0.8s forwards;
+					animation: fadeOutRight 1s forwards;
 				}
 			`}</style>
 		</>
