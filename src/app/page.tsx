@@ -1,7 +1,7 @@
 import About from "@/components/About/About";
 import Contact from "@/components/Contact/Contact";
 import CallToActionHome from "@/components/CTAHome/CtaHome";
-// import AnimationMain from "@/components/MainPageAnimation/Splashscreen";
+import AnimationMain from "@/components/MainPageAnimation/Splashscreen";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Portfolio from "@/components/Portfolio/Portfolio";
 import { SeoContentQuery } from "../../lib/generated/graphql";
@@ -13,7 +13,7 @@ export default function Home() {
 
 	return (
 		<>
-			{/* <AnimationMain /> */}
+			<AnimationMain />
 			<PageHeader pageId={pageId} />
 			<About />
 			<Portfolio />
