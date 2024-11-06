@@ -23,7 +23,7 @@ const About = async () => {
 				</div>
 				<article className='flex flex-col gap-4 xl:flex-row xl:gap-8 xl:py-8'>
 					<div className="xl:w-[40%] xl:order-2">
-						<p>{aboutDescription}</p>
+						<div>{aboutDescription}</div>
 					</div>
 					<div
 					className="lg:max-w-[50svh] lg:mx-auto xl:w-[50%] xl-order-1"

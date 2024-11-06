@@ -40,6 +40,7 @@ const PageHeader: FC<PageHeaderProps> = async ({ pageId }) => {
 								alt={logo?.altText || "alt"}
 								width={500}
 								height={500}
+								priority
 							/>
 						</Link>
 					</div>
