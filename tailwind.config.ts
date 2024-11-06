@@ -52,6 +52,7 @@ const config: Config = {
 				"scale-in-center": "scale-in-center 0.3s ease-out",
 				"scale-up": "scale 0.5s ease-in-out forwards",
 			},
+			
 		},
 	},
 	plugins: [],
