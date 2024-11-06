@@ -35,7 +35,7 @@ const MakeUpTraining = async () => {
 				<div className="flex flex-col gap-8">
 				
 					<fieldset className="">
-						<legend className='text-xl'>Zakres szkolenia</legend>
+						<legend className='text-xl'>Rodzaje makijaży do wyboru:</legend>
 						<ul className='pt-2 pr-4 pb'>
 							{scopeOfTraining?.map((type) => (
 								<li

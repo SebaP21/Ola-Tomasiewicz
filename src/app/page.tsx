@@ -7,6 +7,7 @@ import Portfolio from "@/components/Portfolio/Portfolio";
 import { SeoContentQuery } from "../../lib/generated/graphql";
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../lib/apolloClient";
+
 import Head from "next/head";
 
 export default function Home() {
@@ -14,12 +15,20 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
+			{/* <Head>
 				<link
 					rel='canonical'
 					href='https://olatomasiewicz.pl'
 				/>
-			</Head>
+			</Head> */}
+			<head>
+			<link
+					rel='canonical'
+					href='https://olatomasiewicz.pl'
+				/>
+			</head>
+			
+			
 			<AnimationMain />
 			<PageHeader pageId={pageId} />
 			<About />
