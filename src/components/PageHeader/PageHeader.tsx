@@ -62,39 +62,31 @@ const PageHeader: FC<PageHeaderProps> = async ({ pageId }) => {
 					<div className=' text-light text-xl lg:flex flex-col w-full min-h-[40svh] gap-0 justify-evenly items-center animate-fade-right md:hidden xl:min-h-[35svh] 2xl:flex-row 2xl:min-h-[5svh]'>
 						<Link href={"/cennik"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center'>
-								<h4 className='tracking-wider font-didact uppercase'>Cennik</h4>
+								<h4 className='tracking-wider  uppercase'>Cennik</h4>
 								<Divider width={100} />
 							</div>
 						</Link>
 						<Link href={"/szkolenia"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center'>
-								<h4 className='tracking-wider font-didact uppercase'>
-									Szkolenia
-								</h4>
+								<h4 className='tracking-wider  uppercase'>Szkolenia</h4>
 								<Divider width={100} />
 							</div>
 						</Link>
 						<Link href={"/vouchery"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center'>
-								<h4 className='tracking-wider font-didact uppercase'>
-									Vouchery
-								</h4>
+								<h4 className='tracking-wider  uppercase'>Vouchery</h4>
 								<Divider width={100} />
 							</div>
 						</Link>
 						<Link href={"/regulamin"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center'>
-								<h4 className='tracking-wider font-didact uppercase'>
-									Regulamin
-								</h4>
+								<h4 className='tracking-wider  uppercase'>Regulamin</h4>
 								<Divider width={100} />
 							</div>
 						</Link>
 						<Link href={"/#kontakt"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center'>
-								<h4 className='tracking-wider font-didact uppercase'>
-									Kontakt
-								</h4>
+								<h4 className='tracking-wider  uppercase'>Kontakt</h4>
 								<Divider width={100} />
 							</div>
 						</Link>
