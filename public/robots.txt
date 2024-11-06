@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /strona-wylaczona
+
+# Host
+Host: https://olatomasiewicz.pl
+
+# Sitemaps
+Sitemap: https://olatomasiewicz.pl/sitemap.xml

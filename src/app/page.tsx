@@ -4,6 +4,9 @@ import CallToActionHome from "@/components/CTAHome/CtaHome";
 // import AnimationMain from "@/components/MainPageAnimation/Splashscreen";
 import PageHeader from "@/components/PageHeader/PageHeader";
 import Portfolio from "@/components/Portfolio/Portfolio";
+import { SeoContentQuery } from "../../lib/generated/graphql";
+import { SEO_CONTENT } from "@/graphql/SeoQuery";
+import client from "../../lib/apolloClient";
 
 export default function Home() {
 	const pageId = 12;
@@ -18,4 +21,23 @@ export default function Home() {
 			<Contact />
 		</>
 	);
+}
+
+export async function generateMetadata() {
+	const { data } = await client.query<SeoContentQuery>({
+		query: SEO_CONTENT,
+		variables: { pageId: 12 },
+	});
+
+	const seo = data.pageBy?.seo;
+
+	return {
+		title: seo?.title,
+		description: seo?.metaDesc as string,
+		openGraph: {
+			image: seo?.opengraphImage?.sourceUrl as string,
+			description: seo?.opengraphDescription as string,
+			title: seo?.opengraphTitle as string,
+		},
+	};
 }

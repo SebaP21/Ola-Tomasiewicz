@@ -43,16 +43,17 @@ const NavMobile = () => {
 						isScrolled ? "opacity-100" : "opacity-0"
 					}`}
 				>
-					<Link 
-					className="h-full p-0"
-					href={"/"}>
-					<Image
-						src={logo}
-						alt='Logo'
-						width={150}
-						height={150}
-						className='h-full w-auto object-contain'
-					/>
+					<Link
+						className='h-full p-0'
+						href={"/"}
+					>
+						<Image
+							src={logo}
+							alt='Logo'
+							width={150}
+							height={150}
+							className='h-full w-auto object-contain'
+						/>
 					</Link>
 				</div>
 
@@ -77,7 +78,7 @@ const NavMobile = () => {
 					<div className='flex gap-4'>
 						<Link
 							onClick={onClickNav}
-							href={"/"}
+							href={"https://www.facebook.com/profile.php?id=100083388214728"}
 							className='transition-colors hover:text-accent'
 						>
 							<Image
@@ -90,7 +91,7 @@ const NavMobile = () => {
 						</Link>
 						<Link
 							onClick={onClickNav}
-							href={"/"}
+							href={"https://www.instagram.com/ola_tomasiewicz_makeup/"}
 							className='transition-colors hover:text-accent'
 						>
 							<Image
@@ -209,7 +210,6 @@ const NavMobile = () => {
 						<h4 className='mb-2'>Regulamin</h4>
 					</div>
 				</Link>
-				
 			</div>
 		</div>
 	);

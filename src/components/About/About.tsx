@@ -21,8 +21,8 @@ const About = async () => {
 					<h1 className='text-4xl pb-4 md:text-center'>O mnie</h1>
 					<Divider width={100} />
 				</div>
-				<article className='flex flex-col gap-4 xl:flex-row xl:gap-8 xl:py-8'>
-					<div className='xl:w-[40%] xl:order-2'>
+				<article className='flex flex-col gap-4 xl:flex-row xl:gap-8 xl:py-4 2xl:py-6'>
+					<div className='xl:w-[40%] xl:order-2 py-4 lg:py-8 xl:py-0 2xl:my-auto'>
 						{aboutDescription && (
 							<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: aboutDescription }} />
 						)}

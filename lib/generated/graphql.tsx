@@ -14585,6 +14585,13 @@ export type WeddingPortfolioContentQueryVariables = Exact<{ [key: string]: never
 
 export type WeddingPortfolioContentQuery = { __typename?: 'RootQuery', makeUpWedding?: { __typename?: 'RootQueryToWeddingItemConnection', nodes: Array<{ __typename?: 'WeddingItem', weddingmakeup?: { __typename?: 'Weddingmakeup', weddingmakeupgallery?: { __typename?: 'AcfMediaItemConnection', nodes: Array<{ __typename?: 'MediaItem', altText?: string | null, mediaItemUrl?: string | null, slug?: string | null }> } | null } | null }> } | null };
 
+export type SeoContentQueryVariables = Exact<{
+  pageId: Scalars['Int']['input'];
+}>;
+
+
+export type SeoContentQuery = { __typename?: 'RootQuery', pageBy?: { __typename?: 'Page', seo?: { __typename?: 'PostTypeSEO', metaDesc?: string | null, title?: string | null, opengraphDescription?: string | null, opengraphTitle?: string | null, opengraphImage?: { __typename?: 'MediaItem', sourceUrl?: string | null } | null } | null } | null };
+
 
 export const AboutContentDocument = gql`
     query AboutContent {
@@ -15413,3 +15420,51 @@ export type WeddingPortfolioContentQueryHookResult = ReturnType<typeof useWeddin
 export type WeddingPortfolioContentLazyQueryHookResult = ReturnType<typeof useWeddingPortfolioContentLazyQuery>;
 export type WeddingPortfolioContentSuspenseQueryHookResult = ReturnType<typeof useWeddingPortfolioContentSuspenseQuery>;
 export type WeddingPortfolioContentQueryResult = Apollo.QueryResult<WeddingPortfolioContentQuery, WeddingPortfolioContentQueryVariables>;
+export const SeoContentDocument = gql`
+    query SeoContent($pageId: Int!) {
+  pageBy(pageId: $pageId) {
+    seo {
+      metaDesc
+      title
+      opengraphDescription
+      opengraphTitle
+      opengraphImage {
+        sourceUrl(size: LARGE)
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useSeoContentQuery__
+ *
+ * To run a query within a React component, call `useSeoContentQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSeoContentQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSeoContentQuery({
+ *   variables: {
+ *      pageId: // value for 'pageId'
+ *   },
+ * });
+ */
+export function useSeoContentQuery(baseOptions: Apollo.QueryHookOptions<SeoContentQuery, SeoContentQueryVariables> & ({ variables: SeoContentQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SeoContentQuery, SeoContentQueryVariables>(SeoContentDocument, options);
+      }
+export function useSeoContentLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SeoContentQuery, SeoContentQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SeoContentQuery, SeoContentQueryVariables>(SeoContentDocument, options);
+        }
+export function useSeoContentSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<SeoContentQuery, SeoContentQueryVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<SeoContentQuery, SeoContentQueryVariables>(SeoContentDocument, options);
+        }
+export type SeoContentQueryHookResult = ReturnType<typeof useSeoContentQuery>;
+export type SeoContentLazyQueryHookResult = ReturnType<typeof useSeoContentLazyQuery>;
+export type SeoContentSuspenseQueryHookResult = ReturnType<typeof useSeoContentSuspenseQuery>;
+export type SeoContentQueryResult = Apollo.QueryResult<SeoContentQuery, SeoContentQueryVariables>;
