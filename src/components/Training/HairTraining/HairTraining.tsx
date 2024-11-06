@@ -27,7 +27,9 @@ const HairTraining = async () => {
 					<Divider width={100} />
 					<h2 className='text-3xl text-center pt-4'>{title}</h2>
 				</div>
-				<p>{subtitle}</p>
+				{subtitle && 
+				<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: subtitle }} />
+				}
 				<div className='flex flex-col gap-6'>
 					{productList?.map((product,index) => (
 						<div
@@ -44,7 +46,7 @@ const HairTraining = async () => {
 					))}
 				</div>
 				<div>
-					<p>{summaryDescription}</p>
+					{summaryDescription && <div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: summaryDescription }} />}
 				</div>
 				<div className='grid grid-cols-2 gap-1 '>
 					{gallery?.map((picture) => (

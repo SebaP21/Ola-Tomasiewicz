@@ -32,7 +32,7 @@ const Voucher = async () => {
 						/>
 					</div>
 					<div className='mb-8 flex flex-col items-start md:p-4  lg:p-0'>
-						<p>{voucherDescription}</p>
+						{voucherDescription && <div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: voucherDescription }} />}
 						<Link
 							className='self-end'
 							href={"/#kontakt"}

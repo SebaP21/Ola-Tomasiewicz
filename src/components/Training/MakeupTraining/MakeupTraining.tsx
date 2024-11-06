@@ -29,7 +29,9 @@ const MakeUpTraining = async () => {
 			</div>
 			<article className='w-[90%] flex flex-col gap-8'>
 				<h2 className='text-3xl text-center '>{title}</h2>
-				<p>{subtitle}</p>
+				{subtitle && 
+				<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: subtitle }} />
+				}
 				<div className="flex flex-col gap-8">
 				
 					<fieldset className="">
@@ -63,7 +65,9 @@ const MakeUpTraining = async () => {
 					))}
 				</div>
 				<div className="">
-					<p>{summaryDescription}</p>
+					{summaryDescription && 
+					<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: summaryDescription }} />
+					}
 				</div>
 				</div>
 				<div className='grid grid-cols-2 gap-1 '>

@@ -82,7 +82,9 @@ const WeddingPackage = async () => {
 			</section>
 			<section className='w-full flex py-8 justify-center items-center'>
 				<article className='w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]'>
-					<p>{description}</p>
+					{description && 
+					<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: description }} />
+					}
 				</article>
 			</section>
 			<section className="flex justify-center pb-4">

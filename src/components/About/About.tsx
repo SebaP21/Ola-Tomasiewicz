@@ -22,12 +22,12 @@ const About = async () => {
 					<Divider width={100} />
 				</div>
 				<article className='flex flex-col gap-4 xl:flex-row xl:gap-8 xl:py-8'>
-					<div className="xl:w-[40%] xl:order-2">
-						<div>{aboutDescription}</div>
+					<div className='xl:w-[40%] xl:order-2'>
+						{aboutDescription && (
+							<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: aboutDescription }} />
+						)}
 					</div>
-					<div
-					className="lg:max-w-[50svh] lg:mx-auto xl:w-[50%] xl-order-1"
-					>
+					<div className='lg:max-w-[50svh] lg:mx-auto xl:w-[50%] xl-order-1'>
 						<Image
 							src={aboutPicture?.mediaItemUrl || ""}
 							alt={aboutPicture?.altText || ""}
