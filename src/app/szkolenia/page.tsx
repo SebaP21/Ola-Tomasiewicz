@@ -5,12 +5,19 @@ import MakeUpTraining from "@/components/Training/MakeupTraining/MakeupTraining"
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../../lib/apolloClient";
 import { SeoContentQuery } from "../../../lib/generated/graphql";
+import Head from "next/head";
 
 const WorkShopsPage = () => {
 	const pageId = 220;
 
 	return (
 		<>
+			<Head>
+				<link
+					rel='canonical'
+					href='https://olatomasiewicz.pl/szkolenia'
+				/>
+			</Head>
 			<PageHeader pageId={pageId} />
 			<MakeUpTraining />
 			<HairTraining />
@@ -20,7 +27,6 @@ const WorkShopsPage = () => {
 };
 
 export default WorkShopsPage;
-
 
 export async function generateMetadata() {
 	const { data } = await client.query<SeoContentQuery>({

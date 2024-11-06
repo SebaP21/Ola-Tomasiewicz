@@ -3,6 +3,7 @@ import Voucher from "@/components/Voucher/Voucher"
 import client from "../../../lib/apolloClient"
 import { SEO_CONTENT } from "@/graphql/SeoQuery"
 import { SeoContentQuery } from "../../../lib/generated/graphql"
+import Head from "next/head"
 
 
 
@@ -16,6 +17,9 @@ const VoucherPage = () => {
 
     return(
         <>
+		<Head>
+				<link rel="canonical" href="https://olatomasiewicz.pl/vouchery" />
+			</Head>
         <PageHeader pageId={pageId}/>
         <Voucher/>
         </>

@@ -4,12 +4,19 @@ import StatuteBox from "@/components/statuteBox/StatuteBox";
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../../lib/apolloClient";
 import { SeoContentQuery } from "../../../lib/generated/graphql";
+import Head from "next/head";
 
 const RegulationsPage = () => {
 	const pageId = 146;
 
 	return (
 		<>
+			<Head>
+				<link
+					rel='canonical'
+					href='https://olatomasiewicz.pl/regulamin'
+				/>
+			</Head>
 			<PageHeader pageId={pageId} />
 			<section className='flex justify-center items-center '>
 				<div className='min-h-[70svh] w-[90%] flex flex-col items-center  py-8  sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]'>

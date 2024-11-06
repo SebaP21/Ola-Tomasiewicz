@@ -4,12 +4,19 @@ import WeddingPackage from "@/components/WeddingPackage/WeddingPackage";
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../../lib/apolloClient";
 import { SeoContentQuery } from "../../../lib/generated/graphql";
+import Head from "next/head";
 
 const PriceListPage = () => {
 	const pageId = 18;
 
 	return (
 		<>
+			<Head>
+				<link
+					rel='canonical'
+					href='https://olatomasiewicz.pl/cennik'
+				/>
+			</Head>
 			<PageHeader pageId={pageId} />
 			<PriceList />
 			<WeddingPackage />
