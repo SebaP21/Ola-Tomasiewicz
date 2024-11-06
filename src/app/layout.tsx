@@ -4,6 +4,7 @@ import NavMobile from "@/components/NavMobile/NavMobile";
 import CookieConsentBanner from "@/components/CookieConsent/CookieConsentBanner";
 import Footer from "@/components/Footer/Footer";
 import { Didact_Gothic } from "next/font/google";
+import Script from "next/script";
 
 export const metadata: Metadata = {
 	title: "Ola Tomasiewicz Makeup Artist",
@@ -31,22 +32,27 @@ export default function RootLayout({
 					name='google-site-verification'
 					content={process.env.NEXT_PUBLIC_GOOGLE_SEARCH_CONSOLE}
 				/>
-				<script
-					async
+			</head>
+			<body className={didact.className}>
+				<Script
+					strategy='afterInteractive'
 					src='https://www.googletagmanager.com/gtag/js?id=G-MM3BZWWSQB'
-				></script>
-				<script
+				/>
+				<Script
+					id='google-analytics'
+					strategy='afterInteractive'
 					dangerouslySetInnerHTML={{
 						__html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-MM3BZWWSQB');
+              gtag('config', 'G-MM3BZWWSQB', {
+                page_path: window.location.pathname,
+              });
             `,
 					}}
-				></script>
-			</head>
-			<body className={didact.className}>
+				/>
+
 				<NavMobile />
 				{children}
 				<Footer />
