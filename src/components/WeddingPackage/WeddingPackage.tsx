@@ -1,7 +1,7 @@
 import { WEDDING_PACKAGE_CONTENT } from "@/graphql/WeddingPackageQuery";
 import client from "../../../lib/apolloClient";
 import { WeddingPackageContentQuery } from "../../../lib/generated/graphql";
-import Divider from "../Divider/Divider";
+// import Divider from "../Divider/Divider";
 import Image from "next/image";
 
 const WeddingPackage = async () => {
@@ -9,23 +9,23 @@ const WeddingPackage = async () => {
 		query: WEDDING_PACKAGE_CONTENT,
 	});
 
-	const basicContent = data.pageBy?.pakietSlubnyPole?.uslugaBasicBox;
-	const basicTime = data.pageBy?.pakietSlubnyPole?.czasTrwaniaBasicBox;
-	const basicPrice = data.pageBy?.pakietSlubnyPole?.cenaBasicBox;
+	// const basicContent = data.pageBy?.pakietSlubnyPole?.uslugaBasicBox;
+	// const basicTime = data.pageBy?.pakietSlubnyPole?.czasTrwaniaBasicBox;
+	// const basicPrice = data.pageBy?.pakietSlubnyPole?.cenaBasicBox;
 
-	const vipContent = data.pageBy?.pakietSlubnyPole?.uslugaVipBox;
-	const vipTime = data.pageBy?.pakietSlubnyPole?.czasTrwaniaVipBox;
-	const vipPrice = data.pageBy?.pakietSlubnyPole?.cenaVipBox;
-	const vipBackground =
-		data.pageBy?.pakietSlubnyPole?.pakietSlubnyVipZdjecieBox;
+	// const vipContent = data.pageBy?.pakietSlubnyPole?.uslugaVipBox;
+	// const vipTime = data.pageBy?.pakietSlubnyPole?.czasTrwaniaVipBox;
+	// const vipPrice = data.pageBy?.pakietSlubnyPole?.cenaVipBox;
+	// const vipBackground =
+	// 	data.pageBy?.pakietSlubnyPole?.pakietSlubnyVipZdjecieBox;
 
-	const description = data.pageBy?.pakietSlubnyPole?.pakietSlubnyOpisBox;
+	// const description = data.pageBy?.pakietSlubnyPole?.pakietSlubnyOpisBox;
 
 	const gallery = data.pageBy?.pakietSlubnyPole?.pakietSlubnyGaleriaBox;
 
 	return (
 		<>
-			<section className='w-full flex min-h-[50svh] py-8 justify-center items-center'>
+			{/* <section className='w-full flex min-h-[50svh] py-8 justify-center items-center'>
 				<article className='w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]'>
 					<div className='w-[50%] flex flex-col gap-2 '>
 						<h2 className='text-3xl '>Pakiet Ślubny</h2>
@@ -44,8 +44,8 @@ const WeddingPackage = async () => {
 						<p className='font-oswald text-lg text-accent'>{basicPrice}</p>
 					</div>
 				</article>
-			</section>
-			<section
+			</section> */}
+			{/* <section
 				className='relative min-h-[60svh] py-8 w-full bg-fixed bg-cover bg-center flex justify-center items-center text-white'
 				style={{
 					backgroundImage: vipBackground?.node.mediaItemUrl
@@ -79,14 +79,14 @@ const WeddingPackage = async () => {
 				</article>
 
 				<div className='absolute bg-dark opacity-60  min-w-full min-h-[100%]'></div>
-			</section>
-			<section className='w-full flex py-8 justify-center items-center'>
+			</section> */}
+			{/* <section className='w-full flex py-8 justify-center items-center'>
 				<article className='w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%]'>
 					{description && 
 					<div className="text-text flex flex-col gap-2" dangerouslySetInnerHTML={{ __html: description }} />
 					}
 				</article>
-			</section>
+			</section> */}
 			<section className="flex justify-center pb-4">
 				<div className="grid grid-cols-2 gap-1">
 					{gallery?.nodes.map((picture) => (
