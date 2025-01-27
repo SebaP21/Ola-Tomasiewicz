@@ -70,6 +70,7 @@ const Contact = async () => {
 								height={50}
 							/>
 							<h5 className='uppercase'>Adres</h5>
+							<h6 className='text-accent text-bold '>Sosnowiec, ul. Generała Józefa Bema 3</h6>
 							<h6 className='text-accent text-bold '>{adress}</h6>
 						</div>
 					</div>

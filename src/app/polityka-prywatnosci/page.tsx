@@ -1,7 +1,7 @@
 const PrivacyPolicy = () => {
 	return (
 		<>
-			<div className='bg-black min-h-[10svh]'>dasdsa</div>
+			<div className='bg-black min-h-[10svh]'></div>
 			<section className='w-full min-h-[100svh] flex items-center justify-center '>
 				<article className='min-h-[90svh] w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] flex flex-col py-8 gap-4'>
 					<h1 className='text-4xl'>Polityka prywatności</h1>
