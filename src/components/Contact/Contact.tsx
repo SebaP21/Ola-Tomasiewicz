@@ -17,7 +17,7 @@ const Contact = async () => {
 
 	const tel = data.pageBy?.contactSection?.phoneNumber;
 	const email = data.pageBy?.contactSection?.eMailAdress;
-	const adress = data.pageBy?.contactSection?.adres;
+	// const adress = data.pageBy?.contactSection?.adres;
 
 	return (
 		<section
