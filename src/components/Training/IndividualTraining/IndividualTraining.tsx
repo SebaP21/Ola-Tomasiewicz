@@ -10,7 +10,7 @@ const IndividualTraining = async () => {
 	});
 
 	const title = data.szkoleniaTypeBy?.individualMasterclass?.tytulSzkolenia;
-	const subtitle = data.szkoleniaTypeBy?.individualMasterclass?.podtytul;
+	// const subtitle = data.szkoleniaTypeBy?.individualMasterclass?.podtytul;
 	const scopeOfTraining =
 		data.szkoleniaTypeBy?.individualMasterclass?.masterclassdescription;
 	const time = data.szkoleniaTypeBy?.individualMasterclass?.czasTrwania;
@@ -30,7 +30,7 @@ const IndividualTraining = async () => {
 					<Divider width={100} />
 					<h2 className='text-3xl text-center pt-4'>{title}</h2>
 				</div>
-				<p>{subtitle}</p>
+				<p>Indywidualna lekcja makijażu.</p>
 
 				<div>
 					<fieldset>
