@@ -33,14 +33,37 @@ export async function generateMetadata() {
 	});
 
 	const seo = data.pageBy?.seo;
+	const ogImage = seo?.opengraphImage?.sourceUrl || "/logo-gold.png";
 
 	return {
-		title: seo?.title,
-		description: seo?.metaDesc as string,
+		title: seo?.title || "Cennik – Ola Tomasiewicz",
+		description:
+			seo?.metaDesc ||
+			"Zapoznaj się z aktualnym cennikiem usług makijażu i stylizacji ślubnej.",
 		openGraph: {
-			image: seo?.opengraphImage?.sourceUrl as string,
-			description: seo?.opengraphDescription as string,
-			title: seo?.opengraphTitle as string,
+			title: seo?.opengraphTitle || "Cennik – Ola Tomasiewicz",
+			description:
+				seo?.opengraphDescription ||
+				"Cennik usług makijażu i pakietów ślubnych.",
+			images: [
+				{
+					url: ogImage,
+					width: 800,
+					height: 800,
+					alt: "Logo Ola Tomasiewicz",
+				},
+			],
+			url: "https://olatomasiewicz.pl/cennik",
+			siteName: "Ola Tomasiewicz",
+			type: "website",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: seo?.opengraphTitle || "Cennik – Ola Tomasiewicz",
+			description:
+				seo?.opengraphDescription ||
+				"Cennik usług makijażu i pakietów ślubnych.",
+			images: [ogImage],
 		},
 	};
 }

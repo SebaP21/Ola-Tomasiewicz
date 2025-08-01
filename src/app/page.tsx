@@ -31,13 +31,33 @@ export async function generateMetadata() {
 
 	const seo = data.pageBy?.seo;
 
+	const ogImage = seo?.opengraphImage?.sourceUrl || "/logo-gold.png";
+
 	return {
-		title: seo?.title,
-		description: seo?.metaDesc as string,
+		title: seo?.title || "Ola Tomasiewicz Makeup Artist",
+		description: seo?.metaDesc || "Makijaż, szkolenia, stylizacja",
 		openGraph: {
-			image: seo?.opengraphImage?.sourceUrl as string,
-			description: seo?.opengraphDescription as string,
-			title: seo?.opengraphTitle as string,
+			title: seo?.opengraphTitle || "Ola Tomasiewicz Makeup Artist",
+			description:
+				seo?.opengraphDescription || "Zobacz ofertę szkoleń i makijażu",
+			images: [
+				{
+					url: ogImage,
+					width: 800,
+					height: 800,
+					alt: "Logo Ola Tomasiewicz",
+				},
+			],
+			url: "https://olatomasiewicz.pl",
+			siteName: "Ola Tomasiewicz",
+			type: "website",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: seo?.opengraphTitle || "Ola Tomasiewicz Makeup Artist",
+			description:
+				seo?.opengraphDescription || "Zobacz ofertę szkoleń i makijażu",
+			images: [ogImage],
 		},
 	};
 }

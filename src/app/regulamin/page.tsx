@@ -40,14 +40,36 @@ export async function generateMetadata() {
 	});
 
 	const seo = data.pageBy?.seo;
+	const ogImage = seo?.opengraphImage?.sourceUrl || "/logo-gold.png";
 
 	return {
-		title: seo?.title,
-		description: seo?.metaDesc as string,
+		title: seo?.title || "Regulamin – Ola Tomasiewicz",
+		description:
+			seo?.metaDesc || "Zapoznaj się z regulaminem usług Ola Tomasiewicz.",
 		openGraph: {
-			image: seo?.opengraphImage?.sourceUrl as string,
-			description: seo?.opengraphDescription as string,
-			title: seo?.opengraphTitle as string,
+			title: seo?.opengraphTitle || "Regulamin usług – Ola Tomasiewicz",
+			description:
+				seo?.opengraphDescription ||
+				"Sprawdź szczegółowe warunki korzystania z usług oferowanych przez Olę Tomasiewicz.",
+			images: [
+				{
+					url: ogImage,
+					width: 800,
+					height: 800,
+					alt: "Logo Ola Tomasiewicz",
+				},
+			],
+			url: "https://olatomasiewicz.pl/regulamin",
+			siteName: "Ola Tomasiewicz",
+			type: "website",
+		},
+		twitter: {
+			card: "summary_large_image",
+			title: seo?.opengraphTitle || "Regulamin usług – Ola Tomasiewicz",
+			description:
+				seo?.opengraphDescription ||
+				"Sprawdź szczegółowe warunki korzystania z usług oferowanych przez Olę Tomasiewicz.",
+			images: [ogImage],
 		},
 	};
 }
