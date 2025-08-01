@@ -8,17 +8,11 @@ import { SeoContentQuery } from "../../lib/generated/graphql";
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../lib/apolloClient";
 
-
-
 export default function Home() {
 	const pageId = 12;
 
 	return (
 		<>
-			
-			
-			
-			
 			<AnimationMain />
 			<PageHeader pageId={pageId} />
 			<About />

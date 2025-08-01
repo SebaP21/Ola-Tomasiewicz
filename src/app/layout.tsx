@@ -28,6 +28,7 @@ export default function RootLayout({
 					href='https://fonts.googleapis.com/css2?family=Didact+Gothic:wght@400&family=Oswald:wght@400&display=swap'
 					rel='stylesheet'
 				/>
+				<link rel='icon' href='/logo-gold.png' />
 				<meta
 					name='google-site-verification'
 					content={process.env.NEXT_PUBLIC_GOOGLE_SEARCH_CONSOLE}
