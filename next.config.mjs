@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	images: {
-		domains: ["panel-olatomasiewicz.online"],
+		domains: ["admin-olatomasiewicz.online"],
 	},
 };
 

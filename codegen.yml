@@ -1,4 +1,4 @@
-schema: https://panel-olatomasiewicz.online/graphql
+schema: https://admin-olatomasiewicz.online/graphql
 documents: './**/*.{ts,tsx}'
 generates:
   ./lib/generated/graphql.tsx:
