@@ -1,10 +1,11 @@
 import PageHeader from "@/components/PageHeader/PageHeader";
 import PriceList from "@/components/PriceList/PriceList";
-import WeddingPackage from "@/components/WeddingPackage/WeddingPackage";
 import { SEO_CONTENT } from "@/graphql/SeoQuery";
 import client from "../../../lib/apolloClient";
 import { SeoContentQuery } from "../../../lib/generated/graphql";
 import Head from "next/head";
+
+import WeddingPackageShort from "@/components/WeddingPackage/WeddingPackageShort";
 
 const PriceListPage = () => {
 	const pageId = 18;
@@ -19,7 +20,8 @@ const PriceListPage = () => {
 			</Head>
 			<PageHeader pageId={pageId} />
 			<PriceList />
-			<WeddingPackage />
+			<WeddingPackageShort/>
+			
 		</>
 	);
 };

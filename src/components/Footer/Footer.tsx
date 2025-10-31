@@ -37,9 +37,15 @@ const Footer = () => {
 							</Link>
 							<Link
 								className='font-oswald text-white transition-colors text-lg hover:text-accent'
-								href={"/szkolenia"}
+								href={"/pakiet-slubny"}
 							>
-								Szkolenia
+								Pakiet Ślubny
+							</Link>
+							<Link
+								className='font-oswald text-white transition-colors text-lg hover:text-accent'
+								href={"/kosmetologia"}
+							>
+								Kosmetologia
 							</Link>
 						</div>
 						<div className='flex w-[30%] items-center justify-evenly lg:w-[10%]'>
@@ -67,6 +73,12 @@ const Footer = () => {
 							</Link>
 						</div>
 						<div className='flex flex-col gap-2 text-right lg:flex-row lg:gap-12'>
+							<Link
+								className='font-oswald text-white transition-colors text-lg hover:text-accent'
+								href={"/szkolenia"}
+							>
+								Szkolenia
+							</Link>
 							<Link
 								className='font-oswald text-white transition-colors text-lg hover:text-accent'
 								href={"/vouchery"}

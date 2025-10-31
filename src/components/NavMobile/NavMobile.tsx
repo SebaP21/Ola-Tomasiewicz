@@ -31,6 +31,36 @@ const NavMobile = () => {
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
+		useEffect(() => {
+		const body = document.body;
+
+		if (isNavShown) {
+			const scrollY = window.scrollY;
+			body.style.position = "fixed";
+			body.style.top = `-${scrollY}px`;
+			body.style.left = "0";
+			body.style.right = "0";
+			body.style.overflowY = "scroll"; // menu dalej przewijalne
+		} else {
+			const scrollY = body.style.top;
+			body.style.position = "";
+			body.style.top = "";
+			body.style.left = "";
+			body.style.right = "";
+			body.style.overflowY = "";
+			window.scrollTo(0, parseInt(scrollY || "0") * -1);
+		}
+
+		return () => {
+			body.style.position = "";
+			body.style.top = "";
+			body.style.left = "";
+			body.style.right = "";
+			body.style.overflowY = "";
+		};
+	}, [isNavShown]);
+
+
 	return (
 		<div className='relative'>
 			<div
@@ -70,8 +100,8 @@ const NavMobile = () => {
 			</div>
 
 			<div
-				className={`fixed bottom-0 right-0 h-full w-full md:w-[70%] bg-black bg-opacity-85 text-white text-4xl flex flex-col justify-evenly items-center uppercase transition-transform duration-500 ease-in-out z-50 transform ${
-					isNavShown ? "translate-y-0" : "translate-y-full"
+				className={`fixed bottom-0 right-0 h-full w-full md:w-[70%] bg-black bg-opacity-85 text-white text-3xl flex flex-col justify-evenly items-center uppercase transition-transform duration-500 ease-in-out z-50 transform overflow-y-auto ${
+	isNavShown ? "translate-y-0" : "translate-y-full"
 				}`}
 			>
 				<div className='absolute top-7 w-[90%] flex items-center justify-between'>
@@ -139,6 +169,24 @@ const NavMobile = () => {
 				>
 					<div className='border-b border-accent'>
 						<h4 className='mb-2'>Cennik</h4>
+					</div>
+				</Link>
+				<Link
+					onClick={onClickNav}
+					href={"/pakiet-slubny"}
+					className='transition-colors hover:text-accent'
+				>
+					<div className='border-b border-accent'>
+						<h4 className='mb-2'>Pakiet Ślubny</h4>
+					</div>
+				</Link>
+				<Link
+					onClick={onClickNav}
+					href={"/kosmetologia"}
+					className='transition-colors hover:text-accent'
+				>
+					<div className='border-b border-accent'>
+						<h4 className='mb-2'>Kosmetologia</h4>
 					</div>
 				</Link>
 

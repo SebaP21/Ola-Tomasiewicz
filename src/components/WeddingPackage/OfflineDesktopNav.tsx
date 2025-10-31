@@ -1,35 +1,25 @@
-import React from "react";
-import Link from "next/link";
+
+
+import { FC } from "react";
 import Image from "next/image";
-import facebookIcon from "@/assets/icons/social (1).png";
-import instaIcon from "@/assets/icons/camera.png";
+import Link from "next/link";
 import Divider from "../Divider/Divider";
 
-const CosmetologyHeader = () => {
-	const videoSrc = "/videos/header-video.mp4";
+import facebookIcon from "../../assets/icons/social (1).png";
+import instaIcon from "../../assets/icons/camera.png";
 
+const OfflineDesktopNav: FC = () => {
 	return (
 		<>
-			{/* MOBILE */}
-			<header className='w-full min-h-[100svh] flex items-end justify-start overflow-hidden md:hidden relative'>
-				<div className='absolute top-0 left-0 w-full h-full z-0'>
-					<video
-						autoPlay
-						muted
-						loop
-						playsInline
-						className='w-full h-full object-cover'
-					>
-						<source
-							src={videoSrc}
-							type='video/mp4'
-						/>
-					</video>
-					<div className='absolute top-0 left-0 w-full h-full bg-black/50' />
-				</div>
-
-				<div className='relative z-10 max-w-[80%] animate-fade-right'>
-					<Link href='/'>
+			{/* MOBILE HEADER */}
+			<header
+				className='w-full min-h-[100svh] bg-cover bg-center flex items-end justify-start overflow-hidden md:hidden'
+				style={{
+					backgroundImage: "url('/weddingheader.jpeg')",
+				}}
+			>
+				<div className='max-w-[80%] animate-fade-right '>
+					<Link href={"/"}>
 						<Image
 							src='/logo-white.png'
 							alt='Logo'
@@ -55,7 +45,7 @@ const CosmetologyHeader = () => {
 						</Link>
 					</div>
 
-					<div className='text-light text-xl lg:flex flex-col w-full min-h-[40svh] gap-0 justify-evenly items-center animate-fade-right mt-[-20px]'>
+					<div className='text-light text-xl lg:flex flex-col w-full min-h-[40svh] gap-0 justify-evenly items-center animate-fade-right'>
 						<Link href={"/cennik"}>
 							<div className='min-w-[12svh] flex flex-col gap-2 transition-all hover:scale-105 items-center pb-4'>
 								<h4 className='tracking-wider uppercase'>Cennik</h4>
@@ -126,26 +116,15 @@ const CosmetologyHeader = () => {
 					</div>
 				</div>
 
-				<div className='relative w-full h-full'>
-					<div className='absolute top-0 left-0 w-full h-full z-0'>
-						<video
-							autoPlay
-							muted
-							loop
-							playsInline
-							className='w-full h-full object-cover'
-						>
-							<source
-								src={videoSrc}
-								type='video/mp4'
-							/>
-						</video>
-						<div className='absolute top-0 left-0 w-full h-full bg-black/50' />
-					</div>
-				</div>
+				<div
+					className='w-full bg-cover'
+					style={{
+						backgroundImage: "url('/weddingheader.jpeg')",
+					}}
+				></div>
 			</header>
 		</>
 	);
 };
 
-export default CosmetologyHeader;
+export default OfflineDesktopNav;

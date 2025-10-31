@@ -25,6 +25,11 @@ const CallToActionHome = async () => {
 						<h4 className='text-xl'>Cennik</h4>
 					</div>
 				</Link>
+				<Link href={"/pakiet-slubny"}>
+					<div className='cta border-[3px] hover:border-transparent text-light hover:text-dark transition min-w-[30svw] min-h-[30svw] flex justify-center items-center hover:bg-light sm:min-w-[25svw] sm:min-h-[25svw] md:min-w-[20svw] md:min-h-[20svw] lg:md:min-w-[210px] lg:min-h-[210px]'>
+						<h4 className='text-xl'>Pakiet Ślubny</h4>
+					</div>
+				</Link>
 				<Link href={"/szkolenia"}>
 					<div className='cta border-[3px] hover:border-transparent text-light hover:text-dark transition min-w-[30svw] min-h-[30svw] flex justify-center items-center hover:bg-light sm:min-w-[25svw] sm:min-h-[25svw] md:min-w-[20svw] md:min-h-[20svw] lg:md:min-w-[210px] lg:min-h-[210px]'>
 						<h4 className='text-xl'>Szkolenia</h4>
