@@ -1,14 +1,14 @@
-import { WEDDING_PACKAGE_CONTENT } from "@/graphql/WeddingPackageQuery";
-import client from "../../../lib/apolloClient";
-import { WeddingPackageContentQuery } from "../../../lib/generated/graphql";
+// import { WEDDING_PACKAGE_CONTENT } from "@/graphql/WeddingPackageQuery";
+// import client from "../../../lib/apolloClient";
+// import { WeddingPackageContentQuery } from "../../../lib/generated/graphql";
 // import Divider from "../Divider/Divider";
 
 import Divider from "../Divider/Divider";
 
 const WeddingPackage = async () => {
-	const { data } = await client.query<WeddingPackageContentQuery>({
-		query: WEDDING_PACKAGE_CONTENT,
-	});
+	// const { data } = await client.query<WeddingPackageContentQuery>({
+	// 	query: WEDDING_PACKAGE_CONTENT,
+	// });
 
 	// const basicContent = data.pageBy?.pakietSlubnyPole?.uslugaBasicBox;
 	// const basicTime = data.pageBy?.pakietSlubnyPole?.czasTrwaniaBasicBox;
@@ -22,7 +22,7 @@ const WeddingPackage = async () => {
 
 	// const description = data.pageBy?.pakietSlubnyPole?.pakietSlubnyOpisBox;
 
-	const gallery = data.pageBy?.pakietSlubnyPole?.pakietSlubnyGaleriaBox;
+	// const gallery = data.pageBy?.pakietSlubnyPole?.pakietSlubnyGaleriaBox;
 
 	return (
 		<>

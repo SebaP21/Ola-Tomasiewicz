@@ -89,8 +89,7 @@ const CosmetologyServices = () => {
 						<legend className='md:text-xl'>Zabieg ANTI AGE</legend>
 						<p className='py-6 pr-4'>
 							Pobudza skórę do produkcji kolagenu i elastyny, których to
-							składników z wiekiem skóra produkuje coraz mniej. Zabieg można
-							stosować okazjonalnie jako zabieg "bankietowy", bo napina i
+							składników z wiekiem skóra produkuje coraz mniej. Zabieg można stosować okazjonalnie jako zabieg „bankietowy”, bo napina i
 							uelastycznia lub jako kurację przeciwzmarszczkową. <br></br>
 							Efektem zabiegu jest ujędrniona, rozświetlona i odżywiona skóra.
 							Najlepsze rezultaty przynosi zastosowanie serii zabiegów.
