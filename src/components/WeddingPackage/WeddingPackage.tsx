@@ -30,13 +30,13 @@ const WeddingPackage = async () => {
 				<div className='w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] flex flex-col py-8 md:py-12'>
 					<h1 className='text-4xl pb-6 text-center '>Pakiet Ślubny</h1>
 					<p className='text-center pb-4 text-xl'>
-						Luksusowa dla kobiet, którym zależy na komforcie w dniu ślubu. Tego
-						dnia jestem dla Panny Młodej na wyłączność i wszelka logistyka
-						związana z dojazdami na makijaż i fryzurę przestaje być jej
-						zmartwieniem. <br></br>W mojej filozofii pracy jest ważne, aby
-						makijaż ślubny podkreślał naturalne piękno kobiety, był dopasowany
-						do jej urody oraz stylizacji. Makijaż ten powinien być trwały,
-						elegancki i wykonany kosmetykami najwyższej jakości.
+						Pakiet ślubny to usługa luksusowa dla kobiet, którym zależy na
+						komforcie w dniu ślubu. Tego dnia jestem dla Panny Młodej na
+						wyłączność i wszelka logistyka związana z dojazdami na makijaż i
+						fryzurę przestaje być jej zmartwieniem.<br></br> W mojej filozofii pracy jest
+						ważne, aby makijaż ślubny podkreślał naturalne piękno kobiety, był
+						dopasowany do jej urody oraz całej stylizacji. Makijaż ten powinien być
+						trwały, elegancki i wykonany kosmetykami najwyższej jakości.
 					</p>
 					{/* <Divider width={100} /> */}
 				</div>
