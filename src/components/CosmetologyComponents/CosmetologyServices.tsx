@@ -83,13 +83,52 @@ const CosmetologyServices = () => {
 					</div>
 				</div>
 			</article>
+
+			<article className='w-[90%] flex flex-col gap-8 py-4 md:py-8'>
+				<div>
+					<fieldset>
+						<legend className='md:text-xl'>Zabieg ANTI ACNE</legend>
+						<p className='py-6 pr-4'>
+							Zabieg ANTI ACNE dedykowany skórze tłustej, trądzikowej i
+							problematycznej.<br></br> Zmniejsza powstawanie niedoskonałości,
+							działa antybakteryjnie i przeciwzapalnie. Pomaga regulować
+							wydzielanie sebum, zwęża pory oraz rozjaśnia przebarwienia.
+							Peeling na bazie kwasu szikimowego złuszcza wierzchnią warstwę
+							naskórka, dzięki czemu skóra po zabiegu jest gładka, miękka i miła
+							w dotyku.
+						</p>
+						{/* <p className='pr-4'>
+							<strong>Przebieg zabiegu: </strong>
+							demakijaż + tonizajca + <br></br> peeling kawitacyjny + peeling na
+							bazie kwasu szikimowego + maska + serum + krem.
+						</p>
+						<p className='py-4 pr-4'>
+							<strong>Efekty zabiegu:</strong> regulacja mikrobiomu skóry,
+							regulacja wydzielania sebum, wyciszenie stanów zapalnych,
+							stopniowe usunięcie zaskórnków. <br></br>Najlepsze rezultaty
+							przynosi seria min. 4 zabiegów co 10-14 dni.
+						</p> */}
+					</fieldset>
+				</div>
+
+				<div className='flex self-end'>
+					{/* <div className='animate-fade-right'>
+						<h3 className=''>Czas: 1h</h3>
+					</div> */}
+					<div className='animate-fade-left'>
+						<h3 className=''> Cena: 250zł</h3>
+					</div>
+				</div>
+			</article>
+
 			<article className='w-[90%] flex flex-col gap-8 py-4 md:py-8'>
 				<div>
 					<fieldset>
 						<legend className='md:text-xl'>Zabieg ANTI AGE</legend>
 						<p className='py-6 pr-4'>
 							Pobudza skórę do produkcji kolagenu i elastyny, których to
-							składników z wiekiem skóra produkuje coraz mniej. Zabieg można stosować okazjonalnie jako zabieg „bankietowy”, bo napina i
+							składników z wiekiem skóra produkuje coraz mniej.<br></br> Zabieg
+							można stosować okazjonalnie jako zabieg „bankietowy”, bo napina i
 							uelastycznia lub jako kurację przeciwzmarszczkową. <br></br>
 							Efektem zabiegu jest ujędrniona, rozświetlona i odżywiona skóra.
 							Najlepsze rezultaty przynosi zastosowanie serii zabiegów.
@@ -117,6 +156,7 @@ const CosmetologyServices = () => {
 					</div>
 				</div>
 			</article>
+
 			<article className='w-[90%] flex flex-col gap-8 py-4 md:py-8'>
 				<div>
 					<fieldset className='flex items-center justify-center'>
@@ -132,6 +172,23 @@ const CosmetologyServices = () => {
 					</div>
 				</div>
 			</article>
+
+			<article className='w-[90%] flex flex-col gap-8 py-4 md:py-8'>
+				<div>
+					<fieldset className='flex items-center justify-center'>
+						<h3 className='py-8 pr-4 text-xl'>
+							Oczyszczanie wodorowe + Zabieg ANTI ACNE
+						</h3>
+					</fieldset>
+				</div>
+
+				<div className='flex self-end'>
+					<div className='animate-fade-left'>
+						<h3 className=''> Cena: 350zł</h3>
+					</div>
+				</div>
+			</article>
+
 			<article className='w-[90%] flex flex-col gap-8 py-4 md:py-8'>
 				<div>
 					<fieldset className='flex items-center justify-center'>
