@@ -53,7 +53,7 @@ const IndividualTraining = async () => {
 						<h3 className=''>{time}</h3>
 					</div>
 					<div className='animate-fade-left'>
-						<h3 className=''>450 zł</h3>
+						<h3 className=''>500 zł</h3>
 					</div>
 				</div>
 
