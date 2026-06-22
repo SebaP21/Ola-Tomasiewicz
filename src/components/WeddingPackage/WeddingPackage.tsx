@@ -28,6 +28,9 @@ const WeddingPackage = async () => {
 		<>
 			<section className='w-full flex flex-col min-h-[50svh] py-8 justify-center items-center'>
 				<div className='w-[90%] sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[60%] flex flex-col py-8 md:py-12'>
+					<div className="bg-accent py-2 mb-10 text-right px-4">
+						<p className="text-2xl text-white animate-pulse font-oswald md:text-right ">Oferta na rok 2027</p>
+					</div>
 					<h1 className='text-4xl pb-6 text-center '>Pakiet Ślubny</h1>
 					<p className='text-center pb-4 text-xl'>
 						Pakiet ślubny to usługa luksusowa dla kobiet, którym zależy na
@@ -58,7 +61,7 @@ const WeddingPackage = async () => {
 						<p className='font-oswald text-lg text-accent'>
 							Czas trwania: 4,5 h
 						</p>
-						<p className='font-oswald text-lg text-accent'>Cena: 1300 zł</p>
+						<p className='font-oswald text-lg text-accent'>Cena: 1400 zł</p>
 					</div>
 				</article>
 			</section>
@@ -91,7 +94,7 @@ const WeddingPackage = async () => {
 						<div>
 							<Divider width={100} />
 							<p className='font-oswald text-lg text-light mt-2'>
-								Cena: 1600 zł
+								Cena: 1700 zł
 							</p>
 						</div>
 					</div>
