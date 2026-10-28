@@ -83,7 +83,7 @@ const PrivacyPolicy = () => {
 							czynności polegające na zautomatyzowanym podejmowaniu decyzji, w
 							tym profilowaniu w celu świadczenia usług w ramach zawartej umowy
 							oraz w celu prowadzenia przez Administratora marketingu
-							bezpośredniego. 8. Dane osobowe nie są przekazywane od krajów
+							bezpośredniego. 8. Dane os.obowe nie są przekazywane od krajów
 							trzecich w rozumieniu przepisów o ochronie danych osobowych.
 							Oznacza to, że nie przesyłamy ich poza teren Unii Europejskiej.{" "}
 						</p>
