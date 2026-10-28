@@ -13,7 +13,7 @@ const IndividualTraining = async () => {
 	// const subtitle = data.szkoleniaTypeBy?.individualMasterclass?.podtytul;
 	const scopeOfTraining =
 		data.szkoleniaTypeBy?.individualMasterclass?.masterclassdescription;
-	const time = data.szkoleniaTypeBy?.individualMasterclass?.czasTrwania;
+	// const time = data.szkoleniaTypeBy?.individualMasterclass?.czasTrwania;
 	// const price = data.szkoleniaTypeBy?.individualMasterclass?.cena;
 
 	const gallery =
@@ -50,7 +50,7 @@ const IndividualTraining = async () => {
 
 				<div className='flex justify-between'>
 					<div className='animate-fade-right'>
-						<h3 className=''>{time}</h3>
+						<h3 className=''>3h</h3>
 					</div>
 					<div className='animate-fade-left'>
 						<h3 className=''>500 zł</h3>
